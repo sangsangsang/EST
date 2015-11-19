@@ -7,7 +7,7 @@
 		SELECT * FROM (
 			SELECT 
 				ROW_NUMBER() OVER(ORDER BY JOINDATE DESC) NUM,
-				COMMENT.* FROM COMMENT
+				Comment.* FROM Comment
 				WHERE ${param2} LIKE '%${param3}%'
 				)A 
 				WHERE NUM BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
