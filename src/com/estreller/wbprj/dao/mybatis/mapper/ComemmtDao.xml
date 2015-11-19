@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.estreller.wbprj.dao.CommentDao">
+	<select id="getComemmnts" resultType="com.estreller.wbprj.vo.Comment">
+		SELECT * FROM (
+			SELECT 
+				ROW_NUMBER() OVER(ORDER BY JOINDATE DESC) NUM,
+				COMMENT.* FROM COMMENT
+				WHERE ${param2} LIKE '%${param3}%'
+				)A 
+				WHERE NUM BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
+	</select>
+	
+	<update	id="update" parameterType ="com.estreller.wbprj.vo.Comment">
+		UPDATE Comment 
+		SET Content =#{content}, RatingCode=#{ratingcode} 
+		WHERE Writer=#{writer} AND ReviewNum=#{reviewnum}
+	</update>
+	
+	<delete id="delete" parameterType ="String">
+		DELETE Comment WHERE Writer=#{writer} AND ReviewNum=#{reviewnum}
+	</delete>
+	
+	<insert id="insert" parameterType="com.estreller.wbprj.vo.Comment">
+		INSERT INTO Comment(Writer,ReviewNum,RatingCode,Content) 
+		VALUES(#{writer},#{reviewnum},#{ratingcode},#{content})
+	</insert>	
+	
+</mapper>

@@ -4,10 +4,13 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.estreller.wbprj.dao.CommentDao;
 import com.estreller.wbprj.dao.JdbcMemberDao;
 import com.estreller.wbprj.dao.MemberDao;
 import com.estreller.wbprj.dao.mybatis.EstrellerSqlSessionFactoryBuilder;
+import com.estreller.wbprj.dao.mybatis.MyBatisCommentDao;
 import com.estreller.wbprj.dao.mybatis.MyBatisMemberDao;
+import com.estreller.wbprj.vo.Comment;
 import com.estreller.wbprj.vo.Member;
 
 public class TextProgram {
@@ -37,13 +40,28 @@ public class TextProgram {
 		member.setNickname("김쌍");
 		dao.insert(member);
 		*/
-		System.out.println("검색결과 : " + list.size());
+		
+		CommentDao cDao = new MyBatisCommentDao();
+		
+		Comment comment = new Comment();
+		List<Comment> cList = cDao.getComments(1);
+		
+		System.out.println("검색결과 : " + list.size()+" 결과: "+cList.size());
 		
 		for(Member m : list)
 		{
 			
 			System.out.printf("Email:%s, NickName : %s , Pwd : %s, JoinDate: %s\n", m.getEmail(),m.getNickname(),m.getPwd(),m.getJoinDate());
 		}
+		
+		for(Comment c : cList)
+		{
+		
+			System.out.printf("Writer: %s, ReivewNum: %s, Content: %s, RatingCode: %s, Regdate: %s\n",
+					c.getWriter(), c.getReviewNum(), c.getContent(), c.getRatingCode(), c.getRegdate());
+		
+		}
+		
 		
 		//session.close();
 
