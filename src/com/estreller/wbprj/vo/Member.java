@@ -3,17 +3,23 @@ package com.estreller.wbprj.vo;
 import java.util.Date;
 
 public class Member {
-	private String mid;
-	private String pwd;
-	private String name;
-	private Date regDate;
+	private String email;
+	private String nickname;
+	private	String pwd;
+	private Date joinDate;
+	private String totalRatings;
 	
-	
-	public String getMid() {
-		return mid;
+	public String getEmail() {
+		return email;
 	}
-	public void setMid(String mid) {
-		this.mid = mid;
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 	public String getPwd() {
 		return pwd;
@@ -21,18 +27,19 @@ public class Member {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	public String getName() {
-		return name;
+	public Date getJoinDate() {
+		return joinDate;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setJoinDate(Date joinDate) {
+		this.joinDate = joinDate;
 	}
-	public Date getRegDate() {
-		return regDate;
+	public String getTotalRatings() {
+		return totalRatings;
 	}
-	public void setRegDate(Date regDate) {
-		this.regDate = regDate;
+	public void setTotalRatings(String totalRatings) {
+		this.totalRatings = totalRatings;
 	}
+	
 	
 
 }
