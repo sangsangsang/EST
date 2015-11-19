@@ -1,4 +1,5 @@
 @CHARSET "UTF-8";
+
 #header
 {
 	height:70px;
@@ -6,15 +7,16 @@
 }
 #visual
 {
-	height:171px;
+	height:70px;
 	background:#808080;
 }
 #body
 {
-	min-height:300px;
+	min-height:700px;
+	
 }
 #footer
 {
 	height:100px;
 	background:black;
-} 
+}
