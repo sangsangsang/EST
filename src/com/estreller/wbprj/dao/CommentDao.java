@@ -12,7 +12,7 @@ public interface CommentDao {
 	public  List<Comment> getComments(int page,String field, String query) throws SQLException;
 	
 	public int update(Comment comment) throws SQLException;
-	public int delete(String writer) throws SQLException;
+	public int delete(Comment comment) throws SQLException;
 	public int insert(Comment comment) throws SQLException;
 
 }

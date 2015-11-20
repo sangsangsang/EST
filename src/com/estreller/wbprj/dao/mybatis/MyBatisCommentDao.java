@@ -50,10 +50,10 @@ public class MyBatisCommentDao implements CommentDao {
 	}
 
 	@Override
-	public int delete(String writer) throws SQLException {
+	public int delete(Comment comment) throws SQLException {
 		SqlSession session = ssf.openSession();
 		CommentDao dao = session.getMapper(CommentDao.class);
-		int count = dao.delete(writer);
+		int count = dao.delete(comment);
 		session.commit();
 		session.close();
 		return count;

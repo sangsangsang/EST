@@ -44,8 +44,28 @@ public class TextProgram {
 		CommentDao cDao = new MyBatisCommentDao();
 		
 		Comment comment = new Comment();
-		List<Comment> cList = cDao.getComments(1);
+
+	
+		/*//입력
+		comment.setWriter("kimbj0411@nate.com");
+		comment.setReviewNum("1");
+		comment.setRatingCode("4");
+		comment.setContent("지나니짱");
+		cDao.insert(comment);*/
 		
+		/*//삭제
+		comment.setWriter("kbj_4909@naver.com");
+		comment.setReviewNum("2");
+		cDao.delete(comment);*/
+		
+		/*//수정
+		comment.setWriter("kbj_4909@naver.com");
+		comment.setReviewNum("1");
+		comment.setRatingCode("4");
+		comment.setContent("지나니짱");
+		cDao.update(comment);*/
+		
+		List<Comment> cList = cDao.getComments(1);
 		System.out.println("검색결과 : " + list.size()+" 결과: "+cList.size());
 		
 		for(Member m : list)

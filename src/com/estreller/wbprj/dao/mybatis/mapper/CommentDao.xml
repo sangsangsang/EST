@@ -3,11 +3,11 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.estreller.wbprj.dao.CommentDao">
-	<select id="getComemmnts" resultType="com.estreller.wbprj.vo.Comment">
+	<select id="getComments" resultType="com.estreller.wbprj.vo.Comment">
 		SELECT * FROM (
 			SELECT 
-				ROW_NUMBER() OVER(ORDER BY JOINDATE DESC) NUM,
-				Comment.* FROM Comment
+				ROW_NUMBER() OVER(ORDER BY Regdate DESC) NUM,
+				COMMENT.* FROM COMMENT
 				WHERE ${param2} LIKE '%${param3}%'
 				)A 
 				WHERE NUM BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
@@ -15,17 +15,17 @@
 	
 	<update	id="update" parameterType ="com.estreller.wbprj.vo.Comment">
 		UPDATE Comment 
-		SET Content =#{content}, RatingCode=#{ratingcode} 
-		WHERE Writer=#{writer} AND ReviewNum=#{reviewnum}
+		SET Content =#{content}, RatingCode=#{ratingCode} 
+		WHERE Writer=#{writer} AND ReviewNum=#{reviewNum}
 	</update>
 	
 	<delete id="delete" parameterType ="String">
-		DELETE Comment WHERE Writer=#{writer} AND ReviewNum=#{reviewnum}
+		DELETE Comment WHERE Writer=#{writer} AND ReviewNum=#{reviewNum}
 	</delete>
 	
 	<insert id="insert" parameterType="com.estreller.wbprj.vo.Comment">
 		INSERT INTO Comment(Writer,ReviewNum,RatingCode,Content) 
-		VALUES(#{writer},#{reviewnum},#{ratingcode},#{content})
+		VALUES(#{writer},#{reviewNum},#{ratingCode},#{content})
 	</insert>	
 	
 </mapper>
