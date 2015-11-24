@@ -62,7 +62,7 @@ public class TextProgram {
 		recommend.setReviewNum("7");
 		R_dao.insert(recommend);*/
 		//R_dao.delete("9");//좋아요 코드를 삭제
-		
+		System.out.println("========기존 게시글에 보이는 좋아요 갯수===========");
 		for(Recommend r:R_list){
 			System.out.printf("게시물코드: %s,  좋아요: %d\n",r.getNum(),r.getRcmCount());
 		}
@@ -70,6 +70,7 @@ public class TextProgram {
 		ReviewRatingDao R_R_dao = new MyBatisReviewRatingDao();
 		ReviewRating rating = new ReviewRating();
 		List<ReviewRating>R_R_list = R_R_dao.getRatings(1,"CategoryCode","Sports","RatingCode","5");
+		System.out.println("========별점순 눌렀을때 보여지는 SELECT===========");
 		for(ReviewRating r:R_R_list){
 			System.out.printf("게시물코드:%S 카테고리:%s 작성자:%s 제목:%s 날짜:%s 별점:%s\n",
 					r.getNum(),r.getCategoryCode(),r.getWriterNickName(),r.getTitle(),r.getRegDate(),
@@ -81,6 +82,7 @@ public class TextProgram {
 		Category category = new Category();
 		List<Category>c_list = c_dao.getCategory(1,"CategoryCode","Music");
 		//session.close();
+		System.out.println("========카테고리 눌렀을때 보여지는 SELECT===========");
 		for(Category c:c_list){
 			System.out.printf("게시물코드:%S 카테고리:%s 작성자:%s 제목:%s 날짜:%s 별점:%s\n",
 					c.getNum(),c.getCategoryCode(),c.getWriterNickName(),c.getTitle(),c.getRegDate(),
