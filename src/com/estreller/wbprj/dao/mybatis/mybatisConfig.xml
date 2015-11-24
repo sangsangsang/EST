@@ -20,5 +20,9 @@
     <mapper resource="com/estreller/wbprj/dao/mybatis/mapper/CommentRatingDao.xml"/>
     <mapper resource="com/estreller/wbprj/dao/mybatis/mapper/CommentReportDao.xml"/>
     
+
+     <mapper resource="com/estreller/wbprj/dao/mybatis/mapper/RecommendDao.xml"/>
+     <mapper resource="com/estreller/wbprj/dao/mybatis/mapper/ReviewRatingDao.xml"/>
+     <mapper resource="com/estreller/wbprj/dao/mybatis/mapper/CategoryDao.xml"/>    
   </mappers>
 </configuration>

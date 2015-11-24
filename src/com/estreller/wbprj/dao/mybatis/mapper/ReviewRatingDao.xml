@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.estreller.wbprj.dao.ReviewRatingDao"> 
+	<select id="getRatings" resultType="com.estreller.wbprj.vo.ReviewRating">
+		SELECT * FROM (
+			SELECT 
+				ROW_NUMBER() OVER(ORDER BY REGDATE DESC) NUM2,
+				ReviewView.* FROM ReviewView 
+				WHERE ${param2} LIKE '%${param3}%'
+				AND
+				${param4} LIKE '%${param5}%'
+				)A 
+				WHERE NUM2 BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
+	</select>
+	
+	</mapper>
