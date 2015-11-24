@@ -8,6 +8,8 @@ public class Comment {
 	private String content;
 	private String ratingCode;
 	private Date Regdate;
+	private String nickName;
+	
 	
 	public String getWriter() {
 		return writer;
@@ -38,6 +40,13 @@ public class Comment {
 	}
 	public void setRegdate(Date regdate) {
 		Regdate = regdate;
+	}
+	
+	public String getNickName() {
+		return nickName;
+	}
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
 	}
 	
 	

@@ -1,19 +1,15 @@
 import java.sql.SQLException;
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.estreller.wbprj.dao.CommentDao;
-import com.estreller.wbprj.dao.JdbcMemberDao;
 import com.estreller.wbprj.dao.MemberDao;
-import com.estreller.wbprj.dao.mybatis.EstrellerSqlSessionFactoryBuilder;
 import com.estreller.wbprj.dao.mybatis.MyBatisCommentDao;
 import com.estreller.wbprj.dao.mybatis.MyBatisMemberDao;
 import com.estreller.wbprj.vo.Comment;
 import com.estreller.wbprj.vo.Member;
 
-public class TextProgram {
+public class CommentTextProgram {
 
 	public static void main(String[] args) throws SQLException {
 		//JdbcMemberDao dao = new JdbcMemberDao();//JDBC 활용
@@ -55,7 +51,7 @@ public class TextProgram {
 		
 		/*//삭제
 		comment.setWriter("kbj_4909@naver.com");
-		comment.setReviewNum("2");
+		comment.setReviewNum("1");
 		cDao.delete(comment);*/
 		
 		/*//수정
@@ -78,7 +74,7 @@ public class TextProgram {
 		{
 		
 			System.out.printf("Writer: %s, ReivewNum: %s, Content: %s, RatingCode: %s, Regdate: %s\n",
-					c.getWriter(), c.getReviewNum(), c.getContent(), c.getRatingCode(), c.getRegdate());
+					c.getNickName(), c.getReviewNum(), c.getContent(), c.getRatingCode(), c.getRegdate());
 		
 		}
 		

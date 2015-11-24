@@ -1,1 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.estreller.wbprj.dao.CommentReportDao"> 
+	<select id="getCommentReport" resultType="com.estreller.wbprj.vo.CommentReport">
+		SELECT * FROM (
+			SELECT 
+				ROW_NUMBER() OVER(ORDER BY REGDATE DESC) NUM,
+				CommentReport.* FROM CommentReport 
+				WHERE ${param2} LIKE '%${param3}%'
+				)A 
+				WHERE NUM BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
+	</select>
+	
+	
+	<delete id="delete" parameterType ="String">
+		DELETE CommentReport WHERE CommentCode=#{commentCode}	
+	</delete>
+	
+	<insert id="insert" parameterType="com.estreller.wbprj.vo.CommentReport">
+		INSERT INTO CommentReport(CommentCode) VALUES(#{commentCode})
+	</insert>		
+</mapper>

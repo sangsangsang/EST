@@ -7,7 +7,7 @@
 		SELECT * FROM (
 			SELECT 
 				ROW_NUMBER() OVER(ORDER BY Regdate DESC) NUM,
-				COMMENT.* FROM COMMENT
+				COMMENTVIEW.* FROM COMMENTVIEW
 				WHERE ${param2} LIKE '%${param3}%'
 				)A 
 				WHERE NUM BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
@@ -19,7 +19,7 @@
 		WHERE Writer=#{writer} AND ReviewNum=#{reviewNum}
 	</update>
 	
-	<delete id="delete" parameterType ="String">
+	<delete id="delete" parameterType ="com.estreller.wbprj.vo.Comment">
 		DELETE Comment WHERE Writer=#{writer} AND ReviewNum=#{reviewNum}
 	</delete>
 	
