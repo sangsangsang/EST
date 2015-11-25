@@ -11,6 +11,7 @@ public class ReviewRating {
 	private String RatingCode;
 	private String CategoryCode;
 	private String title;
+	private int RcmCount;
 
 	public String getCode() {
 		return code;
@@ -66,6 +67,12 @@ public class ReviewRating {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public int getRcmCount() {
+		return RcmCount;
+	}
+	public void setRcmCount(int rcmCount) {
+		RcmCount = rcmCount;
 	}
 	
 	

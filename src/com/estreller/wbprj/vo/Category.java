@@ -10,6 +10,7 @@ public class Category {
 	private String RatingCode;
 	private String CategoryCode;
 	private String title;
+	private int RcmCount;
 	
 	
 	public String getCode() {
@@ -53,6 +54,12 @@ public class Category {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public int getRcmCount() {
+		return RcmCount;
+	}
+	public void setRcmCount(int rcmCount) {
+		RcmCount = rcmCount;
 	}
 	
 

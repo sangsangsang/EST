@@ -69,12 +69,12 @@ public class TextProgram {
 
 		ReviewRatingDao R_R_dao = new MyBatisReviewRatingDao();
 		ReviewRating rating = new ReviewRating();
-		List<ReviewRating>R_R_list = R_R_dao.getRatings(1,"CategoryCode","Sports","RatingCode","5");
+		List<ReviewRating>R_R_list = R_R_dao.getRatings(1,"CategoryCode","Music","RatingCode","3");
 		System.out.println("========별점순 눌렀을때 보여지는 SELECT===========");
 		for(ReviewRating r:R_R_list){
-			System.out.printf("게시물코드:%S 카테고리:%s 작성자:%s 제목:%s 날짜:%s 별점:%s\n",
+			System.out.printf("게시물코드:%S 카테고리:%s 작성자:%s 제목:%s 날짜:%s 별점:%s,좋아요:%d\n",
 					r.getNum(),r.getCategoryCode(),r.getWriterNickName(),r.getTitle(),r.getRegDate(),
-					r.getRatingCode());
+					r.getRatingCode(),r.getRcmCount());
 		}
 		
 
@@ -84,9 +84,9 @@ public class TextProgram {
 		//session.close();
 		System.out.println("========카테고리 눌렀을때 보여지는 SELECT===========");
 		for(Category c:c_list){
-			System.out.printf("게시물코드:%S 카테고리:%s 작성자:%s 제목:%s 날짜:%s 별점:%s\n",
+			System.out.printf("게시물코드:%S 카테고리:%s 작성자:%s 제목:%s 날짜:%s 별점:%s,좋아요:%d\n",
 					c.getNum(),c.getCategoryCode(),c.getWriterNickName(),c.getTitle(),c.getRegDate(),
-					c.getRatingCode());
+					c.getRatingCode(),c.getRcmCount());
 		}
 
 	}
