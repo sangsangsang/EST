@@ -1,5 +1,9 @@
 package com.estreller.wbprj.dao.mybatis;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/master
 import java.sql.SQLException;
 import java.util.List;
 
