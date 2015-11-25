@@ -3,17 +3,13 @@ package com.estreller.wbprj.dao;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.estreller.wbprj.vo.Member;
+import com.estreller.wbprj.vo.Scrap;
 
 public interface ScrapDao {
 
-		public  List<Member> getMembers() throws SQLException;
-		public  List<Member> getMembers(int page) throws SQLException;
-		public  List<Member> getMembers(int page,String field, String query) throws SQLException;
-
-		public int update(Member member) throws SQLException;
-		public int delete(String mid) throws SQLException;
-		public int insert(Member member) throws SQLException;
+		public  List<Scrap> getScraps() throws SQLException;
+		public  List<Scrap> getScraps(int page) throws SQLException;
+	
+		public int delete(Scrap scrap) throws SQLException;
+		public int insert(Scrap scrap) throws SQLException;
 }
-
-

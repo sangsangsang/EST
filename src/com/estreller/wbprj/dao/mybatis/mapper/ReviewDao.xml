@@ -3,28 +3,30 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.estreller.wbprj.dao.ReviewDao"> 
-	<select id="getMembers" resultType="com.estreller.wbprj.vo.Review">
+	<select id="getReviews" resultType="com.estreller.wbprj.vo.Review">
 		SELECT * FROM (
 			SELECT 
-				ROW_NUMBER() OVER(ORDER BY JOINDATE DESC) NUM,
-				MEMBERS.* FROM MEMBERS 
+				ROW_NUMBER() OVER(ORDER BY REGDATE DESC) number,
+				REVIEW.* FROM REVIEW 
 				WHERE ${param2} LIKE '%${param3}%'
-				)A 
+				)A
 				WHERE NUM BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
 	</select>
 	
-	<update	id="update" parameterType ="com.estreller.wbprj.vo.Member">
-		UPDATE Members 
-		SET NickName =#{nickname}, Pwd=#{pwd} 
-		WHERE Email=#{email}
+	<insert id="insert" parameterType="com.estreller.wbprj.vo.Review">
+		INSERT INTO REVIEW(Num,Title,Writer,CategoryCode,Content,Keyword) 
+		VALUES(#{num},#{title},#{writer},#{categorycode},#{content},#{keyword})
+	</insert>			
+	
+	<update	id="update" parameterType ="com.estreller.wbprj.vo.Review">
+		UPDATE REVIEW 
+		SET Title=#{title}, CategoryCode=#{categorycode}, Content=#{content},Keyword=#{keyword} 
+		WHERE Num=#{num} and Writer=#{writer}
 	</update>
 	
 	<delete id="delete" parameterType ="String">
-		DELETE Members WHERE Email=#{email}	
+		DELETE REVIEW WHERE Num=#{num} and Writer=#{writer}
 	</delete>
 	
-	<insert id="insert" parameterType="com.estreller.wbprj.vo.Review">
-		INSERT INTO REVIEW(Title,) VALUES(#{email},#{nickname})
-	</insert>			
 	
 </mapper>

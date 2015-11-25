@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Scrap {
 	private String reviewnum;
-	private String member;
+
 	private Date regdate;
 	
 	public String getReviewnum() {
@@ -13,12 +13,7 @@ public class Scrap {
 	public void setReviewnum(String reviewnum) {
 		this.reviewnum = reviewnum;
 	}
-	public String getMember() {
-		return member;
-	}
-	public void setMember(String member) {
-		this.member = member;
-	}
+	
 	public Date getRegdate() {
 		return regdate;
 	}

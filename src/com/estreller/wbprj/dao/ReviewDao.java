@@ -3,15 +3,15 @@ package com.estreller.wbprj.dao;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.estreller.wbprj.vo.Member;
+
+import com.estreller.wbprj.vo.Review;
 
 public interface ReviewDao {
 	
-	/*public  List<Member> getMembers() throws SQLException;
-	public  List<Member> getMembers(int page) throws SQLException;
-	public  List<Member> getMembers(int page,String field, String query) throws SQLException;*/
-	public int select();
-	public int update(Member member) throws SQLException;
-	public int delete(String mid) throws SQLException;
-	public int insert(String title, String keyword, String categorycode, String content) throws SQLException;
+	public  List<Review> getReivews() throws SQLException;
+	public  List<Review> getReviews(int page) throws SQLException;
+	public  List<Review> getReviews(int page,String category, String query) throws SQLException;
+	public int update(Review review) throws SQLException;
+	public int insert(Review review) throws SQLException;
+	public int delete(Review review) throws SQLException;
 }

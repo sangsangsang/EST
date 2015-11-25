@@ -16,5 +16,8 @@
   </environments>
   <mappers>
     <mapper resource="com/estreller/wbprj/dao/mybatis/mapper/MemberDao.xml"/>
+    <mapper resource="com/estreller/wbprj/dao/mybatis/mapper/ReviewDao.xml"/>
+    <mapper resource="com/estreller/wbprj/dao/mybatis/mapper/ReviewReportDao.xml"/>
+    <mapper resource="com/estreller/wbprj/dao/mybatis/mapper/ScrapDao.xml"/>
   </mappers>
 </configuration>

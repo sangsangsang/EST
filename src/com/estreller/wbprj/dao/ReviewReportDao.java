@@ -4,14 +4,13 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.estreller.wbprj.vo.Member;
+import com.estreller.wbprj.vo.ReviewReport;
 
 public interface ReviewReportDao {
 	
-	public  List<Member> getMembers() throws SQLException;
-	public  List<Member> getMembers(int page) throws SQLException;
-	public  List<Member> getMembers(int page,String field, String query) throws SQLException;
-
-	public int update(Member member) throws SQLException;
-	public int delete(String mid) throws SQLException;
-	public int insert(Member member) throws SQLException;
+	public  List<ReviewReport> getReviewReports() throws SQLException;
+	public  List<ReviewReport> getReviewReports(int page) throws SQLException;
+	
+	public int insert(ReviewReport reviewReport) throws SQLException;
+	public int delete(ReviewReport reviewReport) throws SQLException;
 }
