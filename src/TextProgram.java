@@ -64,7 +64,7 @@ public class TextProgram {
 		//R_dao.delete("9");//좋아요 코드를 삭제
 		System.out.println("========기존 게시글에 보이는 좋아요 갯수===========");
 		for(Recommend r:R_list){
-			System.out.printf("게시물코드: %s,  좋아요: %d\n",r.getNum(),r.getRcmCount());
+			System.out.printf("게시물코드: %s,  좋아요: %d \n",r.getNum(),r.getRcmCount());
 		}
 
 		ReviewRatingDao R_R_dao = new MyBatisReviewRatingDao();

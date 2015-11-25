@@ -47,6 +47,8 @@ public class Recommend {
 	public void setRcmCount(int rcmCount) {
 		RcmCount = rcmCount;
 	}
+
+	
 	
 
 }

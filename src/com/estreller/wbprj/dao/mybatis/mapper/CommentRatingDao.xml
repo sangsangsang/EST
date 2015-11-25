@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.estreller.wbprj.dao.CommentRatingDao"> 
+	<select id="getCommentRating" resultType="com.estreller.wbprj.vo.CommentRating">
+		SELECT * FROM (
+			SELECT 
+				ROW_NUMBER() OVER(ORDER BY CODE DESC) NUM,
+				CommentRating.* FROM CommentRating 
+				WHERE ${param2} LIKE '%${param3}%'
+				)A 
+				WHERE NUM BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
+	</select>
+	
+	
+	<delete id="delete" parameterType ="String">
+		DELETE CommentRating WHERE Code=#{code}	
+	</delete>
+	
+	<insert id="insert" parameterType="com.estreller.wbprj.vo.CommentRating">
+		INSERT INTO CommentRating(Code) VALUES(#{code})
+	</insert>		
+</mapper>
