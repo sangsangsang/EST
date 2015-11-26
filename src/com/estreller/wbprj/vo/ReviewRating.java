@@ -11,7 +11,8 @@ public class ReviewRating {
 	private String RatingCode;
 	private String CategoryCode;
 	private String title;
-	private int RcmCount;
+	private int RcmCount;	
+	private int ComCount;
 
 	public String getCode() {
 		return code;
@@ -73,6 +74,14 @@ public class ReviewRating {
 	}
 	public void setRcmCount(int rcmCount) {
 		RcmCount = rcmCount;
+	}
+
+	public int getComCount() {
+		return ComCount;
+	}
+
+	public void setComCount(int comCount) {
+		ComCount = comCount;
 	}
 	
 	

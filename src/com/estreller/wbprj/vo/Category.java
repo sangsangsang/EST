@@ -11,6 +11,7 @@ public class Category {
 	private String CategoryCode;
 	private String title;
 	private int RcmCount;
+	private int ComCount;
 	
 	
 	public String getCode() {
@@ -60,6 +61,12 @@ public class Category {
 	}
 	public void setRcmCount(int rcmCount) {
 		RcmCount = rcmCount;
+	}
+	public int getComCount() {
+		return ComCount;
+	}
+	public void setComCount(int comCount) {
+		ComCount = comCount;
 	}
 	
 

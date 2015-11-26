@@ -7,6 +7,7 @@ public class Recommend {
 	private String Num;
 	private String WriterNickName;
 	private int RcmCount;
+	private int ComCount;
 	
 	
 
@@ -47,7 +48,13 @@ public class Recommend {
 	public void setRcmCount(int rcmCount) {
 		RcmCount = rcmCount;
 	}
-
+	public int getComCount() {
+		return ComCount;
+	}
+	public void setComCount(int comCount) {
+		ComCount = comCount;
+	}
+	
 	
 	
 
