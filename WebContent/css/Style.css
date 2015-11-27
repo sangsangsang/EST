@@ -1,22 +1,167 @@
 @CHARSET "UTF-8";
 
+.clearfix:after{
+   content:".";
+   clear:both;
+   display:block;
+   height:0px;
+   visibility:hidden;
+}
+
+.hidden{
+   display:none;
+}
+
+body{
+	font-family:돋움;
+	font-size:11px;
+	color:#979797;
+}
+
 #header
 {
-	height:70px;
-	background:#c0c0c0;	
+   height:70px;
+   background:#c0c0c0;   
 }
+#main-menu{
+   display:inline-block;
+   position:absolute;
+   left:10px;
+   top:20px;
+}
+
+#main-menu>ul>li{
+   float:left;
+   font-family:"맑은 고딕",Arial,sans-serif;
+   font-size:12px;
+   /* font-weight:bold; */
+   padding-left:24px;
+
+
+}
+#main-menu>ul>li:FIRST-CHILD{
+   padding-left:20px;
+   background:none;   
+}
+
+#main-menu>ul>li a{
+   color:#000000;
+   text-decoration:none;   
+}
+#main-menu>ul>li a:HOVER{
+      text-decoration:underline;
+}
+
+#login-form{
+   position:absolute;
+/*    left:700px; */
+   margin-left:700px;
+   top:10px;
+}
+#login-form label{   
+   color:white;
+   font-family:"맑은 고딕",Arial,sans-serif;
+   font-size:12px;
+   padding-left:10px;
+}
+#login-form input[type="text"]{
+   width:100px;
+}
+
+#login-form input[type='submit']{
+   text-indent:-999px;
+   cursor:pointer;
+   border:0px;
+   width:65px;
+   height:30px;
+   background:url("../images/main-login.png") no-repeat center;
+   overflow:hidden;
+
+}
+
+#member-join{
+   float:left;
+   font-family:"맑은 고딕",Arial,sans-serif;
+   font-size:12px;
+   /* font-weight:bold; */
+   /* padding-left:24px;
+   padding-top:20px; */
+   position:absolute;
+   margin-left:950px;
+   top:45px;
+}
+   #member-join a{
+      color:#004080;
+      text-decoration:none;
+   }
+   #member-join a:HOVER{
+      text-decoration:underline;
+   }
+   
+#password-find{
+   float:left;
+   font-family:"맑은 고딕",Arial,sans-serif;
+   font-size:12px;
+   /* font-weight:bold; */
+   /* padding-left:24px;
+   padding-top:20px; */
+   position:absolute;
+   margin-left:1000px;
+   top:45px;
+}
+   #password-find a{
+      color:#004080;
+      text-decoration:none;
+   }
+   #password-find a:HOVER{
+      text-decoration:underline;
+   }
+   #search{
+   text-indent:-999px;
+   cursor:pointer;
+   border:0px;
+   width:32px;
+   height:30px;
+   background:url("../images/search.png") no-repeat center;
+   overflow:hidden;
+   position:absolute;
+   right:0px;
+   top: 15px;
+}
+
 #visual
 {
-	height:70px;
-	background:#808080;
+   height:70px;
+   background:#808080;
 }
 #body
 {
-	min-height:700px;
-	
+   min-height:700px;
+   background:url("../images/main-img.png") no-repeat center;
+}
+
+#body p{
+   display:block;
+   font-family:"맑은 고딕",Arial,sans-serif;
+   font-size:15px;
+   text-align:center;
+   top:200px;
 }
 #footer
 {
-	height:100px;
-	background:black;
+   height:100px;
+   background:black;
 }
+
+
+.content-container 
+{	
+	position:relative;
+	width:1150px;
+	margin-left:auto; 
+	margin-right:auto;
+	
+	/* opacity:0.5; */
+	height:inherit;
+}
+
