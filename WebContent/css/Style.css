@@ -140,12 +140,14 @@ body{
    background:url("../images/main-img.png") no-repeat center;
 }
 
-#body p{
+#main p{
+
    display:block;
    font-family:"맑은 고딕",Arial,sans-serif;
    font-size:15px;
    text-align:center;
-   top:200px;
+   padding-top:500px;
+  
 }
 #footer
 {
