@@ -13,6 +13,7 @@
 }
 
 body{
+
 	font-family:돋움;
 	font-size:11px;
 	color:#979797;
@@ -23,99 +24,98 @@ body{
    height:70px;
    background:#c0c0c0;   
 }
-#main-menu{
-   display:inline-block;
-   position:absolute;
-   left:10px;
-   top:20px;
-}
+	#main-menu{
+	   display:inline-block;
+	   position:absolute;
+	   left:10px;
+	   top:20px;
+	}
 
-#main-menu>ul>li{
-   float:left;
-   font-family:"맑은 고딕",Arial,sans-serif;
-   font-size:12px;
-   /* font-weight:bold; */
-   padding-left:24px;
+		#main-menu>ul>li{
+		   float:left;
+		   font-family:"맑은 고딕",Arial,sans-serif;
+		   font-size:15px;
+		   /* font-weight:bold; */
+		   padding-left:24px; /* 카테고리 간에 간격 */
+		
+		
+		}
+			#main-menu>ul>li:FIRST-CHILD{
+			   padding-left:20px;
+			   background:none;   
+			}
+			
+			#main-menu>ul>li a{
+			   color:#000000;
+			   text-decoration:none;   
+			}
+			#main-menu>ul>li a:HOVER{
+			      text-decoration:underline;
+			}
 
+	#login-form{
+	   position:absolute;
+	/*    left:700px; */
+	   margin-left:820px; /* 로그인 위치 */
+	   top:10px;
+	}
+		#login-form label{   
+		   color:white;
+		   font-family:"맑은 고딕",Arial,sans-serif;
+		   font-size:12px;
+		   padding-left:10px;
+		}
+		#login-form input[type="text"]{
+		   width:100px;
+		}
+		
+		#login-form input[type='submit']{
+		   text-indent:-999px;
+		   cursor:pointer;
+		   border:0px;
+		   width:65px;
+		   height:30px;
+		   background:url("../images/main-login.png") no-repeat center;
+		   overflow:hidden;
+		}
 
-}
-#main-menu>ul>li:FIRST-CHILD{
-   padding-left:20px;
-   background:none;   
-}
-
-#main-menu>ul>li a{
-   color:#000000;
-   text-decoration:none;   
-}
-#main-menu>ul>li a:HOVER{
-      text-decoration:underline;
-}
-
-#login-form{
-   position:absolute;
-/*    left:700px; */
-   margin-left:700px;
-   top:10px;
-}
-#login-form label{   
-   color:white;
-   font-family:"맑은 고딕",Arial,sans-serif;
-   font-size:12px;
-   padding-left:10px;
-}
-#login-form input[type="text"]{
-   width:100px;
-}
-
-#login-form input[type='submit']{
-   text-indent:-999px;
-   cursor:pointer;
-   border:0px;
-   width:65px;
-   height:30px;
-   background:url("../images/main-login.png") no-repeat center;
-   overflow:hidden;
-
-}
-
-#member-join{
-   float:left;
-   font-family:"맑은 고딕",Arial,sans-serif;
-   font-size:12px;
-   /* font-weight:bold; */
-   /* padding-left:24px;
-   padding-top:20px; */
-   position:absolute;
-   margin-left:950px;
-   top:45px;
-}
-   #member-join a{
-      color:#004080;
-      text-decoration:none;
-   }
-   #member-join a:HOVER{
-      text-decoration:underline;
-   }
-   
-#password-find{
-   float:left;
-   font-family:"맑은 고딕",Arial,sans-serif;
-   font-size:12px;
-   /* font-weight:bold; */
-   /* padding-left:24px;
-   padding-top:20px; */
-   position:absolute;
-   margin-left:1000px;
-   top:45px;
-}
-   #password-find a{
-      color:#004080;
-      text-decoration:none;
-   }
-   #password-find a:HOVER{
-      text-decoration:underline;
-   }
+	#member-join{
+	   float:left;
+	   font-family:"맑은 고딕",Arial,sans-serif;
+	   font-size:12px;
+	   /* font-weight:bold; */
+	   /* padding-left:24px;
+	   padding-top:20px; */
+	   position:absolute;
+	   margin-left:1050px;
+	   top:45px;
+	}
+		   #member-join a{
+		      color:#004080;
+		      text-decoration:none;
+		   }
+		   #member-join a:HOVER{
+		      text-decoration:underline;
+		   }
+			   
+	#password-find{
+	   float:left;
+	   font-family:"맑은 고딕",Arial,sans-serif;
+	   font-size:12px;
+	   /* font-weight:bold; */
+	   /* padding-left:24px;
+	   padding-top:20px; */
+	   position:absolute;
+	   margin-left:1130px; /* 패스워드 위치 */
+	   top:45px;
+	}
+		   #password-find a{
+		      color:#004080;
+		      text-decoration:none;
+		   }
+		   #password-find a:HOVER{
+		      text-decoration:underline;
+		   }
    #search{
    text-indent:-999px;
    cursor:pointer;
@@ -125,7 +125,7 @@ body{
    background:url("../images/search.png") no-repeat center;
    overflow:hidden;
    position:absolute;
-   right:0px;
+   right:40px;
    top: 15px;
 }
 
@@ -138,15 +138,17 @@ body{
 {
    min-height:700px;
    background:url("../images/main-img.png") no-repeat center;
+   
+  
 }
 
 #main p{
-
+	
    display:block;
    font-family:"맑은 고딕",Arial,sans-serif;
    font-size:15px;
    text-align:center;
-   padding-top:500px;
+   padding-top:500px; /* 메인로고 밑에 글  */
   
 }
 #footer
@@ -159,7 +161,7 @@ body{
 .content-container 
 {	
 	position:relative;
-	width:1150px;
+	width:1300px; /* 헤더너비 */ 
 	margin-left:auto; 
 	margin-right:auto;
 	
