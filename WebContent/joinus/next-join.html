@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/reset.css" type="text/css" rel="stylesheet">
+<link href="../css/Style-join.css" type="text/css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".inputEmail").click(function(){
+        $(".inputEmail").val("");
+    });
+    $(".inputEmail").focusout(function(){
+        if($(".inputEmail").val() == "") {
+            $(".inputEmail").val("이메일을 입력해주세요");
+        }
+    });
+});
+
+$(document).ready(function(){
+    $(".inputPassword").click(function(){
+        $(".inputPassword").val("");
+    });
+    $(".inputPassword").focusout(function(){
+        if($(".inputPassword").val() == "") {
+            $(".inputPassword").val("비밀번호를 입력해주세요");
+        }
+    });
+});
+
+$(document).ready(function(){
+    $(".inputRepassword").click(function(){
+        $(".inputRepassword").val("");
+    });
+    $(".inputRepassword").focusout(function(){
+        if($(".inputRepassword").val() == "") {
+            $(".inputRepassword").val("비밀번호를 재입력해주세요");
+        }
+    });
+});
+
+$(document).ready(function(){
+    $(".inputNickname").click(function(){
+        $(".inputNickname").val("");
+    });
+    $(".inputNickname").focusout(function(){
+        if($(".inputNickname").val() == "") {
+            $(".inputNickname").val("닉네임을 입력해주세요");
+        }
+    });
+});
+</script>
+</head>
+<body>
+   <header id="join-header">
+   <div class="content-container">
+      <div class="logo-center">
+         <span>
+            <a href="../MainPage.html">
+            <img src="../images/smallLogo.png" alt="estrellerLogo">
+            </a>
+         </span>
+      </div>
+   </div>
+   </header>
+
+   <div id="body">
+        <div class="content-container">
+         <main id="join-main">
+         
+         <p>회원가입</p>      
+            <div id="box" class="hc vc">
+            <br>
+               <br>
+               <br>
+               <input type="email" value="이메일을 입력해주세요" class="inputEmail" />
+               <br>
+               <br>
+               <br>
+               <input type="text" value="비밀번호를 입력해주세요" class="inputPassword" />
+               <br>
+               <br>
+               <br>
+               <input type="text" value="비밀번호를 재입력해주세요" class="inputRepassword" />
+               <br>
+               <br>
+               <br>
+               <input type="text" value="닉네임을 입력해주세요" class="inputNickname" />
+               <br>
+               <br>  
+               <form id = "join-form">
+            <fieldset class="clearfix">
+                 <input type="submit" value="가입하기"/>
+            </fieldset>
+               </form>
+            </div>
+         </main>
+      </div>
+   </div>
+
+</body>

@@ -86,6 +86,26 @@
 		   background:url("../images/passward-button.png") no-repeat center;
 		   overflow:hidden;
 		}
+		  
+       #box input{
+            border:solid #ffffff;
+             border-bottom:1px solid black;
+             width:230px;
+             color:#c0c0c0;
+       }
+   
+      
+      #join-form input[type='submit']{
+         text-indent:-999px;
+         font-size:10px;
+         cursor:pointer;
+         border:0px;
+         width:203px;
+         height:62px;
+         background:url("../images/Join-button.png") no-repeat center;
+         overflow:hidden;
+      }
+       
 		 
 		 
 		 
@@ -111,7 +131,9 @@
 				#box p{
 				position:absolute;
 				display:block;
+				top:70px;
 				left:20px;
+				right:20px;
 				color:#000;
 				font-family:"맑은 고딕",Arial,sans-serif;
 				font-size:11px;
@@ -121,6 +143,7 @@
 				#box p2{
 				position:absolute;
 				display:block;
+				top:200px;
 				left:20px;
 				right:20px;
 				color:#000;
@@ -198,12 +221,11 @@
 				}
 				
 				
-				#login-button
+				#login-button>a
 				{
 				   position:absolute;
 				    display:block;
 				   color:#ff0000;
-				   
 				    left:180px;
 				    top:355px;
 				   font-family:"맑은 고딕",Arial,sans-serif;
@@ -212,4 +234,10 @@
 				    text-align:left;
 				   
 				}         				               
-				 
+	
+
+
+     
+       
+       
+    
