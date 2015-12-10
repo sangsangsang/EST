@@ -32,9 +32,11 @@ body{
 
 
 #header
-{
+{	
+	
    height:70px;
-   background:#c0c0c0;   
+   background:#c0c0c0; 
+   position: fixed;  
 }
    #main-menu{
       display:inline-block;
@@ -64,7 +66,7 @@ body{
          #main-menu>ul>li a:HOVER{
                text-decoration:underline;
          }
-	#mypage{
+	#profile{
 	   position:absolute;
 	   margin-left:830px;
 	   top:10px;
@@ -125,9 +127,13 @@ section>p{
 	
 	
 	/* ------------------reviewDetail------------------------------------ */
+
 #body .content-container
-{
-   margin-top:20px;	
+{	
+   display:table-header-group;
+   float:left;
+   margin-left:200px;
+   margin-top:100px;	
    min-height:700px;
    width:900px;
    background:#c0c0c0;
@@ -193,28 +199,30 @@ section>p{
 		  
 	 }
 	  #follow>a{
+	 	
 	    position:absolute;
 	    right:0px;
 	 }
 	 #raiting{
 	 	position:absolute;
-	    top:100px;
-	    right:210px;
+	    top:110px;
+	    right:220px;
 		  
 	 }
 	 
 	  #user{
 		 position:absolute;
-		 top:100px;
-		 right:150px;
+		 top:90px;
+		 right:170px;
 	 }	
 	 #u_raiting{
 	 	position:absolute;
-	    top:100px;
-	    right:10px;
+	    top:110px;
+	    right:40px;
 		  
 	 }
 	 #content {
+	 	text-align:center;
 	 	padding-top:10px;
 	 	font-size: 20px;
 	 	padding-left:20px;
@@ -225,32 +233,101 @@ section>p{
 	 	font-weight: bold;
 	 	padding-left:20px;
 	 }
-	 .r-report{
-	 
-		 padding-top:100px;
-		 paddin-left:600px;
-	 }		
-	 .r-scrap{
-	 	
+	 #keyword{
+	 	padding-top:100px;
+	 	font-size: 20px;
+	 	font-weight: bold;
+	 	padding-left:20px;
 	 }
-		
-		
 
-/* #main p{
-   
-   display:block;
-   font-family:"맑은 고딕",Arial,sans-serif;
-   font-size:15px;
-   text-align:center;
-   padding-top:500px; 메인로고 밑에 글 
-  
-} */
-/* #footer
-{
-   height:100px;
-   background:black;
-}
- */
+	 .r-report,r-scrap{
+	    
+		 padding-top:200px;
+		 padding-left:700px;
+		 border-bottom: 1px solid #ff8080;
+	 }
+	.article-detail-row
+		{
+		   height: 60px;
+		   line-height: 50px;
+		 
+		   clear: both;
+		}
+	 .cmt{
+	   padding-top:20px;
+	   padding-left:20px;
+	   padding-bottom:50px;
+	   
+	   float:left;
+	   
+	 }			
+	  .cmt>select{
+	  
+	  width:50px;
+	  height:30px;
+	  
+	 }
+	 
+	 .cmt input[name='title']{
+	 
+	   width:600px;
+	   height:30px;
+	   
+	   
+	  
+	 }			
+		.cmt input[type='button']{
+		 margin-left:20px;
+		  text-indent:-999px;
+         cursor:pointer;
+         border:0px;
+         width:30px;
+         height:20px;
+         background:url("../images/commentCheck-btn.png") no-repeat center;
+		}
+	#comments>tbody>tr>td{
+	
+	   /*  float:left;
+		padding-left:24px;
+		background:url("../images/bg-member-menu-vsp.png") no-repeat left top; */
+		background:#ff0000url("../images/bg-title-sp.png") no-repeat left center;
+		font-size:20px;
+		font-family:"맑은고딕";
+		height:30px;
+		line-height:30px; /* 줄높이 */
+		width:100px;
+		border-bottom:1px solid #e9e9e9;
+		text-align:center; /* 가운데 정렬 */ 
+		padding-left:20px;
+		padding-bottom: 60px;
+	}
+	#comments>tbody>tr>td:nth-child(1) /* 제목과 칼럼 각각 자식들에게 너비지정 */
+	  {  
+		width:60px;	
+		}
+	 #comments>tbody>tr>td:nth-child(2){
+	 
+	 	width: 100px;
+	 }
+	 #comments>tbody>tr>td>ins:nth-child(2){
+	 
+	 	float: left;
+	 }		
+	 #comments>tbody>tr>td:nth-child(3){
+	 
+	 	width: 300px;
+	 }
+	 	 #comments>tbody>tr>td:nth-child(3){
+	 	 
+		  	text-align:left;  /* 왼쪽쩡렬 */
+		  	text-indent:10px; /* 들여쓰기 */
+		  	overflow: hidden; /* hidden을 써줌으로써 테이블 에서 지정해준 fixed 가 작성자영역에 겹친부분을 숨겨준다 */
+		  	
+		  }
+	#comments>tbody>tr>td:nth-child(4){
+	 
+	 	width: 150px;
+	 }
 
 
 
@@ -364,8 +441,6 @@ overflow: auto;
 .hc3 { width:700px; left:0; right:0; margin-left:auto; margin-right:auto; } /* 가로 중앙 정렬 */
 .vc3 { height:300px; top: 150px; bottom:0; margin-top:auto; margin-bottom:auto; }     
 
-
-   
 
 
 /* -------------------------------------- */

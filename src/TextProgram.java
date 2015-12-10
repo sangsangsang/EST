@@ -35,11 +35,11 @@ public class TextProgram {
 		
 		*/
 		
-	/*	MemberDao dao = new MyBatisMemberDao();//MyBatis활용
+		MemberDao dao= new MyBatisMemberDao();//MyBatis활용
 
 		Member member = new Member();
 
-		List<Member> list = dao.getMembers(1);*/
+		List<Member> list = dao.getMembers(1);
 
 		//업데이트시키기위한 셋팅.
 		/*member.setEmail("rlatkd12");
@@ -59,15 +59,15 @@ public class TextProgram {
 			System.out.printf("Email:%s, NickName : %s , Pwd : %s, JoinDate: %s\n", m.getEmail(),m.getNickname(),m.getPwd(),m.getJoinDate());
 		}*/
 		
-		ReviewDao dao = new MyBatisReviewDao();//MyBatis활용
+		ReviewDao r_dao = new MyBatisReviewDao();//MyBatis활용
 		Review review = new Review();
-		List<Review> list = dao.getReviews(1,"Title","");
+		List<Review> r_list = r_dao.getReviews(1,"Title","");
 
 		System.out.println("검색결과 : " + list.size());
 		
-		for(Review m : list){
+		for(Review r : r_list){
 			System.out.printf("제목: %s, 작성자 : %s , 등록일 : %s, 카테고리 : %s, 내용: %s\n", 
-					m.getTitle(),m.getWriter(),m.getRegdate(),m.getCategorycode(),m.getContent());
+					r.getTitle(),r.getWriter(),r.getRegdate(),r.getCategorycode(),r.getContent());
 
 		}
 

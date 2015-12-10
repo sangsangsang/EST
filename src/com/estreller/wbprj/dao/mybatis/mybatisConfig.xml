@@ -32,6 +32,6 @@
      
      <mapper resource="com/estreller/wbprj/dao/mybatis/mapper/RequestDao.xml"/>
      <mapper resource="com/estreller/wbprj/dao/mybatis/mapper/FollowDao.xml"/>     
-
+	 <mapper resource="com/estreller/wbprj/dao/mybatis/mapper/ReviewFileDao.xml"/> 
   </mappers>
 </configuration>

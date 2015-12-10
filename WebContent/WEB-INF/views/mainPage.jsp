@@ -1,10 +1,12 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Estreller</title>
-<link href="css/reset.css" type="text/css" rel="stylesheet">
-<link href="css/Style.css" type="text/css" rel="stylesheet">
+<link href="/EST/content/css/reset.css" type="text/css" rel="stylesheet">
+<link href="/EST/content/css/Style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
    <header id="header">
@@ -36,10 +38,10 @@
          <form id="login-form">
             <fieldset class="clearfix">
                   <label >E-mail</label>
-                  <input type="email"/>
+                  <input type="email" name="email"/>
                               
                   <label>Passward</label>
-                  <input type="password"/>
+                  <input type="password" name="pwd"/>
                   <input type="submit" value="로그인"/>
             </fieldset>
          </form>

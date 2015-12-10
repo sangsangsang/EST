@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.estreller.wbprj.dao.ReviewFileDao"> 
+
+	<select id="getReviewFiles" resultType="com.estreller.wbprj.vo.ReviewFile">
+		SELECT * FROM NOTICEFILES WHERE NOTICECODE=#{noticeCode}
+	</select>
+	<insert id="insert">
+    <selectKey keyProperty="code" order="BEFORE" resultType="String">
+       SELECT ISNULL(MAX(CAST(CODE AS INT)),0) CODE FROM NOTICEFILES
+    </selectKey>
+   INSERT INTO NOTICEFILES(code, src, noticeCode) VALUES(#{code}+1, #{src}, #{noticeCode})
+  </insert>
+	
+</mapper>
