@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>LoginMainpage</title>
-<link href="/EST/content/css/reset.css" type="text/css" rel="stylesheet">
-<link href="/EST/content/reviews/css/reviewRegStyle.css" type="text/css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/content/css/reset.css" type="text/css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/content/reviews/css/reviewRegStyle.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 <header id="header">
@@ -28,33 +28,33 @@
       </ul>
    </nav>
     <nav id="search">
-            <a href=""><img src="../images/search.png" alt="검색" /></a>
+            <a href=""><img src="${pageContext.request.contextPath}/content/images/search.png" alt="검색" /></a>
     </nav> 
     <nav id="new-write">
-           <a href="../Review/reviewReg.html"><img src="../images/new_write.png" alt="새글쓰기" /></a>
+           <a href="../Review/reviewReg.html"><img src="${pageContext.request.contextPath}/content/images/new_write.png" alt="새글쓰기" /></a>
     </nav> 
     <nav id="logout">
-           <a href="../MainPage.html"><img src="../images/logout.png" alt="로그아웃" /></a>
+           <a href="../MainPage.html"><img src="${pageContext.request.contextPath}/content/images/logout.png" alt="로그아웃" /></a>
     </nav> 
    <section>
       <h1 class="hidden">회원</h1>
          
          
          <nav id="profile">
-            <a href="../mypage/MemberInfo.html"><img src="../images/faceimg.png" alt="프로필수정" /></a>
+            <a href="../mypage/MemberInfo.html"><img src="${pageContext.request.contextPath}/content/images/faceimg.png" alt="프로필수정" /></a>
        </nav>
        <p><a href="">I23412343124124312D님</a></p>
         <nav id="write">
-           <a href=""><img src="../images/scrap.png" alt="내글보기" /></a>
+           <a href=""><img src="${pageContext.request.contextPath}/content/images/scrap.png" alt="내글보기" /></a>
        </nav> 
        <nav id="comment">
-            <a href=""><img src="../images/comment.png" alt="댓글보기" /></a>
+            <a href=""><img src="${pageContext.request.contextPath}/content/images/comment.png" alt="댓글보기" /></a>
        </nav> 
        <nav id="like">
-            <a href=""><img src="../images/like.png" alt="좋아요보기" /></a>
+            <a href=""><img src="${pageContext.request.contextPath}/content/images/like.png" alt="좋아요보기" /></a>
        </nav>
        <nav id="report">
-            <a href=""><img src="../images/report.png" alt="신고보기" /></a>
+            <a href=""><img src="${pageContext.request.contextPath}/content/images/report.png" alt="신고보기" /></a>
        </nav> 
          
       
@@ -87,9 +87,9 @@
                            <option>Travel</option>
                            <option>Electronics</option>
                         </select>
-                     </dd>
+                     
                      <h3 class="hidden">별</h3>
-                     <dd class="article-detail-category">   
+                       
                         <select>
                            <option>0</option>
                            <option>1</option>
@@ -98,9 +98,9 @@
                            <option>4</option>
                            <option>5</option>
                         </select>
-                     </dd>
+                     
                      <h3 class="hidden">제목</h3>
-                     <dd class="article-detail-data">
+                     
                         &nbsp;<input name="title"/>
                      </dd>
                   </dl>            
@@ -151,7 +151,7 @@
                <h3 class="hidden">버튼</h3>
                <p class="article-comment">                  
                   <input class="btn-save button" type="submit" value="저장" />
-                  <a class="btn-cancel button" href="../Review/login-mainpage.html"><img src="../images/btn-cancel.png" alt="취소" /></a>                  
+                  <a class="btn-cancel button" href="../Review/login-mainpage.html"><img src="${pageContext.request.contextPath}/content/images/btn-cancel.png" alt="취소" /></a>                  
                </p>                     
             </div>            
          </form>

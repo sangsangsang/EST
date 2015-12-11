@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Estreller</title>
-<link href="/EST/content/css/reset.css" type="text/css" rel="stylesheet">
-<link href="/EST/content/css/Style.css" type="text/css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/content/css/reset.css" type="text/css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/content/css/Style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
    <header id="header">

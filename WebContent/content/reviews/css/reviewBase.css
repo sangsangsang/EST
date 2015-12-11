@@ -10,7 +10,7 @@
 .content-container 
 {   
    position:relative;
-   width:1250px; /* 헤더너비 */ 
+   width:1300px; /* 헤더너비 */ 
    margin-left:auto; 
    margin-right:auto;
    
@@ -121,7 +121,7 @@ section>p{
 		
 		 #search{
 		   position:absolute;
-		   right:10px;
+		   right:40px;
 		   top: 15px;
 		}
 	
@@ -132,11 +132,11 @@ section>p{
 {	
    display:table-header-group;
    float:left;
-   margin-left:200px;
+   margin-left:175px;
    margin-top:100px;	
    min-height:700px;
    width:900px;
-   background:#c0c0c0;
+   background:#c0c0c0; /* 리뷰 바탕색 */
 }
 	#review {
 	width:900px;
@@ -149,15 +149,16 @@ section>p{
 	
 	#review>tbody>tr>td{ /* 칼럼부분 */
 	
-	font-size:20px;
+	font-size:35px;
 	font-family:"맑은고딕";
 	height:30px;
-	line-height:30px; /* 줄높이 */
+	font-weight:bolder;
+	line-height:40px; /* 줄높이 */
 	width:100px;
 	border-bottom:1px solid #e9e9e9;
 	text-align:center; /* 가운데 정렬 */ 
-	padding-top: 50px;
-	padding-bottom: 60px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 	}
 	
 	#review>thead>tr>th{
@@ -174,7 +175,9 @@ section>p{
 
 	  /* 제목과 칼럼 각각 자식들에게 너비지정 */
 	 #review>tbody>tr>td:nth-child(1)
-	  {  
+	  { 
+	  	font-size:30px;
+	 	font-weight:normal; 
 		width:200px;	
 		}
 	 
@@ -189,37 +192,38 @@ section>p{
 		  	
 		  }
 	 #review>tbody>tr>td:nth-child(3){
-	 
+	 	font-size:25px;
+	 	font-weight:normal;
 	 	width: 200px;
 	 }
+	 #nickName{
+	 			font-size:20px;
+	 			font-weight:bolder;
+	 			padding-left:550px;
+	 			padding-top:10px;
+	 			}
 	 #follow{
-	    position:absolute;
-	    top:90px;
-	    right:350px;
+	    float:left;
+	   padding-left:550px;
+	   
 		  
 	 }
-	  #follow>a{
-	 	
-	    position:absolute;
-	    right:0px;
-	 }
 	 #raiting{
-	 	position:absolute;
-	    top:110px;
-	    right:220px;
+	 	float:left;
+	    padding-top:20px;
+	    
 		  
 	 }
 	 
 	  #user{
-		 position:absolute;
-		 top:90px;
-		 right:170px;
+		 float:left;
+		 padding-left:10px;
+		
 	 }	
 	 #u_raiting{
-	 	position:absolute;
-	    top:110px;
-	    right:40px;
-		  
+	 	 padding-top:20px;
+	 	 padding-bottom: 20px;
+	      
 	 }
 	 #content {
 	 	text-align:center;
@@ -228,13 +232,13 @@ section>p{
 	 	padding-left:20px;
 	 }
 	 #map {
-	 	padding-top:100px;
+	 	padding-top:50px;
 	 	font-size: 20px;
 	 	font-weight: bold;
 	 	padding-left:20px;
 	 }
 	 #keyword{
-	 	padding-top:100px;
+	 	padding-top:50px;
 	 	font-size: 20px;
 	 	font-weight: bold;
 	 	padding-left:20px;
@@ -242,7 +246,7 @@ section>p{
 
 	 .r-report,r-scrap{
 	    
-		 padding-top:200px;
+		 padding-top:50px;
 		 padding-left:700px;
 		 border-bottom: 1px solid #ff8080;
 	 }
@@ -256,7 +260,7 @@ section>p{
 	 .cmt{
 	   padding-top:20px;
 	   padding-left:20px;
-	   padding-bottom:50px;
+	   padding-bottom:30px;
 	   
 	   float:left;
 	   
@@ -276,30 +280,31 @@ section>p{
 	   
 	  
 	 }			
-		.cmt input[type='button']{
+		 .cmt input[type='submit']{
 		 margin-left:20px;
 		  text-indent:-999px;
          cursor:pointer;
          border:0px;
-         width:30px;
-         height:20px;
-         background:url("../images/commentCheck-btn.png") no-repeat center;
+         width:37px;
+         height:37px;
+         background:url("../../images/commentCheck.png") no-repeat center;
+		} 
+		#comments{
+			position: relative;
+			table-layout:fixed;
 		}
 	#comments>tbody>tr>td{
 	
-	   /*  float:left;
-		padding-left:24px;
-		background:url("../images/bg-member-menu-vsp.png") no-repeat left top; */
-		background:#ff0000url("../images/bg-title-sp.png") no-repeat left center;
+	    background:url("../../images/bg-main-menu-vsp.png") no-repeat left center; 
 		font-size:20px;
 		font-family:"맑은고딕";
 		height:30px;
 		line-height:30px; /* 줄높이 */
 		width:100px;
-		border-bottom:1px solid #e9e9e9;
+		border-bottom:2px solid #ff8080;
 		text-align:center; /* 가운데 정렬 */ 
 		padding-left:20px;
-		padding-bottom: 60px;
+		padding-bottom: 15px;
 	}
 	#comments>tbody>tr>td:nth-child(1) /* 제목과 칼럼 각각 자식들에게 너비지정 */
 	  {  
@@ -325,10 +330,17 @@ section>p{
 		  	
 		  }
 	#comments>tbody>tr>td:nth-child(4){
-	 
+	 	text-align:center;
 	 	width: 150px;
+	 
 	 }
-
+	 #comments>tbody>tr>td:nth-child(5),
+	 #comments>tbody>tr>td:nth-child(6){
+	 
+	 	width: 50px;
+	 	background: 0px;
+	 }
+	
 
 
 /* ---------------전체글 목록 보기----------------------- */

@@ -7,7 +7,16 @@
    height:0px;
    visibility:hidden;
 }
-
+.content-container 
+{   
+   position:relative;
+   width:1250px; /* 헤더너비 */ 
+   margin-left:auto; 
+   margin-right:auto;
+   
+   /* opacity:0.5; */
+   height:inherit;
+}
 .hidden{
    display:none;
 }
@@ -158,14 +167,5 @@ body{
 }
 
 
-.content-container 
-{   
-   position:relative;
-   width:1250px; /* 헤더너비 */ 
-   margin-left:auto; 
-   margin-right:auto;
-   
-   /* opacity:0.5; */
-   height:inherit;
-}
+
 

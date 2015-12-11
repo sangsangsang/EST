@@ -13,12 +13,23 @@
         
 	<context:component-scan base-package="com.estreller.wbprj.controllers"/>
     <!-- services -->
+    <!-- more bean definitions for services go here -->
 	<mvc:annotation-driven/>
 	<mvc:resources location="/content/" mapping="/content/**"></mvc:resources>
-    <!-- more bean definitions for services go here -->
+    
+     <bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+     	<property name="definitions" value="/WEB-INF/tiles.xml"/>
+     </bean>
+    
+    <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+    	<property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"></property>
+   		<property name="order" value="2"/>
+    </bean>
+    
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/"/> <!-- 접두사 경로를 미리 지정해줌으로써 Resolver가찾아준다.-->
 		<property name="suffix" value=".jsp"/> <!-- 접미사 -->
+		<property name="order" value="1"/>
 	</bean>
 	
 </beans>
