@@ -15,24 +15,30 @@ import com.estreller.wbprj.dao.mybatis.MyBatisReviewDao;
 
 //POJO클래스
 @Controller   //이걸 반드시해줘야 맵핑정보가 호출된다.
+@RequestMapping("/reviews/")
 public class ReviewsController {
 	
-	@RequestMapping("/reviews/review")//url 맵핑정보
+	@RequestMapping("login-mainpage")
+	public String loginMainPage(/*Model model*/){
+		return "reviews/login-mainpage";
+	}
+	
+	/*@RequestMapping("login-page")//url 맵핑정보
 	public String Review(PrintWriter out,Model model){
 		
 		
 		//ReviewDao reviewDao = new MyBatisReviewDao();
 		//List<Review> list =reviewDao.getReviews(1,"title","");
 		
-		/*model.addAttribute("list",list);*/
+		model.addAttribute("list",list);
 		//model.addAttribute("n",list.get(0));
-		/*for(Notice n:list)
-			out.println("title:"+n.getTitle()+"<br/>");*/
+		for(Notice n:list)
+			out.println("title:"+n.getTitle()+"<br/>");
 		
-		return "reviews/review";
-	}
+		return "reviews/login-page";
+	}*/
 	
-	@RequestMapping("/reviews/reviewDetail")
+	@RequestMapping("reviewDetail")
 	public String ReviewDetail(/*Model model*/){
 		
 		/*String code = request.getParameter("c");*/
@@ -44,12 +50,12 @@ public class ReviewsController {
 		List<NoticeFile> files=fileDao.getNoticeFiles(code);*/
 		return "reviews/reviewDetail";
 	}
-	@RequestMapping("/reviews/login-mainpage")
-	public String loginMainPage(/*Model model*/){
-		return "reviews/login-mainpage";
-	}
-	@RequestMapping("/reviews/reviewReg")
-	public String reviewReg(/*Model model*/){
+	@RequestMapping("reviewReg")
+	public String reviewReg(){
 		return "reviews/reviewReg";
+	}
+	@RequestMapping("review_list")
+	public String review_list(){
+		return "reviews/review_list";
 	}
 }

@@ -1,0 +1,466 @@
+@CHARSET "UTF-8";
+
+.clearfix:after{
+   content:".";
+   clear:both;
+   display:block;
+   height:0px;
+   visibility:hidden;
+}
+.content-container 
+{   
+   position:relative;
+   width:1300px; /* 헤더너비 */ 
+   margin-left:auto; 
+   margin-right:auto;
+   
+   /* opacity:0.5; */
+   height:inherit;
+}
+
+/* ---------------------로그인했을때 헤더부분------------------------------------------------- */
+.hidden{
+   display:none;
+}
+
+body{
+
+   font-family:돋움;
+   font-size:11px;
+   /* color:#979797; */
+}
+
+
+#header
+{	
+	
+   height:70px;
+   background:#c0c0c0; 
+   position: fixed;  
+}
+   #main-menu{
+      display:inline-block;
+      position:absolute;
+      left:10px;
+      top:20px;
+   }
+
+      #main-menu>ul>li{
+         float:left;
+         font-family:"맑은 고딕",Arial,sans-serif;
+         font-size:15px;
+         /* font-weight:bold; */
+         padding-left:15px; /* 카테고리 간에 간격 */
+      
+      
+      }
+         #main-menu>ul>li:FIRST-CHILD{
+            padding-left:20px;
+            background:none;   
+         }
+         
+         #main-menu>ul>li a{
+            color:#000000;
+            text-decoration:none;   
+         }
+         #main-menu>ul>li a:HOVER{
+               text-decoration:underline;
+         }
+	#profile{
+	   position:absolute;
+	   margin-left:830px;
+	   top:10px;
+	}
+
+section>p{
+   display:inline-block;
+   font-family:"맑은 고딕",Arial,sans-serif;
+   font-size:11px;
+   margin-left:830px;
+   margin-top:50px;
+}
+   section>p a{
+      color:yellow;
+      text-decoration:none;
+   }
+      section>p a:HOVER{
+          text-decoration:underline;
+      }
+		#write{
+		   position:absolute;
+		   margin-left:900px;
+		   top: 23px;
+		}
+		#comment{
+		   position:absolute;
+		   margin-left:930px;
+		   top: 23px;
+		}
+		#like{
+		   position:absolute;
+		   margin-left:960px;
+		   top: 23px;
+		}
+		#report{
+		
+		   position:absolute;
+		   margin-left:990px;
+		   top: 23px;
+		}
+		#logout{
+		
+		   position:absolute;
+		   right:140px;
+		   top: 15px;
+		}
+		#new-write{
+		   position:absolute;
+		   right:90px;
+		   top: 15px;
+		}
+		
+		 #search{
+		   position:absolute;
+		   right:40px;
+		   top: 15px;
+		}
+	
+	
+	/* ------------------reviewDetail------------------------------------ */
+
+#body .content-container
+{	
+   display:table-header-group;
+   float:left;
+   margin-left:175px;
+   margin-top:100px;	
+   min-height:700px;
+   width:900px;
+   background:#c0c0c0; /* 리뷰 바탕색 */
+}
+	#review {
+	width:900px;
+	
+	table-layout:fixed; /* 테이블에서 제목이 길때 영역을 벗어나되,작성자 영역과 겹치도록 */
+	
+	
+	/* width:100%; */
+}
+	
+	#review>tbody>tr>td{ /* 칼럼부분 */
+	
+	font-size:35px;
+	font-family:"맑은고딕";
+	height:30px;
+	font-weight:bolder;
+	line-height:40px; /* 줄높이 */
+	width:100px;
+	border-bottom:1px solid #e9e9e9;
+	text-align:center; /* 가운데 정렬 */ 
+	padding-top: 20px;
+	padding-bottom: 20px;
+	}
+	
+	#review>thead>tr>th{
+	
+	background:#f5f5f5 url("../images/bg-title-sp.png") no-repeat left center; /* 이미지를 왼쪽 가운데로 정렬 */
+ 
+	}
+	#review>thead>tr>th:FIRST-CHILD{ /* 첫번째 분류에만 오버라이드 함으로써 이미지를 없앰 */ 
+	
+	background:#f5f5f5 ;
+ 
+	}
+		
+
+	  /* 제목과 칼럼 각각 자식들에게 너비지정 */
+	 #review>tbody>tr>td:nth-child(1)
+	  { 
+	  	font-size:30px;
+	 	font-weight:normal; 
+		width:200px;	
+		}
+	 
+	 #review>tbody>tr>td:nth-child(2){
+	 
+	 	width: 500px;
+	 }
+	 	  #review>tbody>tr>td:nth-child(2){
+		  	/* text-align:;  왼쪽쩡렬 */
+		  	/* text-indent:10px; */ /* 들여쓰기 */
+		  	overflow: hidden; /* hidden을 써줌으로써 테이블 에서 지정해준 fixed 가 작성자영역에 겹친부분을 숨겨준다 */
+		  	
+		  }
+	 #review>tbody>tr>td:nth-child(3){
+	 	font-size:25px;
+	 	font-weight:normal;
+	 	width: 200px;
+	 }
+	 #nickName{
+	 			font-size:20px;
+	 			font-weight:bolder;
+	 			padding-left:550px;
+	 			padding-top:10px;
+	 			}
+	 #follow{
+	    float:left;
+	   padding-left:550px;
+	   
+		  
+	 }
+	 #raiting{
+	 	float:left;
+	    padding-top:20px;
+	    
+		  
+	 }
+	 
+	  #user{
+		 float:left;
+		 padding-left:10px;
+		
+	 }	
+	 #u_raiting{
+	 	 padding-top:20px;
+	 	 padding-bottom: 20px;
+	      
+	 }
+	 #content {
+	 	text-align:center;
+	 	padding-top:10px;
+	 	font-size: 20px;
+	 	padding-left:20px;
+	 }
+	 #map {
+	 	padding-top:50px;
+	 	font-size: 20px;
+	 	font-weight: bold;
+	 	padding-left:20px;
+	 }
+	 #keyword{
+	 	padding-top:50px;
+	 	font-size: 20px;
+	 	font-weight: bold;
+	 	padding-left:20px;
+	 }
+
+	 .r-report,r-scrap{
+	    
+		 padding-top:50px;
+		 padding-left:700px;
+		 border-bottom: 1px solid #ff8080;
+	 }
+	.article-detail-row
+		{
+		   height: 60px;
+		   line-height: 50px;
+		 
+		   clear: both;
+		}
+	 .cmt{
+	   padding-top:20px;
+	   padding-left:20px;
+	   padding-bottom:30px;
+	   
+	   float:left;
+	   
+	 }			
+	  .cmt>select{
+	  
+	  width:50px;
+	  height:30px;
+	  
+	 }
+	 
+	 .cmt input[name='title']{
+	 
+	   width:600px;
+	   height:30px;
+	   
+	   
+	  
+	 }			
+		 .cmt input[type='submit']{
+		 margin-left:20px;
+		  text-indent:-999px;
+         cursor:pointer;
+         border:0px;
+         width:37px;
+         height:37px;
+         background:url("../../images/commentCheck.png") no-repeat center;
+		} 
+		#comments{
+			position: relative;
+			table-layout:fixed;
+		}
+	#comments>tbody>tr>td{
+	
+	    background:url("../../images/bg-main-menu-vsp.png") no-repeat left center; 
+		font-size:20px;
+		font-family:"맑은고딕";
+		height:30px;
+		line-height:30px; /* 줄높이 */
+		width:100px;
+		border-bottom:2px solid #ff8080;
+		text-align:center; /* 가운데 정렬 */ 
+		padding-left:20px;
+		padding-bottom: 15px;
+	}
+	#comments>tbody>tr>td:nth-child(1) /* 제목과 칼럼 각각 자식들에게 너비지정 */
+	  {  
+		width:60px;	
+		}
+	 #comments>tbody>tr>td:nth-child(2){
+	 
+	 	width: 100px;
+	 }
+	 #comments>tbody>tr>td>ins:nth-child(2){
+	 
+	 	float: left;
+	 }		
+	 #comments>tbody>tr>td:nth-child(3){
+	 
+	 	width: 300px;
+	 }
+	 	 #comments>tbody>tr>td:nth-child(3){
+	 	 
+		  	text-align:left;  /* 왼쪽쩡렬 */
+		  	text-indent:10px; /* 들여쓰기 */
+		  	overflow: hidden; /* hidden을 써줌으로써 테이블 에서 지정해준 fixed 가 작성자영역에 겹친부분을 숨겨준다 */
+		  	
+		  }
+	#comments>tbody>tr>td:nth-child(4){
+	 	text-align:center;
+	 	width: 150px;
+	 
+	 }
+	 #comments>tbody>tr>td:nth-child(5),
+	 #comments>tbody>tr>td:nth-child(6){
+	 
+	 	width: 50px;
+	 	background: 0px;
+	 }
+	
+
+
+/* ---------------전체글 목록 보기----------------------- */
+
+#box1
+{      
+position:relative;
+background:#ffff00;
+text-align: center;
+overflow: auto;
+}   
+.hc { width:900px; left:0; right:0; margin-left:auto; margin-right:auto; } /* 가로 중앙 정렬 */
+.vc { height:100px; top: 50px; bottom:0; margin-top:auto; margin-bottom:auto; }     
+
+
+#rating-menu> ul
+{
+   display : inline-block;
+      
+}
+
+    
+   #rating-menu> ul>li
+   {
+   
+      float:left;
+      background:url("../images/bar.png") no-repeat left;
+      padding-left: 5px;
+      padding-right:5px;
+         
+   }
+
+         #rating-menu> ul>li:FIRST-CHILD
+         {
+            padding-left:0;
+            background:none;
+            
+            
+         }
+         
+         
+#category-form>ul
+{
+font-family:"맑은 고딕",Arial,sans-serif;
+font-size:30px;
+   
+}
+      
+   
+      
+
+#box2
+{      
+position:relative;
+background:#ffff00;
+text-align: center;
+overflow: auto;
+}   
+.hc2 { width:900px; left:0; right:0; margin-left:auto; margin-right:auto; } /* 가로 중앙 정렬 */
+.vc2 { height:200px; top: 100px; bottom:0; margin-top:auto; margin-bottom:auto; }     
+
+
+   #box2-1
+   
+   {      
+   position:absolute;
+   width:280px;
+   height:200px;
+   background:#eeeeee;
+   text-align: center;
+   overflow: auto;
+   
+   }
+
+   #box2-2
+   
+   {      
+   position:absolute;
+   left:310px;
+   width:280px;
+   height:200px;
+   background:#eeeeee;
+   text-align: center;
+   overflow: auto;
+   
+   }
+
+   #box2-3
+   
+   {      
+   position:absolute;
+   left:620px;
+   width:280px;
+   height:200px;
+   background:#eeeeee;
+   text-align: center;
+   overflow: auto;
+   
+   }
+   
+   
+
+#box3
+{      
+position:relative;
+background:#ffff00;
+text-align: center;
+overflow: auto;
+}   
+.hc3 { width:700px; left:0; right:0; margin-left:auto; margin-right:auto; } /* 가로 중앙 정렬 */
+.vc3 { height:300px; top: 150px; bottom:0; margin-top:auto; margin-bottom:auto; }     
+
+
+
+/* -------------------------------------- */
+
+
+/* #footer
+{
+	margin-top:20px;	
+   height:100px;
+   background:black;
+} */

@@ -1,17 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Estreller</title>
-<link href="${pageContext.request.contextPath}/content/css/reset.css" type="text/css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/content/css/Style.css" type="text/css" rel="stylesheet">
-</head>
-<body>
-   <header id="header">
-   <div class="content-container">
-   <h1 class="hidden">메인</h1>
+
+<h1 class="hidden">메인</h1>
    <nav id="main-menu">
       <h1 class="hidden">카테고리</h1>
       <ul>
@@ -42,7 +32,7 @@
                               
                   <label>Passward</label>
                   <input type="password" name="pwd"/>
-                  <input type="submit" value="로그인"/>
+                  <a href="review_list"><input type="submit" value="로그인"/></a>
             </fieldset>
          </form>
        </section>
@@ -56,20 +46,3 @@
       </nav>
        
    </section>
-    </div>
-   </header>
-   <!-- <div id="visual">
-   </div> -->
-   <div id="body">
-   <div class="content-container">
-	   <main id="main">
-		   <h1 class="hidden">홈페이지 설명</h1>
-		      <p>별점을 매기고, 자신의 리뷰를 작성해보세요.<br>
-		      여러 분야를 직접 평가한 리뷰와 댓글, 별점을 통하여 정보를 공유해보세요.</p>
-	   <main>   
-   </div>
-   </div>
-   <div id="footer">
-   </div>
-</body>
-</html>
