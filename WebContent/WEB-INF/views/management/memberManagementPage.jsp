@@ -1,8 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- 
- 
- <aside id="aside">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%
+
+   request.getContextPath();
+%>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
+   
+   
+
+      <aside id="aside">
          <h1 class="hidden">관리목록</h1>
          
          <nav>
@@ -75,3 +82,4 @@
          <h3 class="hidden">전체페이지와 현재페이지</h3>
          <p>1/1page</p>         
       </main>
+      

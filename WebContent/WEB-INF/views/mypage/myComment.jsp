@@ -1,62 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<link href="../content/css/reset.css" type="text/css" rel="stylesheet">
-<link href="../content/mypage/css/myComment.css" type="text/css" rel="stylesheet">
-</head>
-<body>
-  <header id="header">
-   <div class="content-container">
-   <h1 class="hidden">메인</h1>
-   <nav id="main-menu">
-      <h1 class="hidden">카테고리</h1>
-      <ul>
-      <li><a href="Category/Sports.html">Sports</a></li>
-      <li><a href="Category/Movie.html">Movie</a></li>
-      <li><a href="Category/Game.html">Game</a></li>
-      <li><a href="Category/Book.html">Book</a></li>
-      <li><a href="Category/Music.html">Music</a></li>
-      <li><a href="Category/Fashion&Beauty.html">Fashion&Beauty</a></li>
-      <li><a href="Category/Show&Concert.html">Show&Concert</a></li>
-      <li><a href="Category/Food.html">Food</a></li>
-      <li><a href="Category/Travel.html">Travel</a></li>
-      <li><a href="Category/Electronics.html">Electronics</a></li>
-      </ul>
-   </nav>
-   <nav id="search">
-         <input type="submit" value="검색"/>
-    </nav> 
-      <section>
-      <h1 class="hidden">회원</h1>
-         
-         
-         <nav id="mypage">
-            <a href=""><img src="../images/faceimg.png" alt="마이페이지" /></a>
-       </nav>
-       <p><a href="">I23412343124124312D님</a></p>
-        <nav id="write">
-           <a href=""><img src="../images/scrap.png" alt="내글보기" /></a>
-       </nav> 
-       <nav id="comment">
-            <a href=""><img src="../images/comment.png" alt="댓글보기" /></a>
-       </nav> 
-       <nav id="like">
-            <a href=""><img src="../images/like.png" alt="좋아요보기" /></a>
-       </nav>
-       <nav id="report">
-            <a href=""><img src="../images/report.png" alt="신고보기" /></a>
-       </nav> 
-         
-      
-       
-   </section>
-    </div>
-   </header>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%
+
+   request.getContextPath();
+%>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
    
+
    <div id ="box" class="hc vc">
 
       <main id="main" class="h1">

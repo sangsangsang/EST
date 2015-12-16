@@ -3,19 +3,25 @@ package com.estreller.wbprj.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+@Controller
+@RequestMapping("/management/")
 public class ManagementController {
 
-	
-	
-	@Controller
-	@RequestMapping("/management/")
-		public class JoinusController {
-		
-		
-			@RequestMapping("management")
-			public String management(){
-				return "management/management";
-			}
-			
-	}
+   @RequestMapping("memberManagementPage")
+   public String memberManagementPage(){
+      
+      return "management/memberManagementPage";
+   }
+   
+   @RequestMapping("reportManagementPage")
+   public String reportManagementPage(){
+      
+      return "management/reportManagementPage";
+   }
+   
+   @RequestMapping("writeManagementPage")
+   public String writeManagementPage(){
+      
+      return "management/writeManagementPage";
+   }
 }
