@@ -1,0 +1,243 @@
+@CHARSET "UTF-8";
+.clearfix:after{
+   content:".";
+   clear:both;
+   display:block;
+   height:0px;
+   visibility:hidden;
+}
+ .content-container 
+{	
+	position:relative;
+	width:1277px;
+	margin-left:auto; 
+	margin-right:auto;
+	
+	/* opacity:0.5; */
+	height:inherit;
+} 
+
+#join-header
+{
+	
+	height:200px;
+	background:white;
+}
+	.logo-center { 
+		display: table; 
+		width: 1277px; 
+		height: 200px;  
+	}
+    .logo-center span
+     { 
+	     display: table-cell; 
+	     text-align: center; 
+	     vertical-align: middle; 
+     }
+
+		 
+
+/* -------join body------------------------------ */
+
+#body
+{
+   min-height:632px;
+   border-top:5px solid #ffff80;
+   margin-top:1px; 
+   background:#c0c0c0;
+   
+   
+}
+
+
+		 #join-main
+		 {
+		 	display:block;
+		    position:relative;
+		  
+		 }
+			 #join-main>p{
+			 		position:absolute;
+			 		top:20px;
+					left:50px;
+					color:#ffffff;
+					font-family:"맑은 고딕",Arial,sans-serif;
+					font-size:30px;
+					font-weight:bold;
+			 	
+			 }
+		 #find-passward{
+		 		
+		 		color:#c0c0c0;
+		 		font-family:"맑은 고딕",Arial,sans-serif;
+		 }
+		 #find-input{
+		 		border:solid #ffffff;
+		 		border-bottom:1px solid black;
+		 		width:300px;
+		 }
+		 #find-form input[type='submit']{
+		   text-indent:-999px;
+		   font-size:10px;
+		   cursor:pointer;
+		   border:0px;
+		   width:400px;
+		   height:30px;
+		   background:url("../../images/passward-button.png") no-repeat center;
+		   overflow:hidden;
+		}
+		  
+       #box input{
+            border:solid #ffffff;
+             border-bottom:1px solid black;
+             width:230px;
+             color:#c0c0c0;
+       }
+   
+      
+      #join-form input[type='submit']{
+         text-indent:-999px;
+         font-size:10px;
+         cursor:pointer;
+         border:0px;
+         width:203px;
+         height:62px;
+         background:url("../../images/Join-button.png") no-repeat center;
+         overflow:hidden;
+      }
+       
+		 
+		 
+		 
+		#box
+		{		
+		       position:relative;
+		       background:#ffffff;
+		       text-align: center;
+		       overflow: auto;
+		}	
+		  .hc { width:450px; left:0; right:0; margin-left:auto; margin-right:auto; } /* 가로 중앙 정렬 */
+  		  .vc { height:400px; top: 100px; bottom:0; margin-top:auto; margin-bottom:auto; } 	 
+ 			#agree
+				{
+				position:absolute;
+				top:15px;
+				left:20px;
+				      
+				}
+				
+				       
+				       
+				#box p{
+				position:absolute;
+				display:block;
+				top:70px;
+				left:20px;
+				right:20px;
+				color:#000;
+				font-family:"맑은 고딕",Arial,sans-serif;
+				font-size:11px;
+				text-align:left;
+				           
+				}
+				#box p2{
+				position:absolute;
+				display:block;
+				top:200px;
+				left:20px;
+				right:20px;
+				color:#000;
+				font-family:"맑은 고딕",Arial,sans-serif;
+				font-size:11px;
+				text-align:left;
+				           
+				}
+				         
+				#required-form fieldset > input{
+				   position:absolute;
+				   display : block;
+				   float : left;
+				   top:150px;
+				   right:0px;   
+				}
+				
+				#required-form label{ 
+				position:absolute;
+				top:150px;
+				right:20px;
+				color:#004080;
+				font-family:"맑은 고딕",Arial,sans-serif;
+				font-size:11px;
+				font-weight:bold;
+				
+				} 
+				#required-form2 fieldset > input{
+				position:absolute;
+				display : block;
+				float : left;
+				top:280px;
+				right:0px;   
+				}       
+
+				#required-form2 label{ 
+				position:absolute;
+				top:280px;
+				right:20px;
+				color:#004080;
+				font-family:"맑은 고딕",Arial,sans-serif;
+				font-size:11px;
+				font-weight:bold;
+				
+				}
+				
+				#join-cancel
+				{
+				position:absolute;
+				top:310px;
+				left:20px;
+				      
+				}
+				
+				#join-next
+				{
+				position:absolute;
+				top:310px;
+				left:280px;
+				      
+				}
+				
+				       
+				#box p3{
+				position:absolute;
+				display:block;
+				left:20px;
+				top:360px;
+				color:#000;
+				font-family:"맑은 고딕",Arial,sans-serif;
+				font-size:12px;
+				font-weight:bold;
+				text-align:left;
+				           
+				}
+				
+				
+				#login-button>a
+				{
+				   position:absolute;
+				    display:block;
+				   color:#ff0000;
+				    left:180px;
+				    top:355px;
+				   font-family:"맑은 고딕",Arial,sans-serif;
+				    font-size:18px;
+				    font-weight:bold;
+				    text-align:left;
+				   
+				}         				               
+	
+
+
+     
+       
+       
+    

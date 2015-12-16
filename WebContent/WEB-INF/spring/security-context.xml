@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns="http://www.springframework.org/schema/security"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/security
+        http://www.springframework.org/schema/security/spring-security.xsd">
+    <http> <!-- 사용자가 밑에 url에 접근가능여부. -->
+    	<form-login login-page="/home/mainPage"  
+    	default-target-url="/reviews/login-review_list"/> <!-- 로그인인증하는 페이지  ,되돌아가는 페이지.-->
+    	<logout logout-success-url="/home/mainPage"/>  <!-- 로그아웃성공하면 가게되는페이지 -->
+    	<intercept-url pattern="/reviews/login-review_list" access="ROLE_ADMIN" /> <!-- access 접근가능한 그룹을 지정 -->
+    </http>
+    <authentication-manager>
+    	<!-- 사용자 정보 제공할 부분 DB연동한다 -->
+    	<authentication-provider>
+    		<!-- <jdbc-user-service data-source-ref=""
+    			users-by-username-query=""
+    			authorities-by-username-query=""/> -->
+    		 <user-service> 
+    			<user name="dragon" password="111" authorities="ROLE_TEACHER"/>
+    			<user name="newlec@naver.com" password="111" authorities="ROLE_TEACHER,ROLE_ADMIN"/>
+    		</user-service> 
+    	</authentication-provider>
+    </authentication-manager>    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+</beans:beans>
+        

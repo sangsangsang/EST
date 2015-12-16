@@ -54,8 +54,8 @@ public class ReviewsController {
 	public String reviewReg(){
 		return "reviews/reviewReg";
 	}
-	@RequestMapping("review_list")
+	@RequestMapping("login-review_list")
 	public String review_list(){
-		return "reviews/review_list";
+		return "reviews/login-review_list";
 	}
 }

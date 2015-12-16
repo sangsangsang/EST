@@ -6,12 +6,21 @@
 	request.getContextPath();
 %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
-   
-<h1 class="hidden">리뷰리스트</h1>
-         
-         
+	
+	<main id="main">  
+	<h1 class="hidden">리뷰리스트</h1> 
          <div id ="box1" class="hc vc">
-         
+           <nav id ="category-form">
+            <ul>
+            <%-- <a href=""><img src="${ctx}/content/images/food.png"
+                     alt="음식사진" /></a>
+            <a href=""><img src="${ctx}/content/images/foodLetter.png"
+                     alt="food" /></a> --%>
+             ALL
+            
+            </ul>
+            </nav>
+            
          <nav id = "rating-menu">
             <h1 class ="hidden">별점메뉴</h1>
             <ul>
@@ -28,19 +37,9 @@
                
             </ul>
             
-            <nav id ="category-form">
-            <ul>
-            <a href=""><img src="${ctx}/content/images/food.png"
-                     alt="음식사진" /></a>
-            <a href=""><img src="${ctx}/content/images/foodLetter.png"
-                     alt="food" /></a>
-            
-            </ul>
-            </nav>
-            
             <nav id = "count-menu">
             <ul>
-               추천수 / 조회수 / 댓글수 
+              <a href=""> 추천수</a> /<a href=""> 조회수</a> /<a href=""> 댓글수</a> 
            
             </ul>
             </nav>
@@ -75,7 +74,7 @@
                       <a href=""><img src="${ctx}/content/images/faceimg.png" width ="25" height="25"
                         alt="닉네임" /></a>
                         </td>
-                        <td id = "user-star">
+                        <td id = "user-star1">
                         <a href=""><img src="${ctx}/content/images/g4.png" width ="50" height="15"/>
                         </a></td>
                         <td>
@@ -87,13 +86,13 @@
                         <a href=""><img src="${ctx}/content/images/g3.png" width ="50" height="15"/>
                         </a></td>
                         
-                        <td id = "like">
+                        <td id = "like1">
                          <a href=""><img src="${ctx}/content/images/like.png" width ="15" height="15"
                         alt="좋아요갯수" /></a>
                         (20)
                         </td>
                         
-                        <td id = "comment">
+                        <td id = "comment1">
                          <a href=""><img src="${ctx}/content/images/comment.png" width ="15" height="15"
                         alt="댓글갯수" /></a>
                         (5)
@@ -286,3 +285,4 @@
           </table>
           </div>
        </div>
+       </main>
