@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd">
-        
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+   <context:component-scan base-package="com.estreller.wbprj.controllers" />
+   
       <!-- bean 태그를쓸때는 항상 클래스를 객체화해서 써야 된다 -->
       <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" > <!-- myBatisConfig 에서 datasource를 가져와서 bean타입으로바꿔준다 -->
       	<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
       	<property name="url" value="jdbc:sqlserver://211.238.142.251:1433;databaseName=estrellerdb"/>
-      	<property name="username" value="esteller"/>
+      	<property name="username" value="estreller"/>
       	<property name="password" value="3K1C"/>	
       </bean>  
       
@@ -25,6 +30,6 @@
 	
     <bean name="ReviewDao" class="com.estreller.wbprj.dao.mybatis.MyBatisReviewDao"/>
     
-    <bean name="memberDao" class="com.estreller.wbprj.dao.mybatis.MyBatisMemberDao"/>
+    <bean name="MemberDao" class="com.estreller.wbprj.dao.mybatis.MyBatisMemberDao"/>
     
 </beans>    

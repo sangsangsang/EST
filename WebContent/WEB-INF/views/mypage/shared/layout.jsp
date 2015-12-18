@@ -18,7 +18,7 @@
 <%-- <link href="${ctx}/content/customer/css/customer.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/content/customer/css/<tiles:getAsString name="css"/>" type="text/css" rel="stylesheet" /> --%>
 <link href="${ctx}/content/css/reset.css" type="text/css" rel="stylesheet"/>
-<link href="${ctx}/content/management/css/<tiles:getAsString name="css"/>" type="text/css" rel="stylesheet"/>
+<link href="${ctx}/content/mypage/css/<tiles:getAsString name="css"/>" type="text/css" rel="stylesheet"/>
 </head>
 <body>
    <header id="header">

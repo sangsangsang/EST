@@ -1,10 +1,10 @@
-<%@page import="java.util.List"%>
+<%-- <%@page import="java.util.List"%>
 <%@page import="com.estreller.wbprj.vo.Member"%>
 <%@page import="com.estreller.wbprj.dao.mybatis.MyBatisMemberDao"%>
-<%@page import="com.estreller.wbprj.dao.MemberDao"%>
+<%@page import="com.estreller.wbprj.dao.MemberDao"%> --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
+<%-- <%
 
 	MemberDao dao = new MyBatisMemberDao();//MyBatis활용
 	
@@ -19,7 +19,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/reset.css" type="text/css" rel="stylesheet">
-<link href="../css/Style-join.css" type="text/css" rel="stylesheet">
+<link href="../css/Style-join.css" type="text/css" rel="stylesheet"> --%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
@@ -66,7 +66,7 @@ $(document).ready(function(){
     });
 });
 </script>
-</head>
+<!-- </head>
 <body>
    <header id="join-header">
    <div class="content-container">
@@ -81,7 +81,7 @@ $(document).ready(function(){
    </header>
 
    <div id="body">
-        <div class="content-container">
+        <div class="content-container"> -->
          <main id="join-main">
          
          <p>회원가입</p>      
@@ -93,11 +93,11 @@ $(document).ready(function(){
                <br>
                <br>
                <br>
-               <input type="text" value="비밀번호를 입력해주세요" class="inputPassword"  maxlength="12"/>
+               <input type="password" value="비밀번호를 입력해주세요" class="inputPassword"  maxlength="12"/>
                <br>
                <br>
                <br>
-               <input type="text" value="비밀번호를 재입력해주세요" class="inputRepassword" maxlength="12" />
+               <input type="password" value="비밀번호를 재입력해주세요" class="inputRepassword" maxlength="12" />
                <br>
                <br>
                <br>
@@ -111,8 +111,8 @@ $(document).ready(function(){
                </form>
             </div>
          </main>
-      </div>
+   <!--    </div>
    </div>
 
 </body>
-</html>
+</html> -->

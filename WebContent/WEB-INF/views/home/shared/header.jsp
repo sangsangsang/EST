@@ -13,16 +13,16 @@
    <nav id="main-menu">
       <h1 class="hidden">카테고리</h1>
       <ul>
-      <li><a href="Category/Sports.html">Sports</a></li>
-      <li><a href="Category/Movie.html">Movie</a></li>
-      <li><a href="Category/Game.html">Game</a></li>
-      <li><a href="Category/Book.html">Book</a></li>
-      <li><a href="Category/Music.html">Music</a></li>
-      <li><a href="Category/Fashion&Beauty.html">Fashion&Beauty</a></li>
-      <li><a href="Category/Show&Concert.html">Show&Concert</a></li>
-      <li><a href="Category/Food.html">Food</a></li>
-      <li><a href="Category/Travel.html">Travel</a></li>
-      <li><a href="Category/Electronics.html">Electronics</a></li>
+      <li><a href="${ctx}/joinus/loginPage">Sports</a></li>
+      <li><a href="${ctx}/joinus/loginPage">Movie</a></li>
+      <li><a href="${ctx}/joinus/loginPage">Game</a></li>
+      <li><a href="${ctx}/joinus/loginPage">Book</a></li>
+      <li><a href="${ctx}/joinus/loginPage">Music</a></li>
+      <li><a href="${ctx}/joinus/loginPage">Fashion&Beauty</a></li>
+      <li><a href="${ctx}/joinus/loginPage">Show&Concert</a></li>
+      <li><a href="${ctx}/joinus/loginPage">Food</a></li>
+      <li><a href="${ctx}/joinus/loginPage">Travel</a></li>
+      <li><a href="${ctx}/joinus/loginPage">Electronics</a></li>
       </ul>
    </nav>
    <nav id="search">
@@ -36,11 +36,12 @@
          <form id="login-form" action="<c:url value="/j_spring_security_check"/>" method="post" >
             <fieldset class="clearfix">
                   <label >E-mail</label>
-                  <input type="email" name="email"/>
+                  <input type="email" name="j_username"/>
                               
                   <label>Passward</label>
-                  <input type="password" name="pwd"/>
-                  <a href="login-review_list"><input type="submit" value="로그인"/></a>
+                  <input type="password" name="j_password"/>
+                  
+                  <!-- <a href="login-review_list"> --><input type="submit" value="로그인"/></a>
             </fieldset>
          </form>
        </section>

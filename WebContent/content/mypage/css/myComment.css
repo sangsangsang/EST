@@ -7,7 +7,18 @@
    height:0px;
    visibility:hidden;
 }
+.content-container 
+{   
+   position:relative;
+   width:1300px; /* 헤더너비 */ 
+   margin-left:auto; 
+   margin-right:auto;
+   
+   /* opacity:0.5; */
+   height:inherit;
+}
 
+/* ---------------------로그인했을때 헤더부분------------------------------------------------- */
 .hidden{
    display:none;
 }
@@ -16,16 +27,17 @@ body{
 
    font-family:돋움;
    font-size:11px;
-   color:#979797;
+   /* color:#979797; */
 }
+
 
 #header
-{
+{	
+	
    height:70px;
-   background:#c0c0c0;   
+   background:#c0c0c0; 
+   position: fixed;  
 }
-
-
    #main-menu{
       display:inline-block;
       position:absolute;
@@ -54,11 +66,11 @@ body{
          #main-menu>ul>li a:HOVER{
                text-decoration:underline;
          }
-#mypage{
-   position:absolute;
-   margin-left:830px;
-   top:10px;
-}
+	#profile{
+	   position:absolute;
+	   margin-left:830px;
+	   top:10px;
+	}
 
 section>p{
    display:inline-block;
@@ -74,53 +86,46 @@ section>p{
       section>p a:HOVER{
           text-decoration:underline;
       }
-   
-
-#write{
-   position:absolute;
-   margin-left:900px;
-   top: 23px;
-}
-#comment{
-   position:absolute;
-   margin-left:930px;
-   top: 23px;
-}
-#like{
-   position:absolute;
-   margin-left:960px;
-   top: 23px;
-}
-#report{
-
-   position:absolute;
-   margin-left:990px;
-   top: 23px;
-}
-#logout{
-
-   position:absolute;
-   right:140px;
-   top: 15px;
-}
-#new-write{
-   position:absolute;
-   right:90px;
-   top: 15px;
-}
-
-#search{
-  text-indent:-999px;
-   cursor:pointer;
-   border:0px;
-   width:32px;
-   height:30px;
-   background:url("../images/search.png") no-repeat center;
-   overflow:hidden;
-   position:absolute;
-   right:0px;
-   top: 15px;
-}
+		#write{
+		   position:absolute;
+		   margin-left:900px;
+		   top: 23px;
+		}
+		#comment{
+		   position:absolute;
+		   margin-left:930px;
+		   top: 23px;
+		}
+		#like{
+		   position:absolute;
+		   margin-left:960px;
+		   top: 23px;
+		}
+		#report{
+		
+		   position:absolute;
+		   margin-left:990px;
+		   top: 23px;
+		}
+		#logout{
+		
+		   position:absolute;
+		   right:140px;
+		   top: 15px;
+		}
+		#new-write{
+		   position:absolute;
+		   right:90px;
+		   top: 15px;
+		}
+		
+		 #search{
+		   position:absolute;
+		   right:40px;
+		   top: 20px;
+		}
+	
+	
 
 /* ---------------box로 중앙정렬----------------------- */
 
@@ -130,7 +135,7 @@ text-align: center;
 overflow: auto;
 }   
 .hc { width:900px; left:0; right:0; margin-left:auto; margin-right:auto; } /* 가로 중앙 정렬 */
-.vc { height:700px; top: 50px; bottom:0; margin-top:auto; margin-bottom:auto; }     
+.vc { height:700px; top: 80px; bottom:0; margin-top:auto; margin-bottom:auto; }     
    
 }
 

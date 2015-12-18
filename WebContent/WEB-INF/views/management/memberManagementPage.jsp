@@ -8,7 +8,8 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
    
    
-
+<div id="body">
+      <div class="content-container clearfix">
       <aside id="aside">
          <h1 class="hidden">관리목록</h1>
          
@@ -82,4 +83,10 @@
          <h3 class="hidden">전체페이지와 현재페이지</h3>
          <p>1/1page</p>         
       </main>
+          
+      </div>
+   </div>
+  
+</body>
+</html>
       

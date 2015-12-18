@@ -12,6 +12,10 @@
 				)A 
 				WHERE NUM BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
 	</select>
+    
+    <select id="getMember" resultType="com.estreller.wbprj.vo.Member">
+			SELECT * FROM MEMBERS WHERE EMAIl=#{eamil}
+	</select>
 	
 	<update	id="update" parameterType ="com.estreller.wbprj.vo.Member">
 		UPDATE Members 

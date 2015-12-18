@@ -7,33 +7,36 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/security
         http://www.springframework.org/schema/security/spring-security.xsd">
+        
+   <beans:bean name="failHandler" class="com.estreller.wbprj.handlers.EstrellerAuthFailHandler"/>
+   <beans:bean name="successHandler" class="com.estreller.wbprj.handlers.EstrellerSuccessHandler"/>       
+        
     <http> <!-- 사용자가 밑에 url에 접근가능여부. -->
     	<form-login login-page="/home/mainPage"  
-    	default-target-url="/reviews/login-review_list"/> <!-- 로그인인증하는 페이지  ,되돌아가는 페이지.-->
+    	default-target-url="/reviews/login-review_list" 
+    	authentication-failure-url="../joinus/loginPage?error=1"
+    	authentication-failure-handler-ref="failHandler"
+    	authentication-success-handler-ref="successHandler"
+    	/> <!-- 1.target글쓰기 말고  헤더부분에 로그인을인증하면  홈으로 가는 페이지 2.failure 로그인실패시 에러 발생.
+    	 		3.인증실패시failure클래스  4.인증성공시 success-->
+    	
     	<logout logout-success-url="/home/mainPage"/>  <!-- 로그아웃성공하면 가게되는페이지 -->
-    	<intercept-url pattern="/reviews/login-review_list" access="ROLE_ADMIN" /> <!-- access 접근가능한 그룹을 지정 -->
+    	
+    	<!-- <intercept-url pattern="../category/*" access="ROLE_USER"/> --> <!-- access 접근가능한 그룹을 지정 ,접근가능한 사용자가 로그인 하게되면 글쓰기 페이지로 넘어감. -->
+ 		<intercept-url pattern="/reviews/login-review_list" access="ROLE_USER"/>   
     </http>
     <authentication-manager>
     	<!-- 사용자 정보 제공할 부분 DB연동한다 -->
     	<authentication-provider>
-    		<!-- <jdbc-user-service data-source-ref=""
-    			users-by-username-query=""
-    			authorities-by-username-query=""/> -->
-    		 <user-service> 
+    		  <jdbc-user-service data-source-ref="dataSource"
+    			users-by-username-query="SELECT Email userid, Pwd password, 1 enabled FROM Members WHERE Email=?"
+    			authorities-by-username-query="SELECT Email userid, 'ROLE_USER' authorities FROM Members WHERE Email=?"/> <!-- 역할정보를 달라 ,권한정보 -->
+    		<!--  <user-service> 
     			<user name="dragon" password="111" authorities="ROLE_TEACHER"/>
-    			<user name="newlec@naver.com" password="111" authorities="ROLE_TEACHER,ROLE_ADMIN"/>
-    		</user-service> 
+    			<user name="newlec" password="111" authorities="ROLE_TEACHER,ROLE_ADMIN"/>
+    		</user-service>  -->
     	</authentication-provider>
     </authentication-manager>    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
 </beans:beans>
         

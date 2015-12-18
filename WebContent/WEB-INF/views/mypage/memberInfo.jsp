@@ -10,8 +10,7 @@
 
    <!-- <div id="visual">
    </div> -->
-   <div id="body">
-      <div class="content-container clearfix">
+  
          <main id="main">
             <img src="${ctx}/content/images/profile-face.png" alt="얼굴" />
             <p>profile</p>
@@ -40,9 +39,5 @@
          </form>
          </aside>
    
-   </div>   
-   </div>
-   </div>
+  
  
-</body>
-</html>

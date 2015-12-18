@@ -74,8 +74,9 @@ body{
          font-size:12px;
          padding-left:10px;
       }
-      #login-form input[type="text"]{
-         width:100px;
+      #login-form input[type="email"],
+      #login-form input[type="password"]{
+         width:120px;
       }
       
       #login-form input[type='submit']{

@@ -52,11 +52,11 @@ body{
          #main-menu>ul>li a:HOVER{
                text-decoration:underline;
          }
-#mypage{
-   position:absolute;
-   margin-left:830px;
-   top:10px;
-}
+		#profile{
+		   position:absolute;
+		   margin-left:830px;
+		   top:10px;
+		}
 
 section>p{
    display:inline-block;
@@ -110,7 +110,7 @@ section>p{
 #search{
    position:absolute;
    right:40px;
-   top: 15px;
+   top: 20px;
 }
 
 #visual
@@ -175,14 +175,3 @@ section>p{
 }
 
 
-.content-container 
-{   
-   position:relative;
-   width:1300px; /* 헤더너비 */ 
-   margin-left:auto; 
-   margin-right:auto;
-
-   /* opacity:0.5; */
-   height:inherit;
-   
-}

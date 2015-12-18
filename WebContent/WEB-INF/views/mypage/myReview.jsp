@@ -7,9 +7,7 @@
 %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
    
-  
-   <div id="body">
-   <div class="content-container">
+ 
       <main id="main">
       
          <h1 class="hidden">리뷰리스트</h1>
@@ -17,6 +15,14 @@
          
          <div id ="box1" class="hc vc">
          
+          <nav id ="category-form">
+            <ul>
+            <a href=""><img src=""
+                     alt="" /></a>
+            <a href="">내가 작성한 글 보기</a>
+            
+            </ul>
+            </nav>
          <nav id = "rating-menu">
             <h1 class ="hidden">별점메뉴</h1>
             <ul>
@@ -32,19 +38,9 @@
                      alt="별1개" /></a></li>
                
             </ul>
-            
-            <nav id ="category-form">
-            <ul>
-            <a href=""><img src=""
-                     alt="" /></a>
-            <a href="">내가 작성한 글 보기</a>
-            
-            </ul>
-            </nav>
-            
          
             
-         
+        
          
          </div>
          
@@ -157,12 +153,6 @@
           </table>
           </div>
        </div>
-         
-          
+    
       </main>   
-   </div>
-   </div>
-   <div id="footer">
-   </div>
-</body>
-</html>
+ 

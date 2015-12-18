@@ -48,12 +48,12 @@
               </fieldset>
               </form>
 	           <nav id = "join-cancel">
-	            <a href="../MainPage.html">
+	            <a href="${ctx}/home/mainPage">
 	           <img src="${ctx}/content/images/cancel.png" alt ="가입취소"/>
 	           </a>
 	           </nav>
 	           <nav id = "join-next">
-	           <a href="${ctx}/joinus/next-join.html">
+	           <a href="${ctx}/joinus/next-join">
 	           <img src="${ctx}/content/images/next.png" alt ="다음"/>
 	           </a>
 	           </nav>
@@ -65,7 +65,7 @@
           </p3>
 		     
 		 <div id="login-button">
-		     <a href="../MainPage.html"><ins>로그인하기</ins></a>
+		     <a href="${ctx}/joinus/loginPage"><ins>로그인하기</ins></a>
 	     </div>
            
 	         	</div>

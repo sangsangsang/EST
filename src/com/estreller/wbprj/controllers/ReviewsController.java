@@ -5,12 +5,17 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.estreller.wbprj.dao.MemberDao;
+
 import com.estreller.wbprj.dao.ReviewDao;
 import com.estreller.wbprj.dao.mybatis.MyBatisReviewDao;
+import com.estreller.wbprj.vo.Member;
+
 
 
 //POJOÅ¬·¡½º
@@ -18,8 +23,16 @@ import com.estreller.wbprj.dao.mybatis.MyBatisReviewDao;
 @RequestMapping("/reviews/")
 public class ReviewsController {
 	
+	
+	   @Autowired
+	   private MemberDao memberDao;
+	   
+	
 	@RequestMapping("login-mainpage")
-	public String loginMainPage(/*Model model*/){
+	public String loginMainPage(String w, Model model){
+		
+	/*	Member member = memberDao.getMember(w);
+		model.addAttribute("member", member);*/
 		return "reviews/login-mainpage";
 	}
 	

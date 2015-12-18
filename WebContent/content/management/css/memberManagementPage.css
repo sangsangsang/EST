@@ -53,6 +53,19 @@ body{
          #main-menu>ul>li a:HOVER{
                text-decoration:underline;
          }
+         	#logout{
+		
+		   position:absolute;
+		   right:140px;
+		   top: 15px;
+         	}
+		
+		 #search{
+		   position:absolute;
+		   right:40px;
+		   top: 20px;
+		}
+	
 #aside{
    position:relative;
    float:left;
