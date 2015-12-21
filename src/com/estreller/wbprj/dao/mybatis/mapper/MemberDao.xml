@@ -27,8 +27,12 @@
 		DELETE Members WHERE Email=#{email}	
 	</delete>
 	
-	<insert id="insert" parameterType="com.estreller.wbprj.vo.Member">
-		INSERT INTO Members(Email,NickName) VALUES(#{email},#{nickname})
+	<insert id="insert"  parameterType="com.estreller.wbprj.vo.Member">
+	  <!--   <selectKey keyProperty="code" order="BEFORE" resultType="String">
+	       SELECT ISNULL(MAX(CAST(CODE AS INT)),0) CODE FROM Members
+	    </selectKey> -->
+	
+		INSERT INTO Members(email, pwd, nickname) VALUES(#{email}, #{pwd}, #{nickname})
 	</insert>			
 	
 </mapper>

@@ -83,31 +83,33 @@ $(document).ready(function(){
    <div id="body">
         <div class="content-container"> -->
          <main id="join-main">
-         
+        
          <p>회원가입</p>      
             <div id="box" class="hc vc">
+            <form action="" method="post" >
             <br>
                <br>
                <br>
-               <input type="email" value="이메일을 입력해주세요" class="inputEmail"  maxlength="25"/>
+               <input type="email"  name ="email" value="이메일을 입력해주세요" class="inputEmail"  maxlength="25"/>
                <br>
                <br>
                <br>
-               <input type="password" value="비밀번호를 입력해주세요" class="inputPassword"  maxlength="12"/>
+               <input type="password"  value="비밀번호를 입력해주세요" class="inputPassword"  maxlength="12"/>
                <br>
                <br>
                <br>
-               <input type="password" value="비밀번호를 재입력해주세요" class="inputRepassword" maxlength="12" />
+               <input type="password" name ="pwd" value="비밀번호를 재입력해주세요" class="inputRepassword" maxlength="12" />
                <br>
                <br>
                <br>
-               <input type="text" value="닉네임을 입력해주세요" class="inputNickname" maxlength="5"/>
+               <input type="text" name ="nickname" value="닉네임을 입력해주세요" class="inputNickname" maxlength="5"/>
                <br>
                <br>  
-               <form id = "join-form">
+               <div id = "join-form">
             <fieldset class="clearfix">
                  <input type="submit" value="가입하기"/>
             </fieldset>
+               </div>
                </form>
             </div>
          </main>

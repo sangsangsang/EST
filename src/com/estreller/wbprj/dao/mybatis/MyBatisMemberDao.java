@@ -72,13 +72,13 @@ public class MyBatisMemberDao implements MemberDao {
 	}
 
 	@Override
-	public int insert(Member member) throws SQLException {
+	public int insert(Member m) throws SQLException {
 		//SqlSession session = ssf.openSession();
 		MemberDao dao = session.getMapper(MemberDao.class);
 		
-		int count = dao.insert(member);
-		session.commit();
-		session.close();
+		int count = dao.insert(m);
+		/*session.commit();
+		session.close();*/
 		return count;
 	}
 	

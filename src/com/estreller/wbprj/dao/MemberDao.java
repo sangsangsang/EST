@@ -14,5 +14,5 @@ public interface MemberDao {
 
 	public int update(Member member) throws SQLException;
 	public int delete(String email) throws SQLException;
-	public int insert(Member member) throws SQLException;
+	public int insert(Member m) throws SQLException;
 }
