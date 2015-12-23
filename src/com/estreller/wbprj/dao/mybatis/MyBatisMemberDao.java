@@ -76,7 +76,7 @@ public class MyBatisMemberDao implements MemberDao {
 	@Override
 	public List<Member> getAllEmail() throws SQLException {
 		MemberDao dao = session.getMapper(MemberDao.class);
-		List<Member> list = dao.getMembers();
+		List<Member> list = dao.getAllEmail();
 		session.close();
 		return list;
 	}
