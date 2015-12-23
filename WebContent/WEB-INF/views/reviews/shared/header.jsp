@@ -42,7 +42,7 @@
          
          
          <nav id="profile">
-            <a href="${ctx}/mypage/memberInfo"><img src="${pageContext.request.contextPath}/content/images/faceimg.png" alt="프로필수정" /></a>
+            <a href="memberInfo"><img src="${pageContext.request.contextPath}/content/images/faceimg.png" alt="프로필수정" /></a>
        </nav>
        <p><a href="" alt="마이페이지"><security:authentication property="name"/></a></p>
         <nav id="write">

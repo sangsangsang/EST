@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-@RequestMapping("/category/")
+@RequestMapping("home")
 public class CategoryController {
 	
 
