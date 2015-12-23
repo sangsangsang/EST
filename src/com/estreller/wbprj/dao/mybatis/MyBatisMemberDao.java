@@ -46,7 +46,7 @@ public class MyBatisMemberDao implements MemberDao {
 		//SqlSession session = ssf.openSession();
 		MemberDao dao = session.getMapper(MemberDao.class);
 		List<Member> list = dao.getMembers(page,field,query);
-		session.close();
+		//session.close();
 		return list;
 	}
 
@@ -55,8 +55,8 @@ public class MyBatisMemberDao implements MemberDao {
 		//SqlSession session = ssf.openSession();
 		MemberDao dao = session.getMapper(MemberDao.class);
 		int count = dao.update(member);
-		session.commit();
-		session.close();
+		//session.commit();
+		//session.close();
 		return count;
 	
 	}
@@ -66,8 +66,8 @@ public class MyBatisMemberDao implements MemberDao {
 		//SqlSession session = ssf.openSession();
 		MemberDao dao = session.getMapper(MemberDao.class);
 		int count = dao.delete(email);
-		session.commit();
-		session.close();
+		//session.commit();
+		//session.close();
 		return count;
 	}
 
@@ -77,8 +77,8 @@ public class MyBatisMemberDao implements MemberDao {
 		MemberDao dao = session.getMapper(MemberDao.class);
 		
 		int count = dao.insert(member);
-		session.commit();
-		session.close();
+		//session.commit();
+		//session.close();
 		return count;
 	}
 	

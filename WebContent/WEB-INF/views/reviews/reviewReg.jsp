@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <h2 class="hidden">글쓰기</h1>
-         <form action="" method="post">
+          <form action="reviewReg" method="post">
+ 			<h2 class="hidden">글쓰기</h1>
+
             <div id="content">
-               
                <div id="notice-article-detail" class="article-detail margin-large" >
                   <h3 class="hidden">카테고리</h3>
                   <dl class="article-detail-row">
                      <dd class="article-detail-category">
-                        <select>
+                        <select name="categorycode">
                            <option>Sports</option>
                            <option>Move</option>
                            <option>Game</option>
@@ -23,8 +23,7 @@
                      
                      <h3 class="hidden">별</h3>
                        
-                        <select>
-                           <option>0</option>
+                        <select name="ratingcode">
                            <option>1</option>
                            <option>2</option>
                            <option>3</option>
@@ -55,7 +54,7 @@
                    <dl class="article-detail-row">
                      <dt class="article-detail-title">
                         사진
-                        <!-- <img src="../images/photo.png" alt="사진" /> -->
+                        <%-- <img src="${pageContext.request.contextPath}/content/images/photo.png" alt="사진" /> --%>
                      </dt>
                      <dd class="article-detail-data">
                         &nbsp;<input type="file" id="txtFile" name="file" />
@@ -67,7 +66,7 @@
                         지도
                      </dt>
                      <dd class="article-detail-data">
-                        &nbsp;<input type="file" id="txtFile" name="file" />
+                        &nbsp;<input type="file" id="txtFile" name="map" />
                      </dd>
                   </dl>
                   <h3 class="hidden">키워드</h3>
@@ -76,7 +75,7 @@
                         키워드
                      </dt>
                      <dd class="article-detail-data">
-                        &nbsp;<input type="text" name="keyWord" />
+                        &nbsp;<input type="text" name="keyword" />
                      </dd>
                   </dl>
                </div>
@@ -84,7 +83,7 @@
                <h3 class="hidden">버튼</h3>
                <p class="article-comment">                  
                   <input class="btn-save button" type="submit" value="저장" />
-                  <a class="btn-cancel button" href="../Review/login-mainpage.html"><img src="${pageContext.request.contextPath}/content/images/btn-cancel.png" alt="취소" /></a>                  
+                  <a class="btn-cancel button" href="login-review_list"><img src="${pageContext.request.contextPath}/content/images/btn-cancel.png" alt="취소" /></a>                  
                </p>                     
             </div>            
          </form>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>				
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>		
    
    <h1 class="hidden">메인</h1>
    <nav id="main-menu">
@@ -24,7 +26,10 @@
            <a href="reviewReg"><img src="${pageContext.request.contextPath}/content/images/new_write.png" alt="새글쓰기" /></a>
     </nav> 
     <nav id="logout">
-           <a href=""><img src="${pageContext.request.contextPath}/content/images/logout.png" alt="로그아웃" /></a>
+         <c:if test="${pageContext.request.userPrincipal !=null }">	
+		<c:url var="logout" value="/j_spring_security_logout"/>
+           <a href="${logout}"><img src="${pageContext.request.contextPath}/content/images/logout.png" alt="로그아웃" /></a>
+    	</c:if>	
     </nav> 
    <section>
       <h1 class="hidden">회원</h1>
@@ -33,7 +38,7 @@
          <nav id="profile">
             <a href="../mypage/MemberInfo.html"><img src="${pageContext.request.contextPath}/content/images/faceimg.png" alt="프로필수정" /></a>
        </nav>
-       <p><a href="" alt="마이페이지">I23412343124124312D님</a></p>
+       <p><a href="" alt="마이페이지"><security:authentication property="name"/></a></p>
         <nav id="write">
            <a href=""><img src="${pageContext.request.contextPath}/content/images/scrap.png" alt="스크랩" /></a>
        </nav> 
