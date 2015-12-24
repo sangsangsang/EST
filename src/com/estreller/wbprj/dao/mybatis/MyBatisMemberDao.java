@@ -17,16 +17,7 @@ public class MyBatisMemberDao implements MemberDao {
 	@Autowired
 	private SqlSession session;
 	
-	@Override
-	public Member getMember(String email) throws SQLException {
 
-		//SqlSession session = ssf.openSession();
-		MemberDao dao = session.getMapper(MemberDao.class);
-		Member member = dao.getMember(email);
-		session.close();
-		return member;
-		
-	}
 	
 	@Override
 	public List<Member> getMembers() throws SQLException {
@@ -72,15 +63,28 @@ public class MyBatisMemberDao implements MemberDao {
 	}
 
 	@Override
-	public int insert(Member member) throws SQLException {
+	public int insert(Member m) throws SQLException {
 		//SqlSession session = ssf.openSession();
 		MemberDao dao = session.getMapper(MemberDao.class);
 		
-		int count = dao.insert(member);
-		//session.commit();
-		//session.close();
+		int count = dao.insert(m);
+		/*session.commit();
+		session.close();*/
+
 		return count;
 	}
+
+	@Override
+	public List<Member> getAllEmail() throws SQLException {
+		MemberDao dao = session.getMapper(MemberDao.class);
+		List<Member> list = dao.getAllEmail();
+		session.close();
+		return list;
+	}
+
+
+
+
 	
 
 	

@@ -77,8 +77,6 @@ public class MyBatisReviewDao implements ReviewDao {
 		String num = dao.getLastNum();
 		return num;
 	}
-
-	
 	
 	
 	

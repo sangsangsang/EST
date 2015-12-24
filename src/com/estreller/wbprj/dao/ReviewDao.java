@@ -16,3 +16,4 @@ public interface ReviewDao {
 	public String getLastNum();
 	public int delete(Review review) throws SQLException;
 }
+

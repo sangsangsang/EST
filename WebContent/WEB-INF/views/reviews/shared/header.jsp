@@ -1,7 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>				
-<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>		  
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>	
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
+
+<%
+
+	request.getContextPath();
+%>	  
    <h1 class="hidden">메인</h1>
    <nav id="main-menu">
       <h1 class="hidden">카테고리</h1>
@@ -35,7 +42,9 @@
          
          
          <nav id="profile">
+
             <a href="${pageContext.request.contextPath}/mypage/memberInfo"><img src="${pageContext.request.contextPath}/content/images/faceimg.png" alt="프로필수정" /></a>
+
        </nav>
        <p><a href="" alt="마이페이지"><security:authentication property="name"/></a></p>
         <nav id="write">

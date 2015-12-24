@@ -75,10 +75,10 @@ $(document).ready(function(){
                <br>
                
                <div id="join-button">
-             <a href="${ctx}/joinus/join"><ins>회원가입</ins></a>
+             <a href="join"><ins>회원가입</ins></a>
               </div>
                <div id="find-password">
-             <a href="${ctx}/joinus/find-password"><ins>비밀번호찾기</ins></a>
+             <a href="find-password"><ins>비밀번호찾기</ins></a>
               </div>
                
                <br>

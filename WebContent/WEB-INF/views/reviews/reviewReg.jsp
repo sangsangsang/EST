@@ -14,8 +14,8 @@
                            <option>Game</option>
                            <option>Book</option>
                            <option>Music</option>
-                           <option>Fashion & Beauty</option>
-                           <option>Show & Concert</option>
+                           <option>Fashion&Beauty</option>
+                           <option>Show&Concert</option>
                            <option>Food</option>
                            <option>Travel</option>
                            <option>Electronics</option>

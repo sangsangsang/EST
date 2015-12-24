@@ -1,14 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+   
 <%
 
-	request.getContextPath();
+   request.getContextPath();
 %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
-	
-	<main id="main">  
-	<h1 class="hidden">리뷰리스트</h1> 
+   
+   <main id="main">  
+   <h1 class="hidden">리뷰리스트</h1> 
          <div id ="box1" class="hc vc">
            <nav id ="category-form">
             <ul>
@@ -232,15 +235,15 @@
       </div>
    </div> 
        
-       
+       <c:forEach var="r" items = "${list}" >
        <div id ="box3" class="hc3 vc3" >
        <table id="review-preview-wide">
          <tbody>
              <tr>
-                <td><a href=""><img src="${ctx}/content/images/faceimg.png"
-                     alt="닉네임" /></a></td>   
-                <td>Chicken good</td>            
-                <td>2011-11-11</td>   
+                <td class="writer"><a href=""><img src="${ctx}/content/images/faceimg.png"
+                     alt="닉네임" /></a>${r.writer}</td>   
+                <td class="title">${r.title}</td>            
+                <td class="regdate"><fmt:formatDate pattern="yyyy-MM-dd" value="${r.regdate}"/></td>   
              </tr>
              
           </tbody>
@@ -285,4 +288,5 @@
           </table>
           </div>
        </div>
+       </c:forEach>
        </main>

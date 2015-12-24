@@ -1,11 +1,10 @@
 package com.estreller.wbprj.controllers;
 
-import java.io.PrintWriter;
+
 import java.security.Principal;
 import java.sql.SQLException;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
 import com.estreller.wbprj.dao.ReviewDao;
-import com.estreller.wbprj.dao.mybatis.MyBatisReviewDao;
 
 import com.estreller.wbprj.vo.Review;
 
@@ -86,7 +83,11 @@ public class ReviewsController {
 	
 	
 	@RequestMapping("login-review_list")
-	public String review_list(){
-		return "reviews/login-review_list";
-	}
+	   public String review_list(Model model) throws SQLException{
+	      List<Review> list = reviewDao.getReviews(1,"Title","");
+	      
+	      model.addAttribute("list", list);
+	      
+	      return "reviews/login-review_list";
+	   }
 }
