@@ -42,26 +42,30 @@ import com.estreller.wbprj.vo.Member;
 	
 
 		@RequestMapping(value="next-join", method=RequestMethod.GET)
-		public String nextJoin(){
+		public String nextJoin(Model model,String c){
+			String error="중복된 아이디입니다.";
+			String check="사용가능한 아이디입니다.";
+			System.out.printf("%s\n",c);
+			if(c!=null){
+				System.out.println("dad");
+			if(c.equals("error"))
+				model.addAttribute("error", error);
+			/*else if(c.equals("check"))
+				model.addAttribute("check", check);
+			System.out.println("dad");*/
+			}
 			return "joinus/next-join";
 		}
 		@RequestMapping(value="next-join", method=RequestMethod.POST)
-		public String nextJoin(Member m ,Model model,String c) throws SQLException{
+		public String nextJoin(Member m ) throws SQLException{
 			
 			List<Member> list = memberDao.getAllEmail();
-			for(Member member : list)
+			for(Member member : list){
 				if(m.getEmail().equals(member.getEmail()))
-					 return "redirect:joinus/next-join c?=error";
-				else
-					 return "redirect:joinus/next-join c?=check";
-			String error="중복된 아이디입니다.";
-			String check="사용가능한 아이디입니다.";
-			
-			if(c.equals("error"))
-				model.addAttribute("error", error);
-			else if(c.equals("check"))
-				model.addAttribute("check", check);
-			
+					 return "redirect:next-join?c=error";
+				/*else if(!m.getEmail().equals(member.getEmail()))
+					 return "redirect:	next-join?c=check";*/
+			}
 			
 			memberDao.insert(m);
 			return "redirect:../home/mainPage";

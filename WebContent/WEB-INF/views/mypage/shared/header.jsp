@@ -29,10 +29,10 @@
             <a href=""><img src="${pageContext.request.contextPath}/content/images/search.png" alt="검색" /></a>
     </nav> 
     <nav id="new-write">
-           <a href="reviewReg"><img src="${pageContext.request.contextPath}/content/images/new_write.png" alt="새글쓰기" /></a>
+           <a href="${ctx}/reviews/reviewReg"><img src="${pageContext.request.contextPath}/content/images/new_write.png" alt="새글쓰기" /></a>
     </nav> 
     <nav id="logout">
-           <a href=""><img src="${pageContext.request.contextPath}/content/images/logout.png" alt="로그아웃" /></a>
+           <a href="${ctx}/home/mainPage"><img src="${pageContext.request.contextPath}/content/images/logout.png" alt="로그아웃" /></a>
     </nav> 
    <section>
       <h1 class="hidden">회원</h1>

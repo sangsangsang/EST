@@ -84,18 +84,14 @@ $(document).ready(function(){
             <div id="box" class="hc vc">
             <form  action="next-join" method="post" >
             <br>
-            <p>오류메세지</p>
+            
              		 <c:if test="${error != null}">
-               		  <p>${error}</p>
+               		  <p style="color:red" >${error}</p>
                		  </c:if>
-               		  <c:if test="${check != null}">
-               		  <p>${check}</p>
-               		  </c:if>  
-               
                <br>
                <input type="email"  name ="email" value="이메일을 입력해주세요" 
                		  class="inputEmail"  maxlength="25" style="ime-mode:disabled"/>
-               <input type="submit" class="checker" value="중복확인" />
+         <!--       <input type="submit" class="checker" value="중복확인" /> -->
                <br>
                <br>
                <input type="password" name="pwd" value="비밀번호를 입력해주세요" class="inputPassword"  maxlength="12"/>

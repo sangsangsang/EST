@@ -20,7 +20,7 @@ import com.estreller.wbprj.vo.Member;
 
 //POJO클래스
 @Controller   //이걸 반드시해줘야 맵핑정보가 호출된다.
-@RequestMapping("home")
+@RequestMapping("/reviews/")
 public class ReviewsController {
 	
 	

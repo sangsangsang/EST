@@ -12,8 +12,8 @@
 				)A 
 				WHERE NUM BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
 	</select>
-    <select id="getAllEmail" resultType="String" >
-    	SELECT Email FROM MEMBERS;
+    <select id="getAllEmail" resultType="com.estreller.wbprj.vo.Member" >
+    	SELECT * FROM MEMBERS;
     </select>
    
 	
