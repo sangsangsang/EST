@@ -13,16 +13,16 @@
    <nav id="main-menu">
       <h1 class="hidden">카테고리</h1>
       <ul>
-      <li><a href="Category/Sports.html">Sports</a></li>
-      <li><a href="Category/Movie.html">Movie</a></li>
-      <li><a href="Category/Game.html">Game</a></li>
-      <li><a href="Category/Book.html">Book</a></li>
-      <li><a href="Category/Music.html">Music</a></li>
-      <li><a href="Category/Fashion&Beauty.html">Fashion&Beauty</a></li>
-      <li><a href="Category/Show&Concert.html">Show&Concert</a></li>
-      <li><a href="Category/Food.html">Food</a></li>
-      <li><a href="Category/Travel.html">Travel</a></li>
-      <li><a href="Category/Electronics.html">Electronics</a></li>
+     	<li><a href="${ctx}/category/sports-list">Sports</a></li>
+      <li><a href="${ctx}/category/movie-list">Movie</a></li>
+      <li><a href="${ctx}/category/game-list">Game</a></li>
+      <li><a href="${ctx}/category/book-list">Book</a></li>
+      <li><a href="${ctx}/category/music-list">Music</a></li>
+      <li><a href="${ctx}/category/fashion&beauty-list">Fashion&Beauty</a></li>
+      <li><a href="${ctx}/category/show&concert-list">Show&Concert</a></li>
+      <li><a href="${ctx}/category/food-list">Food</a></li>
+      <li><a href="${ctx}/category/travel-list">Travel</a></li>
+      <li><a href="${ctx}/category/electronics-list">Electronics</a></li>
       </ul>
    </nav>
     <nav id="search">

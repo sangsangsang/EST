@@ -19,7 +19,7 @@
                      alt="음식사진" /></a>
             <a href=""><img src="${ctx}/content/images/foodLetter.png"
                      alt="food" /></a> --%>
-             Book
+             Electronics
             
             </ul>
             </nav>
@@ -92,13 +92,13 @@
                         <td id = "like1">
                          <a href=""><img src="${ctx}/content/images/like.png" width ="15" height="15"
                         alt="좋아요갯수" /></a>
-                        (20)
+                        
                         </td>
                         
                         <td id = "comment1">
                          <a href=""><img src="${ctx}/content/images/comment.png" width ="15" height="15"
                         alt="댓글갯수" /></a>
-                        (5)
+                        
                         </td>
                         
                      </tr>
@@ -272,13 +272,13 @@
                         
                         <td id = "like-wide">
                          <a href=""><img src="${ctx}/content/images/like.png" width ="25" height="25"
-                        alt="좋아요갯수" /></a>
+                        alt="좋아요갯수" />${r.rcmCount}</a>
                         (3)
                         </td>
                         
                         <td id = "comment-wide">
                          <a href=""><img src="${ctx}/content/images/comment.png" width ="25" height="25"
-                        alt="댓글갯수" /></a>
+                        alt="댓글갯수" />${r.comCount}</a>
                         (1)
                         </td>
                         

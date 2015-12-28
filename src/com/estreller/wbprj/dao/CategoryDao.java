@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.estreller.wbprj.vo.Category;
-import com.estreller.wbprj.vo.ReviewRating;
+
 
 public interface CategoryDao {
 	public  List<Category> getCategory(int page,String field1,String query1) throws SQLException;

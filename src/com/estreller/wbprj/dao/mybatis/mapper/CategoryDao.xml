@@ -10,7 +10,7 @@
 				ReviewView.* FROM ReviewView 
 				WHERE ${param2} LIKE '%${param3}%'
 				)A 
-				WHERE NUM3 BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
+				WHERE NUM3 BETWEEN 1+(#{param1}-1)*100 AND #{param1}*100
 	</select>
 	
 	</mapper>
