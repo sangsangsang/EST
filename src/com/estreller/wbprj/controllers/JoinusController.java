@@ -22,7 +22,7 @@ import com.estreller.wbprj.vo.Member;
 
 
 @Controller
-@RequestMapping("home")
+@RequestMapping("/joinus/")
 	public class JoinusController {
 	
 	

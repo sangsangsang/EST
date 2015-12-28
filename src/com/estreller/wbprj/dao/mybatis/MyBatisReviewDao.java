@@ -18,6 +18,9 @@ public class MyBatisReviewDao implements ReviewDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+	}
 	
 	@Override
 	public List<Review> getReivews() throws SQLException {
@@ -76,6 +79,13 @@ public class MyBatisReviewDao implements ReviewDao {
 		ReviewDao dao = sqlSession.getMapper(ReviewDao.class);
 		String num = dao.getLastNum();
 		return num;
+	}
+
+	@Override
+	public Review getReview(String num) {
+		ReviewDao dao = sqlSession.getMapper(ReviewDao.class);
+		Review r = dao.getReview(num);
+		return r;
 	}
 	
 	

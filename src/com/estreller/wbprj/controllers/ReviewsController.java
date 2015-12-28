@@ -54,7 +54,10 @@ public class ReviewsController {
 	}*/
 	
 	@RequestMapping("reviewDetail")
-	public String ReviewDetail(/*Model model*/){
+	public String ReviewDetail(String c,Model model){
+		Review review = reviewDao.getReview(c);
+		
+		model.addAttribute("review", review);
 		
 		/*String code = request.getParameter("c");*/
 	    /*NoticeDao dao = new MyBatisNoticeDao();

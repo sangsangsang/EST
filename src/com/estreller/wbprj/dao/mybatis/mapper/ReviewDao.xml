@@ -13,6 +13,10 @@
 				WHERE NUM BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
 	</select>
 	
+	<select id="getReview" resultType="com.estreller.wbprj.vo.Review">
+		SELECT * FROM REVIEW WHERE Num = #{num}
+	</select>
+	
 	<select id="getLastNum" resultType="String">
 		SELECT ISNULL(MAX(CAST(NUM AS INT)),0) CODE FROM REVIEW
 	</select>

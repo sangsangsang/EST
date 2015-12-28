@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
           <form action="reviewReg" method="post">
  			<h2 class="hidden">글쓰기</h1>
-
             <div id="content">
                <div id="notice-article-detail" class="article-detail margin-large" >
                   <h3 class="hidden">카테고리</h3>
@@ -10,7 +9,7 @@
                      <dd class="article-detail-category">
                         <select name="categorycode">
                            <option>Sports</option>
-                           <option>Move</option>
+                           <option>Movie</option>
                            <option>Game</option>
                            <option>Book</option>
                            <option>Music</option>
@@ -24,7 +23,7 @@
                      <h3 class="hidden">별</h3>
                        
                         <select name="ratingcode">
-                           <option>1</option>
+                           <option><img src="${ctx}/content/images/g1.png" width="5" height="5"/></option>
                            <option>2</option>
                            <option>3</option>
                            <option>4</option>

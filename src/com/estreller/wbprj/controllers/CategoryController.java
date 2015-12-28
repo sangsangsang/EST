@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-@RequestMapping("home")
+@RequestMapping("/category/")
 public class CategoryController {
 	
 
-	@RequestMapping("food-list")
+	@RequestMapping("book")
 	public String food(){
-		return "category/food-list";
+		return "category/book";
 	}
 }
