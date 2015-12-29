@@ -65,7 +65,7 @@ public class JdbcMemberDao implements MemberDao {
 		return list;
 	}
 	@Override
-	public int update(Member member) throws SQLException  {
+	public int update(Member member) throws SQLException{
 		String sql="UPDATE Members SET Name =?, Pwd=? WHERE Mid=?";
 		
 		String url = "jdbc:sqlserver://211.238.142.251:1433;databaseName=edudb;";
@@ -114,6 +114,11 @@ public class JdbcMemberDao implements MemberDao {
 		con.close();
 		
 		return count;
+	}
+	@Override
+	public Member getMember(String email) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 		
 	

@@ -1,17 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+   
 <%
 
-	request.getContextPath();
+   request.getContextPath();
 %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
    
-<h1 class="hidden">리뷰리스트</h1>
-         
-         
+   <main id="main">  
+   <h1 class="hidden">리뷰리스트</h1> 
          <div id ="box1" class="hc vc">
-         
+           <nav id ="category-form">
+            <ul>
+            <%-- <a href=""><img src="${ctx}/content/images/food.png"
+                     alt="음식사진" /></a>
+            <a href=""><img src="${ctx}/content/images/foodLetter.png"
+                     alt="food" /></a> --%>
+             Food
+            
+            </ul>
+            </nav>
+            
          <nav id = "rating-menu">
             <h1 class ="hidden">별점메뉴</h1>
             <ul>
@@ -28,19 +40,9 @@
                
             </ul>
             
-            <nav id ="category-form">
-            <ul>
-            <a href=""><img src="${ctx}/content/images/food.png"
-                     alt="음식사진" /></a>
-            <a href=""><img src="${ctx}/content/images/foodLetter.png"
-                     alt="food" /></a>
-            
-            </ul>
-            </nav>
-            
             <nav id = "count-menu">
             <ul>
-               추천수 / 조회수 / 댓글수 
+              <a href=""> 추천수</a> /<a href=""> 조회수</a> /<a href=""> 댓글수</a> 
            
             </ul>
             </nav>
@@ -90,13 +92,13 @@
                         <td id = "like1">
                          <a href=""><img src="${ctx}/content/images/like.png" width ="15" height="15"
                         alt="좋아요갯수" /></a>
-                        (20)
+                        
                         </td>
                         
                         <td id = "comment1">
                          <a href=""><img src="${ctx}/content/images/comment.png" width ="15" height="15"
                         alt="댓글갯수" /></a>
-                        (5)
+                        
                         </td>
                         
                      </tr>
@@ -233,15 +235,16 @@
       </div>
    </div> 
        
-       
+       <c:forEach var="r" items = "${list}" >
        <div id ="box3" class="hc3 vc3" >
+       <form action="login-review_list" method="get">
        <table id="review-preview-wide">
          <tbody>
              <tr>
-                <td><a href=""><img src="${ctx}/content/images/faceimg.png"
-                     alt="닉네임" /></a></td>   
-                <td>Chicken good</td>            
-                <td>2011-11-11</td>   
+                <td class="writer"><a href=""><img src="${ctx}/content/images/faceimg.png"
+                     alt="닉네임" /></a>${r.writer}</td>   
+                <td class="title">${r.title}</td>            
+                <td class="regdate"><fmt:formatDate pattern="yyyy-MM-dd" value="${r.regdate}"/></td>   
              </tr>
              
           </tbody>
@@ -257,7 +260,7 @@
                         alt="닉네임" /></a>
                         </td>
                         <td id = "user-star-wide">
-                        <a href=""><img src="${ctx}/content/images/g4.png" width ="80" height="15"/>
+                        <a href=""><img src="${ctx}/content/images/g${r.ratingCode}.png" width ="80" height="15"/>
                         </a></td>
                         <td>
                       <a href=""><img src="${ctx}/content/images/user.png" width ="45" height="45"
@@ -270,13 +273,13 @@
                         
                         <td id = "like-wide">
                          <a href=""><img src="${ctx}/content/images/like.png" width ="25" height="25"
-                        alt="좋아요갯수" /></a>
+                        alt="좋아요갯수" />${r.rcmCount}</a>
                         (3)
                         </td>
                         
                         <td id = "comment-wide">
                          <a href=""><img src="${ctx}/content/images/comment.png" width ="25" height="25"
-                        alt="댓글갯수" /></a>
+                        alt="댓글갯수" />${r.comCount}</a>
                         (1)
                         </td>
                         
@@ -285,4 +288,7 @@
           
           </table>
           </div>
+          </form>
        </div>
+       </c:forEach>
+       </main>

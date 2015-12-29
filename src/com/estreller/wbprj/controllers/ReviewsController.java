@@ -1,20 +1,21 @@
 package com.estreller.wbprj.controllers;
 
-import java.io.PrintWriter;
+
+import java.security.Principal;
+import java.sql.SQLException;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.estreller.wbprj.dao.MemberDao;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.estreller.wbprj.dao.ReviewDao;
-import com.estreller.wbprj.dao.mybatis.MyBatisReviewDao;
-import com.estreller.wbprj.vo.Member;
+
+import com.estreller.wbprj.vo.Review;
 
 
 
@@ -25,7 +26,8 @@ public class ReviewsController {
 	
 	
 	   @Autowired
-	   private MemberDao memberDao;
+
+	   private ReviewDao reviewDao;
 	   
 	
 	@RequestMapping("login-mainpage")
@@ -52,7 +54,10 @@ public class ReviewsController {
 	}*/
 	
 	@RequestMapping("reviewDetail")
-	public String ReviewDetail(/*Model model*/){
+	public String ReviewDetail(String c,Model model){
+		Review review = reviewDao.getReview(c);
+		
+		model.addAttribute("review", review);
 		
 		/*String code = request.getParameter("c");*/
 	    /*NoticeDao dao = new MyBatisNoticeDao();
@@ -63,12 +68,29 @@ public class ReviewsController {
 		List<NoticeFile> files=fileDao.getNoticeFiles(code);*/
 		return "reviews/reviewDetail";
 	}
-	@RequestMapping("reviewReg")
-	public String reviewReg(){
+	
+	
+	@RequestMapping(value="reviewReg", method=RequestMethod.GET)
+	public String reviewReg(HttpSession session){
+		
+		
 		return "reviews/reviewReg";
 	}
-	@RequestMapping("login-review_list")
-	public String review_list(){
-		return "reviews/login-review_list";
+	@RequestMapping(value="reviewReg", method=RequestMethod.POST)
+	public String reviewReg(Review r, Principal principal) {
+		r.setWriter(principal.getName());
+		reviewDao.insert(r);
+		
+		return "redirect:login-review_list";
 	}
+	
+	
+	@RequestMapping("login-review_list")
+	   public String review_list(Model model) throws SQLException{
+	      List<Review> list = reviewDao.getReviews(1,"Title","");
+	      
+	      model.addAttribute("list", list);
+	      
+	      return "reviews/login-review_list";
+	   }
 }

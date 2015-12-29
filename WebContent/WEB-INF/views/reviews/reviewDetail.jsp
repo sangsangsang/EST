@@ -13,34 +13,25 @@
 	 		
 		 	<tbody>
 		 		<tr>
-			 		<td>Food<br/><a href=""></a><img src="${ctx}/content/images/food.png"/></a></td>	
-			 		<td>The popcon very good</td>				
-			 		<td>2011-11-11</td>	
+			 		<td>${review.categorycode }<br/><a href=""></a><img src="${ctx}/content/images/${review.categorycode }.png"/></a></td>	
+			 		<td>${review.title }</td>				
+			 		<td>${review.regdate }</td>	
 		 		</tr>
 		 		
 		 	</tbody>
 	 	</table>
-	 	 <p id="nickName"><ins>11125님</ins></p>
+	 	 <p id="nickName"><ins>${review.writer }</ins></p>
 	 	 <nav id="follow">
             <a href=""><img src="${ctx}/content/images/follow.png" alt="받아보기" /></a>
        	 </nav>
-       	 <div id="raiting"><img src="${ctx}/content/images/5.png" alt="본인별점" /></div>
+       	 <div id="raiting"><img src="${ctx}/content/images/g${review.ratingcode }.png" alt="본인별점" /></div>
 	     <nav id="user">
 	            <img src="${ctx}/content/images/user.png" alt="별점준사람들" />
 	     </nav>
 	     <div id="u_raiting"><img src="${ctx}/content/images/3.png" alt="유저들별점" /></div>			
 	  
 	   <div id="content">
-	   <p>d</p>
-	   <p>d</p>
-	   <p>d</p>
-	   <p>d</p>
-	   <p>d</p>
-	   <p>d</p>
-	   <p>d</p>
-	   <p>d</p>
-	   <p>d</p>
-	   <p>d</p>
+		   ${review.content }
 	
 	   </div>
 	   <div>
@@ -71,11 +62,7 @@
 	   
 	   <div id="keyword">
 	   <img src="" alt="키워드" /><laber>KEYWORD</laber>
-	      <p>d</p>
-	   <p>d</p>
-	   <p>d</p>
-	   <p>d</p>
-	   <p>d</p>
+	      ${review.keyword }
 	   
 	   </div>
 	   <nav class="r-report r-scrap">

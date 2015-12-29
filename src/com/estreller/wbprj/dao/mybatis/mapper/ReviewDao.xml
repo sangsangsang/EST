@@ -13,9 +13,20 @@
 				WHERE NUM BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
 	</select>
 	
+	<select id="getReview" resultType="com.estreller.wbprj.vo.Review">
+		SELECT * FROM REVIEW WHERE Num = #{num}
+	</select>
+	
+	<select id="getLastNum" resultType="String">
+		SELECT ISNULL(MAX(CAST(NUM AS INT)),0) CODE FROM REVIEW
+	</select>
+	
 	<insert id="insert" parameterType="com.estreller.wbprj.vo.Review">
-		INSERT INTO REVIEW(Num,Title,Writer,CategoryCode,Content,Keyword) 
-		VALUES(#{num},#{title},#{writer},#{categorycode},#{content},#{keyword})
+		<selectKey keyProperty="num" order="BEFORE" resultType="String">
+	    	SELECT ISNULL(MAX(CAST(NUM AS INT)),0) NUM FROM Review
+	    </selectKey>
+		INSERT INTO REVIEW(Num,Title,Writer,Content,Keyword,RatingCode,CategoryCode) 
+		VALUES(#{num}+1,#{title},#{writer},#{content},#{keyword},#{ratingcode},#{categorycode})
 	</insert>			
 	
 	<update	id="update" parameterType ="com.estreller.wbprj.vo.Review">

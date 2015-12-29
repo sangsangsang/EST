@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>	 
@@ -32,7 +33,10 @@
            <a href="${ctx}/reviews/reviewReg"><img src="${pageContext.request.contextPath}/content/images/new_write.png" alt="새글쓰기" /></a>
     </nav> 
     <nav id="logout">
-           <a href="${ctx}/home/mainPage"><img src="${pageContext.request.contextPath}/content/images/logout.png" alt="로그아웃" /></a>
+         <c:if test="${pageContext.request.userPrincipal !=null }">	
+		<c:url var="logout" value="/j_spring_security_logout"/>
+           <a href="${logout}"><img src="${pageContext.request.contextPath}/content/images/logout.png" alt="로그아웃" /></a>
+    	</c:if>	
     </nav> 
    <section>
       <h1 class="hidden">회원</h1>
