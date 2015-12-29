@@ -28,7 +28,7 @@
 	     <nav id="user">
 	            <img src="${ctx}/content/images/user.png" alt="별점준사람들" />
 	     </nav>
-	     <div id="u_raiting"><img src="${ctx}/content/images/g3.png" alt="유저들별점" /></div>			
+	     <div id="u_raiting"><img src="${ctx}/content/images/3.png" alt="유저들별점" /></div>			
 	  
 	   <div id="content">
 		   ${review.content }

@@ -9,7 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.estreller.wbprj.dao.CategoryDao;
+import com.estreller.wbprj.dao.ReviewDao;
 import com.estreller.wbprj.vo.Category;
+import com.estreller.wbprj.vo.Review;
 
 
 
@@ -18,7 +20,28 @@ import com.estreller.wbprj.vo.Category;
 public class CategoryController {
 	
 	@Autowired
+
+	private ReviewDao reviewDao;
+	   
+	
+	@Autowired
 	private CategoryDao categoryDao;
+	
+	
+	//-----------¸®ºä±Û Detail--------------------------------------------
+	
+	@RequestMapping("reviewDetail")
+	public String ReviewDetail(String c,Model model){
+		Review review = reviewDao.getReview(c);
+		
+		model.addAttribute("review", review);
+		
+		
+		return "category/reviewDetail";
+	}
+	
+	
+	//-------------------------------------------------------------------
 	
 	
 	@RequestMapping("book-list")
@@ -32,6 +55,8 @@ public class CategoryController {
 		return "category/book-list";
 	}
 	
+
+	
 	@RequestMapping("electronics-list")
 	public String electronics_list(Model model) throws SQLException{
 				
@@ -43,6 +68,7 @@ public class CategoryController {
 		return "category/electronics-list";
 	}
 	
+	
 	@RequestMapping("fashion&beauty-list")
 	public String fashionAndBeauty_list(Model model) throws SQLException{
 				
@@ -53,6 +79,9 @@ public class CategoryController {
 	      
 		return "category/fashion&beauty-list";
 	}
+	
+	
+	
 	
 	@RequestMapping("food-list")
 	public String food_list(Model model) throws SQLException{
