@@ -32,8 +32,8 @@ body{
 
 
 #header
-{   
-   
+{	
+	
    height:70px;
    background:#c0c0c0; 
    /* position: fixed;  */ 
@@ -66,11 +66,11 @@ body{
          #main-menu>ul>li a:HOVER{
                text-decoration:underline;
          }
-   #profile{
-      position:absolute;
-      margin-left:830px;
-      top:10px;
-   }
+	#profile{
+	   position:absolute;
+	   margin-left:830px;
+	   top:10px;
+	}
 
 section>p{
    display:inline-block;
@@ -86,56 +86,56 @@ section>p{
       section>p a:HOVER{
           text-decoration:underline;
       }
-      #write{
-         position:absolute;
-         margin-left:900px;
-         top: 23px;
-      }
-      #comment{
-         position:absolute;
-         margin-left:930px;
-         top: 23px;
-      }
-      #like{
-         position:absolute;
-         margin-left:960px;
-         top: 23px;
-      }
-      #report{
-      
-         position:absolute;
-         margin-left:990px;
-         top: 23px;
-      }
-      #logout{
-      
-         position:absolute;
-         right:140px;
-         top: 15px;
-      }
-      #new-write{
-         position:absolute;
-         right:90px;
-         top: 15px;
-      }
-      
-       #search{
-         position:absolute;
-         right:40px;
-         top: 20px;
-      }
-   
-   
+		#write{
+		   position:absolute;
+		   margin-left:900px;
+		   top: 23px;
+		}
+		#comment{
+		   position:absolute;
+		   margin-left:930px;
+		   top: 23px;
+		}
+		#like{
+		   position:absolute;
+		   margin-left:960px;
+		   top: 23px;
+		}
+		#report{
+		
+		   position:absolute;
+		   margin-left:990px;
+		   top: 23px;
+		}
+		#logout{
+		
+		   position:absolute;
+		   right:140px;
+		   top: 15px;
+		}
+		#new-write{
+		   position:absolute;
+		   right:90px;
+		   top: 15px;
+		}
+		
+		 #search{
+		   position:absolute;
+		   right:40px;
+		   top: 20px;
+		}
+	
+	
 /* ---------------글 목록 보기----------------------- */
 
 #box1
 {    
-   
-   position:relative;
-   text-align: center;
-   overflow: auto;
-   
-   border-bottom: 1px solid #000000;
+	
+	position:relative;
+	text-align: center;
+	overflow: auto;
+	
+	border-bottom: 1px solid #000000;
 
 
 }   
@@ -144,9 +144,9 @@ section>p{
 
 #category-form>ul
 {
-   
-   font-family:"맑은 고딕",Arial,sans-serif;
-   font-size:30px;
+	
+	font-family:"맑은 고딕",Arial,sans-serif;
+	font-size:30px;
    
 }
 
@@ -183,7 +183,7 @@ section>p{
    font-weight:bolder;
    font-color:#c0c0c0;
    float:right;
-   padding-top:   20px;
+   padding-top:	20px;
    padding-right:180px;
 }
       
@@ -193,6 +193,7 @@ section>p{
 #box2
 {      
 position:relative;
+background:#ffff00;
 text-align: center;
 overflow: auto;
 }   
@@ -432,7 +433,11 @@ margin-bottom:40px;
    padding-bottom: 10px;
    }
 
- 
+ #review-preview-wide>tbody>tr>td a{
+ 	font-size:25px;
+ 	color: black;
+ 	text-decoration: none;	
+ }
    
    
    #review-img-wide{
@@ -481,6 +486,12 @@ margin-bottom:40px;
    
    }
       
+     
+   
+   
+
+
+
 
 /* -------------------------------------- */
 

@@ -14,16 +14,16 @@
    <nav id="main-menu">
       <h1 class="hidden">카테고리</h1>
       <ul>
-      <li><a href="loginPage">Sports</a></li>
-      <li><a href="loginPage">Movie</a></li>
-      <li><a href="loginPage">Game</a></li>
-      <li><a href="loginPage">Book</a></li>
-      <li><a href="loginPage">Music</a></li>
-      <li><a href="loginPage">Fashion&Beauty</a></li>
-      <li><a href="loginPage">Show&Concert</a></li>
-      <li><a href="loginPage">Food</a></li>
-      <li><a href="loginPage">Travel</a></li>
-      <li><a href="loginPage">Electronics</a></li>
+      <li><a href="${ctx}/joinus/loginPage">Sports</a></li>
+      <li><a href="${ctx}/joinus/loginPage">Movie</a></li>
+      <li><a href="${ctx}/joinus/loginPage">Game</a></li>
+      <li><a href="${ctx}/joinus/loginPage">Book</a></li>
+      <li><a href="${ctx}/joinus/loginPage">Music</a></li>
+      <li><a href="${ctx}/joinus/loginPage">Fashion&Beauty</a></li>
+      <li><a href="${ctx}/joinus/loginPage">Show&Concert</a></li>
+      <li><a href="${ctx}/joinus/loginPage">Food</a></li>
+      <li><a href="${ctx}/joinus/loginPage">Travel</a></li>
+      <li><a href="${ctx}/joinus/loginPage">Electronics</a></li>
       </ul>
    </nav>
    <nav id="search">
@@ -48,11 +48,11 @@
        </section>
          
       <nav id="member-join">
-          <h1 class="clearfix"><a href="join">Sign</a></h1>
+          <h1 class="clearfix"><a href="${ctx}/joinus/join">Sign</a></h1>
       </nav>
       
       <nav id="password-find">
-         <h1 class="clearfix"><a href="find-password">Find Passward</a></h1>
+         <h1 class="clearfix"><a href="${ctx}/joinus/find-password">Find Passward</a></h1>
       </nav>
        
    </section>
