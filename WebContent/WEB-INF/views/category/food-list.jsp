@@ -236,14 +236,15 @@
    </div> 
        
        <c:forEach var="r" items = "${list}" >
-       <div id ="box3" class="hc3 vc3" >
+       <div id ="box3" class="hc3 vc3" me>
+
        <form action="login-review_list" method="get">
        <table id="review-preview-wide">
          <tbody>
              <tr>
-                <td class="writer"><a href=""><img src="${ctx}/content/images/faceimg.png"
-                     alt="닉네임" /></a>${r.writer}</td>   
-                <td class="title">${r.title}</td>            
+                <td class="writer"><img src="${ctx}/content/images/faceimg.png"
+                     alt="닉네임" />${r.writer}</td>   
+                <td class="title"><a href="reviewDetail?c=${r.num }">${r.title}</a></td>            
                 <td class="regdate"><fmt:formatDate pattern="yyyy-MM-dd" value="${r.regdate}"/></td>   
              </tr>
              
@@ -260,7 +261,7 @@
                         alt="닉네임" /></a>
                         </td>
                         <td id = "user-star-wide">
-                        <a href=""><img src="${ctx}/content/images/g${r.ratingCode}.png" width ="80" height="15"/>
+                        <a href=""><img src="${ctx}/content/images/g${r.ratingcode }.png" width ="80" height="15"/>
                         </a></td>
                         <td>
                       <a href=""><img src="${ctx}/content/images/user.png" width ="45" height="45"
@@ -287,8 +288,10 @@
               </tbody>   
           
           </table>
+          
           </div>
-          </form>
+         </form> 
+
        </div>
        </c:forEach>
        </main>

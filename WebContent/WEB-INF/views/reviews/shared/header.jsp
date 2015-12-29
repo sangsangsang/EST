@@ -13,7 +13,8 @@
    <nav id="main-menu">
       <h1 class="hidden">카테고리</h1>
       <ul>
-     <li><a href="${ctx}/category/sports-list">Sports</a></li>
+
+      <li><a href="${ctx}/category/sports-list">Sports</a></li>
       <li><a href="${ctx}/category/movie-list">Movie</a></li>
       <li><a href="${ctx}/category/game-list">Game</a></li>
       <li><a href="${ctx}/category/book-list">Book</a></li>

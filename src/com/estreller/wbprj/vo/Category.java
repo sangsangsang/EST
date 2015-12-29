@@ -8,7 +8,7 @@ public class Category {
    private Date regdate;
    private String writer;
    private String WriterNickName;
-   private String RatingCode;
+   private String ratingcode;
    private String CategoryCode;
    private String title;
    private int RcmCount;
@@ -47,12 +47,7 @@ public class Category {
    public void setWriterNickName(String writerNickName) {
       WriterNickName = writerNickName;
    }
-   public String getRatingCode() {
-      return RatingCode;
-   }
-   public void setRatingCode(String ratingCode) {
-      RatingCode = ratingCode;
-   }
+   
    public String getCategoryCode() {
       return CategoryCode;
    }
@@ -77,6 +72,15 @@ public class Category {
    public void setComCount(int comCount) {
       ComCount = comCount;
    }
-   
+	public String getRatingcode() {
+		return ratingcode;
+	}
+	public void setRatingcode(String ratingcode) {
+		this.ratingcode = ratingcode;
+	}
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
+	}
+
 
 }
