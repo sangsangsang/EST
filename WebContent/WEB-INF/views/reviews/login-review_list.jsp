@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
    
@@ -39,7 +39,7 @@
                      alt="별1개" /></a></li>
                
             </ul>
-            
+            </nav>
             <nav id = "count-menu">
             <ul>
               <a href=""> 추천수</a> /<a href=""> 조회수</a> /<a href=""> 댓글수</a> 
@@ -172,13 +172,7 @@
        </div>
     </div>
          
-          
-        
-          
-          
-          
-          
-          
+
           
           <div id ="box2-3">
           <div id="review-preview3">
@@ -236,8 +230,9 @@
    </div> 
        
        <c:forEach var="r" items = "${list}" >
+       
        <div id ="box3" class="hc3 vc3" me>
-       <form action="login-review_list" method="get">
+       
        <table id="review-preview-wide">
          <tbody>
              <tr>
@@ -271,15 +266,15 @@
                         <a href=""><img src="${ctx}/content/images/g3.png" width ="80" height="15"/>
                         </a></td>
                         
-                        <td id = "like-wide">
+                         <td id = "like-wide">
                          <a href=""><img src="${ctx}/content/images/like.png" width ="25" height="25"
-                        alt="좋아요갯수" /></a>
+                        alt="좋아요갯수" />${r.rcmCount}</a>
                         (3)
                         </td>
                         
                         <td id = "comment-wide">
                          <a href=""><img src="${ctx}/content/images/comment.png" width ="25" height="25"
-                        alt="댓글갯수" /></a>
+                        alt="댓글갯수" />${r.comCount}</a>
                         (1)
                         </td>
                         
@@ -287,9 +282,9 @@
               </tbody>   
           
           </table>
-          
           </div>
-         </form> 
+          
        </div>
        </c:forEach>
+       
        </main>

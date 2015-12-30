@@ -12,34 +12,33 @@
    
    <main id="main">  
    <h1 class="hidden">리뷰리스트</h1> 
+   <form action="food-list" method="GET">
          <div id ="box1" class="hc vc">
            <nav id ="category-form">
             <ul>
-            <%-- <a href=""><img src="${ctx}/content/images/food.png"
-                     alt="음식사진" /></a>
-            <a href=""><img src="${ctx}/content/images/foodLetter.png"
-                     alt="food" /></a> --%>
+            <a href="food-list" id="c-title">
              Food
-            
+            </a> 
             </ul>
             </nav>
             
          <nav id = "rating-menu">
             <h1 class ="hidden">별점메뉴</h1>
+            
             <ul>
-               <li><a href=""><img src="${ctx}/content/images/5.png"
+               <li><a href="food-list?c=5"><img src="${ctx}/content/images/5.png"
                      alt="별5개" /></a></li>
-               <li><a href=""><img src="${ctx}/content/images/4.png"
+               <li><a href="food-list?c=4"><img src="${ctx}/content/images/4.png"
                      alt="별4개" /></a></li>
-               <li><a href=""><img src="${ctx}/content/images/3.png"
+               <li><a href="food-list?c=3"><img src="${ctx}/content/images/3.png"
                      alt="별3개" /></a></li>
-               <li><a href=""><img src="${ctx}/content/images/2.png"
+               <li><a href="food-list?c=2"><img src="${ctx}/content/images/2.png"
                      alt="별2개" /></a></li>
-               <li><a href=""><img src="${ctx}/content/images/1.png"
+               <li><a href="food-list?c=1"><img src="${ctx}/content/images/1.png"
                      alt="별1개" /></a></li>
                
             </ul>
-            
+            </nav>
             <nav id = "count-menu">
             <ul>
               <a href=""> 추천수</a> /<a href=""> 조회수</a> /<a href=""> 댓글수</a> 
@@ -238,7 +237,7 @@
        <c:forEach var="r" items = "${list}" >
        <div id ="box3" class="hc3 vc3" me>
 
-       <form action="login-review_list" method="get">
+       <!-- <form action="login-review_list" method="get"> -->
        <table id="review-preview-wide">
          <tbody>
              <tr>

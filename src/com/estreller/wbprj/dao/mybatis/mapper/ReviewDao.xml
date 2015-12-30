@@ -7,7 +7,7 @@
 		SELECT * FROM (
 			SELECT 
 				ROW_NUMBER() OVER(ORDER BY REGDATE DESC) number,
-				REVIEW.* FROM REVIEW 
+				ReviewView.* FROM ReviewView  
 				WHERE ${param2} LIKE '%${param3}%'
 				)A
 				WHERE NUM BETWEEN 1+(#{param1}-1)*100 AND #{param1}*100

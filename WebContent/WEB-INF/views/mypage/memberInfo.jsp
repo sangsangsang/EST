@@ -75,7 +75,7 @@
                   <h3 class="hidden">버튼</h3>
             <p class="info-change">                  
                <input class="btn-save button" type="submit" value="저장" />
-               <a class="btn-cancel button" href="../Review/login-mainpage"><img src="${ctx}/content/images/btn-cancel.png" alt="취소" /></a>                  
+               <a class="btn-cancel button" href="${ctx}/reviews/login-review_list"><img src="${ctx}/content/images/btn-cancel.png" alt="취소" /></a>                  
             </p>   
 
          </form>

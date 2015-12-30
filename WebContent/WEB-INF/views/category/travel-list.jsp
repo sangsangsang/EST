@@ -11,7 +11,8 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
    
    <main id="main">  
-   <h1 class="hidden">리뷰리스트</h1> 
+   <h1 class="hidden">리뷰리스트</h1>
+   <form action="travel-list" method="GET"> 
          <div id ="box1" class="hc vc">
            <nav id ="category-form">
             <ul>
@@ -27,19 +28,19 @@
          <nav id = "rating-menu">
             <h1 class ="hidden">별점메뉴</h1>
             <ul>
-               <li><a href=""><img src="${ctx}/content/images/5.png"
+               <li><a href="travel-list?c=5"><img src="${ctx}/content/images/5.png"
                      alt="별5개" /></a></li>
-               <li><a href=""><img src="${ctx}/content/images/4.png"
+               <li><a href="travel-list?c=4"><img src="${ctx}/content/images/4.png"
                      alt="별4개" /></a></li>
-               <li><a href=""><img src="${ctx}/content/images/3.png"
+               <li><a href="travel-list?c=3"><img src="${ctx}/content/images/3.png"
                      alt="별3개" /></a></li>
-               <li><a href=""><img src="${ctx}/content/images/2.png"
+               <li><a href="travel-list?c=2"><img src="${ctx}/content/images/2.png"
                      alt="별2개" /></a></li>
-               <li><a href=""><img src="${ctx}/content/images/1.png"
+               <li><a href="travel-list?c=1"><img src="${ctx}/content/images/1.png"
                      alt="별1개" /></a></li>
                
             </ul>
-            
+            </nav>
             <nav id = "count-menu">
             <ul>
               <a href=""> 추천수</a> /<a href=""> 조회수</a> /<a href=""> 댓글수</a> 
@@ -237,7 +238,7 @@
        
        <c:forEach var="r" items = "${list}" >
        <div id ="box3" class="hc3 vc3" me>
-       <form action="login-review_list" method="get">
+       
        <table id="review-preview-wide">
          <tbody>
              <tr>
@@ -273,13 +274,13 @@
                         
                         <td id = "like-wide">
                          <a href=""><img src="${ctx}/content/images/like.png" width ="25" height="25"
-                        alt="좋아요갯수" /></a>
+                        alt="좋아요갯수" />${r.rcmCount}</a>
                         (3)
                         </td>
                         
                         <td id = "comment-wide">
                          <a href=""><img src="${ctx}/content/images/comment.png" width ="25" height="25"
-                        alt="댓글갯수" /></a>
+                        alt="댓글갯수" />${r.comCount}</a>
                         (1)
                         </td>
                         
@@ -290,7 +291,7 @@
           
           </div>
          </form> 
->>>>>>> refs/remotes/choose_remote_name/master
+
        </div>
        </c:forEach>
        </main>

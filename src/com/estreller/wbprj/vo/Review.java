@@ -11,7 +11,9 @@ public class Review {
 	private String content;
 	private String ratingcode;
 	private String categorycode;
-	
+	private int RcmCount;
+	private int ComCount;
+	   
 	public String getNum() {
 		return num;
 	}
@@ -60,5 +62,19 @@ public class Review {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	public int getRcmCount() {
+		return RcmCount;
+	}
+	public void setRcmCount(int rcmCount) {
+		RcmCount = rcmCount;
+	}
+	public int getComCount() {
+		return ComCount;
+	}
+	public void setComCount(int comCount) {
+		ComCount = comCount;
+	}
+	
+	
 
 }

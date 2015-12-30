@@ -22,7 +22,7 @@ import com.estreller.wbprj.vo.Member;
 
 
 @Controller
-@RequestMapping("/joinus/")
+@RequestMapping("/home/")
 	public class JoinusController {
 	
 	
@@ -47,7 +47,7 @@ import com.estreller.wbprj.vo.Member;
 			String check="사용가능한 아이디입니다.";
 			System.out.printf("%s\n",c);
 			if(c!=null){
-				System.out.println("dad");
+			
 			if(c.equals("error"))
 				model.addAttribute("error", error);
 			/*else if(c.equals("check"))

@@ -6,9 +6,10 @@ public class ReviewRating {
 	
 	private String code;
 	private String num;
-	private Date regDate;
+	private Date regdate;
+	private String writer;
 	private String WriterNickName;
-	private String RatingCode;
+	private String ratingcode;
 	private String CategoryCode;
 	private String title;
 	private int RcmCount;	
@@ -30,12 +31,14 @@ public class ReviewRating {
 		this.num = num;
 	}
 
-	public Date getRegDate() {
-		return regDate;
+	
+
+	public Date getRegdate() {
+		return regdate;
 	}
 
-	public void setRegDate(Date regDate) {
-		this.regDate = regDate;
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
 	}
 
 	public String getWriterNickName() {
@@ -46,13 +49,7 @@ public class ReviewRating {
 		WriterNickName = writernickname;
 	}
 
-	public String getRatingCode() {
-		return RatingCode;
-	}
-
-	public void setRatingCode(String ratingCode) {
-		RatingCode = ratingCode;
-	}
+	
 
 	public String getCategoryCode() {
 		return CategoryCode;
@@ -83,7 +80,21 @@ public class ReviewRating {
 	public void setComCount(int comCount) {
 		ComCount = comCount;
 	}
-	
+	public String getWriter() {
+		return writer;
+	}
+
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
+
+	public String getRatingcode() {
+		return ratingcode;
+	}
+
+	public void setRatingcode(String ratingcode) {
+		this.ratingcode = ratingcode;
+	}
 	
 
 }
