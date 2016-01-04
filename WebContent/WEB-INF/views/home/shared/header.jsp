@@ -42,7 +42,7 @@
                   <label>Passward</label>
                   <input type="password" name="j_password"/>
                   
-                  <!-- <a href="login-review_list"> --><a href="loginPage"><input type="submit" value="로그인"/></a>
+                  <input type="submit" value="로그인"/></a>
             </fieldset>
          </form>
        </section>

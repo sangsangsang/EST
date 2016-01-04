@@ -18,7 +18,7 @@ public class EstrellerAuthFailHandler implements AuthenticationFailureHandler {
 			throws IOException, ServletException
 	{
 		System.out.println("인증실패");
-		response.sendRedirect("/EST/joinus/loginPage");//인증실패시 되돌아가는페잊
+		response.sendRedirect("/EST/home/loginPage?error=1");//인증실패시 되돌아가는페잊
 		/*request.setAttribute("error", "아이디 또는 비밀번호가 잘못되었습니다.");
 		request.getRequestDispatcher("/joinus/loginPage").forward(request,response);*/
 		//super.onAuthenticationFailure(request, response, exception);

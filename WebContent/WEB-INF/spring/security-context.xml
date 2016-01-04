@@ -14,7 +14,7 @@
     <http> <!-- 사용자가 밑에 url에 접근가능여부. -->
     	<form-login login-page="/home/mainPage"  
     	default-target-url="/reviews/login-review_list" 
-    	authentication-failure-url="../joinus/loginPage?error=1"
+    	authentication-failure-url="/home/loginPage?error=1"
     	authentication-failure-handler-ref="failHandler"
     	authentication-success-handler-ref="successHandler"
     	/> <!-- 1.target글쓰기 말고  헤더부분에 로그인을인증하면  홈으로 가는 페이지 2.failure 로그인실패시 에러 발생.
