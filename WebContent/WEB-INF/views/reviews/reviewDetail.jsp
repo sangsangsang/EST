@@ -1,11 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 <%
 
 	request.getContextPath();
 %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
+	<script type="text/javascript">
+	
+	window.onload = function(){
+	
+		var btnSave = document.querySelectorAll("#btn-save");
+		btnSave.onclick = function(){
+			alert("ㅎ_ㅎ");
+			
+		}
+	}
+	
+	</script>
+	
+	
    
    <main id="main">
 		  	<h1 class="hidden">글보기</h3>
@@ -89,7 +105,7 @@
                      <h2 class="hidden">내용</h2>
                     
                         &nbsp;<input name="title"/> 
-                       <input type="submit" value="댓글완료" />
+                       <input class = "btnSave" type="submit" value="댓글완료" />
                      </dd>
                   </dl>   
 	 	</nav>
@@ -97,7 +113,23 @@
 	 	<h1 class="hidden">댓글</h1>
 	 		<dl class="article-detail-row">
              <table id="comments">
+	 		<tbody>
+	 		<c:forEach var="cmt" items="${list}">
+		 		
+		 		<tr>
+			 		<td class="writer"><img src="${ctx}/content/images/faceimg.png"/>${cmt.writer}</td>
+			 		<td class="cmt-rating"><ins></ins><br/><img src="${ctx}/content/images/5.png"/></td>
+			 		<td class="content">${cmt.content}</td>				
+			 		<td class="regDate"><fmt:formatDate pattern="yyyy-MM-dd"
+						value='${cmt.regdate}'/></td>
+			 		<td class="cmt-cmt"><img src="${ctx}/content/images/cmt-cmt.png"/></td>
+			 		<td class="report"><a href=""><img src="${ctx}/content/images/report.png"/></a></td>	
+		 		</tr>
+		 		</c:forEach>		
+	 			</tbody>
 	 		
+	 		
+	 		<%-- 
 		 	   <tbody>
 		 		<tr>
 			 		<td name="writer"><img src="${ctx}/content/images/faceimg.png"/></td>
@@ -115,7 +147,7 @@
 			 		<td name="cmt-cmt"><img src="${ctx}/content/images/cmt-cmt.png"/></td>
 			 		<td name="report"><a href=""><img src="${ctx}/content/images/report.png"/></a></td>	
 		 		</tr>		
-		 	   </tbody>
+		 	   </tbody> --%>
 	 	   </table>
 	 	         
                   </dl>   

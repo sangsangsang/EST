@@ -16,7 +16,7 @@ public class MyBatisCommentDao implements CommentDao {
 	
 	SqlSessionFactory ssf = EstrellerSqlSessionFactoryBuilder.getSqlSessionFactory();
 
-	@Override
+/*	@Override
 	public List<Comment> getComments() throws SQLException {
 		// TODO Auto-generated method stub
 		return getComments(1,"Writer","");
@@ -27,13 +27,13 @@ public class MyBatisCommentDao implements CommentDao {
 		// TODO Auto-generated method stub
 		return getComments(page,"Writer","");
 	}
-
+*/
 	@Override
-	public List<Comment> getComments(int page, String field, String query) throws SQLException {
+	public List<Comment> getComments(String code) throws SQLException {
 		
 		SqlSession session = ssf.openSession();
 		CommentDao dao = session.getMapper(CommentDao.class);
-		List<Comment> list = dao.getComments(page,field,query);
+		List<Comment> list = dao.getComments(code);
 		session.close();
 		return list;
 	}

@@ -13,8 +13,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.estreller.wbprj.dao.CommentDao;
 import com.estreller.wbprj.dao.ReviewDao;
-
+import com.estreller.wbprj.vo.Comment;
 import com.estreller.wbprj.vo.Review;
 
 
@@ -27,6 +28,10 @@ public class ReviewsController {
 	
 	   @Autowired
 	   private ReviewDao reviewDao;
+	   
+	   
+	   @Autowired
+	   private CommentDao commentDao;
 	   
 	
 	@RequestMapping("login-mainpage")
@@ -53,19 +58,27 @@ public class ReviewsController {
 	}*/
 	
 	@RequestMapping("reviewDetail")
-	public String ReviewDetail(String c,Model model){
+	public String ReviewDetail(String c,Model model) throws SQLException{
 		Review review = reviewDao.getReview(c);
 		
 		model.addAttribute("review", review);
 		
-		/*String code = request.getParameter("c");*/
-	    /*NoticeDao dao = new MyBatisNoticeDao();
-		Notice n = dao.getNotice(code);
-		model.addAttribute("n",n);*/
-		/*request.setAttribute("n", n);*/
-		/*NoticeFileDao fileDao = new MyBatisNoticeFileDao();
-		List<NoticeFile> files=fileDao.getNoticeFiles(code);*/
+		List<Comment> list = commentDao.getComments(c);
+		
+		//Comment com = commentDao.getComment(com);
+		model.addAttribute("list", list);
+		
+		
 		return "reviews/reviewDetail";
+	}
+	
+	
+	@RequestMapping(value="reviewDetail", method=RequestMethod.POST)
+	public String reviewDetail(Comment c) throws SQLException{
+		//c.setWriter(principal.getName());
+		commentDao.insert(c);
+		
+		return "redirect:reviewDetail";
 	}
 	
 	
