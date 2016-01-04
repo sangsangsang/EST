@@ -28,6 +28,8 @@
 	  	<constructor-arg index="0" ref="sqlSessionFactory"/>
 	  </bean>	
 	
+	
+	<bean name="CommentDao" class="com.estreller.wbprj.dao.mybatis.MyBatisCommentDao"/>
     <bean name="ReviewDao" class="com.estreller.wbprj.dao.mybatis.MyBatisReviewDao"/>
     <bean name="CategoryDao" class="com.estreller.wbprj.dao.mybatis.MyBatisCategoryDao"/>
     <bean name="MemberDao" class="com.estreller.wbprj.dao.mybatis.MyBatisMemberDao"/>
