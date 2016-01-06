@@ -3,11 +3,22 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.estreller.wbprj.dao.CommentDao">
-	
+	 
 	 <select id="getComments" resultType="com.estreller.wbprj.vo.Comment">
-		SELECT * FROM COMMENTVIEW WHERE ReviewNum=#{reviewNum}
+		SELECT * FROM(
+		SELECT
+			ROW_NUMBER() OVER(ORDER BY REGDATE DESC) number,
+			CommentView.*FROM CommentView WHERE ReviewNum = #{reviewNum})A
+		
+		
 	</select>
 	
+	<!-- <select id ="getComments" resultType="com.estreller.wbprj.vo.Comment">
+	 select m.Nickname, cmt.Content, cmt.Regdate  from Comment cmt 
+	 left outer join Members m on cmt.Writer = m.Email
+	 where cmt.ReviewNum = #{ReviewNum};
+	</select> 
+	 -->
 	
 	<update	id="update" parameterType ="com.estreller.wbprj.vo.Comment">
 		UPDATE Comment 
@@ -20,8 +31,11 @@
 	</delete>
 	
 	<insert id="insert" parameterType="com.estreller.wbprj.vo.Comment">
-		INSERT INTO Comment(Writer,ReviewNum,RatingCode,Content) 
-		VALUES(#{writer},#{reviewNum},#{ratingCode},#{content})
-	</insert>	
+	<selectKey keyProperty="code" order="BEFORE" resultType="String">
+	    	SELECT ISNULL(MAX(CAST(CODE AS INT)),0) CODE FROM Comment
+	    </selectKey>
+		INSERT INTO Comment(code,writer,ReviewNum,RatingCode,Content) 
+		VALUES(#{code}+1, #{writer},#{reviewNum},#{ratingCode},#{content})
+	</insert>
 	
 </mapper>

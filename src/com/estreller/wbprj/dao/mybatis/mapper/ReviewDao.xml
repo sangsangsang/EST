@@ -29,9 +29,9 @@
 		VALUES(#{num}+1,#{title},#{writer},#{content},#{keyword},#{ratingcode},#{categorycode})
 	</insert>			
 	
-	<update	id="update" parameterType ="com.estreller.wbprj.vo.Review">
+	<update	id="update" parameterType ="String">
 		UPDATE REVIEW 
-		SET Title=#{title}, CategoryCode=#{categorycode}, Content=#{content},Keyword=#{keyword} 
+		SET Title=#{title},RatingCode=#{ratingcode}, CategoryCode=#{categorycode}, Content=#{content},Keyword=#{keyword} 
 		WHERE Num=#{num} and Writer=#{writer}
 	</update>
 	
