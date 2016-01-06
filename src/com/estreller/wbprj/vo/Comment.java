@@ -8,7 +8,7 @@ public class Comment {
 	private String content;
 	private String ratingCode;
 	private Date Regdate;
-	private String nickName;
+	private String writerNickname;
 	
 	
 	public String getWriter() {
@@ -41,13 +41,14 @@ public class Comment {
 	public void setRegdate(Date regdate) {
 		Regdate = regdate;
 	}
+	public String getWriterNickname() {
+		return writerNickname;
+	}
+	public void setWriterNickname(String writerNickname) {
+		this.writerNickname = writerNickname;
+	}
 	
-	public String getNickName() {
-		return nickName;
-	}
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
-	}
+
 	
 	
 }

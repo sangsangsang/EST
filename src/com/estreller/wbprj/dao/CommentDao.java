@@ -15,6 +15,6 @@ public interface CommentDao {
 	public int update(Comment comment) throws SQLException;
 	public int delete(Comment comment) throws SQLException;
 	public int insert(Comment comment) throws SQLException;
-	List<Comment> getComments(String code) throws SQLException;
+	public List<Comment> getComments(String code) throws SQLException;
 
 }

@@ -5,12 +5,19 @@ public class Recommend {
 	private String Writer;
 	private String ReviewNum;
 	private String Num;
-	private String WriterNickName;
+	private String writerNickname;
 	private int RcmCount;
 	private int ComCount;
 	
 	
 
+	
+	public String getWriterNickname() {
+		return writerNickname;
+	}
+	public void setWriterNickname(String writerNickname) {
+		this.writerNickname = writerNickname;
+	}
 	public String getCode() {
 		return Code;
 	}
@@ -36,12 +43,7 @@ public class Recommend {
 	public void setNum(String reviewNum) {
 		Num = reviewNum;
 	}
-	public String getWriterNickName() {
-		return WriterNickName;
-	}
-	public void setWriterNickName(String writerNickName) {
-		WriterNickName = writerNickName;
-	}
+
 	public int getRcmCount() {
 		return RcmCount;
 	}

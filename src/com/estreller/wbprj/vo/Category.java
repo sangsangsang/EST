@@ -7,7 +7,7 @@ public class Category {
    private String num;
    private Date regdate;
    private String writer;
-   private String WriterNickName;
+   private String writerNickname;
    private String ratingcode;
    private String CategoryCode;
    private String title;
@@ -41,14 +41,15 @@ public class Category {
    public void setRegDate(Date regdate) {
       this.regdate = regdate;
    }
-   public String getWriterNickName() {
-      return WriterNickName;
-   }
-   public void setWriterNickName(String writerNickName) {
-      WriterNickName = writerNickName;
-   }
+
    
-   public String getCategoryCode() {
+	   public String getWriterNickname() {
+		return writerNickname;
+	}
+	public void setWriterNickname(String writerNickname) {
+		this.writerNickname = writerNickname;
+	}
+public String getCategoryCode() {
       return CategoryCode;
    }
    public void setCategoryCode(String categoryCode) {

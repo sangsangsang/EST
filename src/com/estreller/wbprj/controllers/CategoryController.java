@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.estreller.wbprj.dao.CategoryDao;
+import com.estreller.wbprj.dao.CommentDao;
 import com.estreller.wbprj.dao.ReviewDao;
 import com.estreller.wbprj.dao.ReviewRatingDao;
 import com.estreller.wbprj.dao.mybatis.MyBatisReviewRatingDao;
 import com.estreller.wbprj.vo.Category;
+import com.estreller.wbprj.vo.Comment;
 import com.estreller.wbprj.vo.Member;
 import com.estreller.wbprj.vo.Review;
 import com.estreller.wbprj.vo.ReviewRating;
@@ -29,13 +31,16 @@ public class CategoryController {
 	private CategoryDao categoryDao;
 	@Autowired
 	private ReviewRatingDao reviewRatingDao;
+	@Autowired
+	   private CommentDao commentDao;
 	
 	//-----------¸®ºä±Û Detail--------------------------------------------
 	
 	@RequestMapping("reviewDetail")
-	public String ReviewDetail(String c,Model model){
+	public String ReviewDetail(String c,Model model) throws SQLException{
 		Review review = reviewDao.getReview(c);
-		
+		List<Comment> list = commentDao.getComments(c);
+		model.addAttribute("list", list);
 		model.addAttribute("review", review);
 		
 		

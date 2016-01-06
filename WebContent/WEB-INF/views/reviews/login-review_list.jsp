@@ -19,7 +19,9 @@
                      alt="음식사진" /></a>
             <a href=""><img src="${ctx}/content/images/foodLetter.png"
                      alt="food" /></a> --%>
+             <a href="login-review_list">
              ALL
+             </a>
             
             </ul>
             </nav>
@@ -27,15 +29,15 @@
          <nav id = "rating-menu">
             <h1 class ="hidden">별점메뉴</h1>
             <ul>
-               <li><a href=""><img src="${ctx}/content/images/5.png"
+               <li><a href="login-review_list?c=5"><img src="${ctx}/content/images/5.png"
                      alt="별5개" /></a></li>
-               <li><a href=""><img src="${ctx}/content/images/4.png"
+               <li><a href="login-review_list?c=4"><img src="${ctx}/content/images/4.png"
                      alt="별4개" /></a></li>
-               <li><a href=""><img src="${ctx}/content/images/3.png"
+               <li><a href="login-review_list?c=3"><img src="${ctx}/content/images/3.png"
                      alt="별3개" /></a></li>
-               <li><a href=""><img src="${ctx}/content/images/2.png"
+               <li><a href="login-review_list?c=2"><img src="${ctx}/content/images/2.png"
                      alt="별2개" /></a></li>
-               <li><a href=""><img src="${ctx}/content/images/1.png"
+               <li><a href="login-review_list?c=1"><img src="${ctx}/content/images/1.png"
                      alt="별1개" /></a></li>
                
             </ul>
@@ -237,7 +239,7 @@
          <tbody>
              <tr>
                 <td class="writer"><img src="${ctx}/content/images/faceimg.png"
-                     alt="닉네임" />${r.writer}</td>   
+                     alt="닉네임" />${r.writerNickname}</td>   
                 <td class="title"><a href="reviewDetail?c=${r.num }">${r.title}</a></td>            
                 <td class="regdate"><fmt:formatDate pattern="yyyy-MM-dd" value="${r.regdate}"/></td>   
              </tr>

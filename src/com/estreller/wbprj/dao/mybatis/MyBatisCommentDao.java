@@ -15,7 +15,7 @@ import com.estreller.wbprj.vo.Comment;
 public class MyBatisCommentDao implements CommentDao {
 	
 	SqlSessionFactory ssf = EstrellerSqlSessionFactoryBuilder.getSqlSessionFactory();
-
+	
 /*	@Override
 	public List<Comment> getComments() throws SQLException {
 		// TODO Auto-generated method stub

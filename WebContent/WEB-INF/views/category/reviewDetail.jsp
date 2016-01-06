@@ -20,7 +20,7 @@
 		 		
 		 	</tbody>
 	 	</table>
-	 	 <p id="nickName"><ins>${review.writer }</ins></p>
+	 	 <p id="nickName"><ins>${review.writerNickname}</ins></p>
 	 	 <nav id="follow">
             <a href=""><img src="${ctx}/content/images/follow.png" alt="받아보기" /></a>
        	 </nav>
@@ -28,7 +28,7 @@
 	     <nav id="user">
 	            <img src="${ctx}/content/images/user.png" alt="별점준사람들" />
 	     </nav>
-	     <div id="u_raiting"><img src="${ctx}/content/images/3.png" alt="유저들별점" /></div>			
+	     <div id="u_raiting"><img src="${ctx}/content/images/g3.png" alt="유저들별점" /></div>			
 	  
 	   <div id="content">
 		   ${review.content }
@@ -97,25 +97,20 @@
 	 	<h1 class="hidden">댓글</h1>
 	 		<dl class="article-detail-row">
              <table id="comments">
-	 		
-		 	   <tbody>
+	 		<tbody>
+	 		<c:forEach var="cmt" items="${list}">
+		 		
 		 		<tr>
-			 		<td name="writer"><img src="${ctx}/content/images/faceimg.png"/></td>
-			 		<td name="cmt-rating"><ins>I234D</ins><br/><img src="${ctx}/content/images/5.png"/></td>
-			 		<td name="content">The popcon very goodㅇㅇㅇdddddddㅇddddddddddddddddddddd</td>				
-			 		<td name="regDate">2011-11-11</td>
-			 		<td name="cmt-cmt"><img src="${ctx}/content/images/cmt-cmt.png"/></td>
-			 		<td name="report"><a href=""><img src="${ctx}/content/images/report.png"/></a></td>	
+			 		<td class="writer"><img src="${ctx}/content/images/faceimg.png"/><br/>${cmt.writerNickname}</td>
+			 		<td class="cmt-rating"><ins></ins><img src="${ctx}/content/images/5.png"/></td>
+			 		<td class="content">${cmt.content}</td>				
+			 		<td class="regDate"><fmt:formatDate pattern="yyyy-MM-dd"
+						value='${cmt.regdate}'/></td>
+			 		<td class="cmt-cmt"><img src="${ctx}/content/images/cmt-cmt.png"/></td>
+			 		<td class="report"><a href=""><img src="${ctx}/content/images/report.png"/></a></td>	
 		 		</tr>
-		 		<tr>
-			 		<td name="writer"><img src="${ctx}/content/images/faceimg.png"/></td>
-			 		<td name="cmt-rating"><ins>I234D</ins><br/><img src="${ctx}/content/images/5.png"/></td>
-			 		<td name="content">The popcon very goodㅇㅇㅇdddddddㅇddddddddddddddddddddd</td>				
-			 		<td name="regDate">2011-11-11</td>
-			 		<td name="cmt-cmt"><img src="${ctx}/content/images/cmt-cmt.png"/></td>
-			 		<td name="report"><a href=""><img src="${ctx}/content/images/report.png"/></a></td>	
-		 		</tr>		
-		 	   </tbody>
+		 		</c:forEach>		
+	 			</tbody>
 	 	   </table>
 	 	         
                   </dl>   

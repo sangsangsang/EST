@@ -13,7 +13,10 @@ public class Review {
 	private String categorycode;
 	private int RcmCount;
 	private int ComCount;
-	   
+	private String writerNickname;
+	
+	
+	
 	public String getNum() {
 		return num;
 	}
@@ -74,6 +77,13 @@ public class Review {
 	public void setComCount(int comCount) {
 		ComCount = comCount;
 	}
+	public String getWriterNickname() {
+		return writerNickname;
+	}
+	public void setWriterNickname(String writerNickname) {
+		this.writerNickname = writerNickname;
+	}
+	
 	
 	
 

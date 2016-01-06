@@ -36,7 +36,7 @@
 		 		
 		 	</tbody>
 	 	</table>
-	 	 <p id="nickName"><ins>${review.writer }</ins></p>
+	 	 <p id="nickName"><ins>${review.writerNickname}</ins></p>
 	 	 <nav id="follow">
             <a href=""><img src="${ctx}/content/images/follow.png" alt="받아보기" /></a>
        	 </nav>
@@ -117,8 +117,8 @@
 	 		<c:forEach var="cmt" items="${list}">
 		 		
 		 		<tr>
-			 		<td class="writer"><img src="${ctx}/content/images/faceimg.png"/>${cmt.writer}</td>
-			 		<td class="cmt-rating"><ins></ins><br/><img src="${ctx}/content/images/5.png"/></td>
+			 		<td class="writer"><img src="${ctx}/content/images/faceimg.png"/><br/>${cmt.writerNickname}</td>
+			 		<td class="cmt-rating"><ins></ins><img src="${ctx}/content/images/5.png"/></td>
 			 		<td class="content">${cmt.content}</td>				
 			 		<td class="regDate"><fmt:formatDate pattern="yyyy-MM-dd"
 						value='${cmt.regdate}'/></td>

@@ -243,7 +243,7 @@
          <tbody>
              <tr>
                 <td class="writer"><img src="${ctx}/content/images/faceimg.png"
-                     alt="닉네임" />${r.writer}</td>   
+                     alt="닉네임" />${r.writerNickname}</td>   
                 <td class="title"><a href="reviewDetail?c=${r.num }">${r.title}</a></td>            
                 <td class="regdate"><fmt:formatDate pattern="yyyy-MM-dd" value="${r.regdate}"/></td>   
              </tr>

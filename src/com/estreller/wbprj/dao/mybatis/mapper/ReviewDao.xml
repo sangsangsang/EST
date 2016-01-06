@@ -14,7 +14,7 @@
 	</select>
 	
 	<select id="getReview" resultType="com.estreller.wbprj.vo.Review">
-		SELECT * FROM REVIEW WHERE Num = #{num}
+		SELECT * FROM ReviewView WHERE Num = #{num}
 	</select>
 	
 	<select id="getLastNum" resultType="String">

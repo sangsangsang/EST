@@ -15,8 +15,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.estreller.wbprj.dao.CommentDao;
 import com.estreller.wbprj.dao.ReviewDao;
+import com.estreller.wbprj.dao.ReviewRatingDao;
+import com.estreller.wbprj.vo.Category;
 import com.estreller.wbprj.vo.Comment;
 import com.estreller.wbprj.vo.Review;
+import com.estreller.wbprj.vo.ReviewRating;
 
 
 
@@ -29,6 +32,8 @@ public class ReviewsController {
 	   @Autowired
 	   private ReviewDao reviewDao;
 	   
+	   @Autowired
+		private ReviewRatingDao reviewRatingDao;
 	   
 	   @Autowired
 	   private CommentDao commentDao;
@@ -60,7 +65,7 @@ public class ReviewsController {
 	@RequestMapping("reviewDetail")
 	public String ReviewDetail(String c,Model model) throws SQLException{
 		Review review = reviewDao.getReview(c);
-		
+		System.out.println(review.getWriterNickname()+review.getNum());
 		model.addAttribute("review", review);
 		
 		List<Comment> list = commentDao.getComments(c);
@@ -98,11 +103,37 @@ public class ReviewsController {
 	
 	
 	@RequestMapping("login-review_list")
-	   public String review_list(Model model) throws SQLException{
-	      List<Review> list = reviewDao.getReviews(1,"Title","");
+	   public void review_list(Model model,String c) throws SQLException{
+	      List<Review> list; 
+	      List<ReviewRating> r_list;
+	     if(c == null){ 
+	      list = reviewDao.getReviews(1,"Title","");
+	      model.addAttribute("list", list);}
+	     if(c!=null){	
+	 		if(c.equals("5")){
+	 			r_list =  reviewRatingDao.getRatings(1,"CategoryCode","","RatingCode","5");
+	 			model.addAttribute("list",r_list);
+	 			}
+	 		else if(c.equals("4")){
+	 			r_list =  reviewRatingDao.getRatings(1,"CategoryCode","","RatingCode","4");
+	 			model.addAttribute("list",r_list);
+	 			}
+	 		else if(c.equals("3")){
+	 			r_list =  reviewRatingDao.getRatings(1,"CategoryCode","","RatingCode","3");
+	 			model.addAttribute("list",r_list);
+	 			}
+	 		else if(c.equals("2")){
+	 			r_list =  reviewRatingDao.getRatings(1,"CategoryCode","","RatingCode","2");
+	 			model.addAttribute("list",r_list);
+	 			}
+	 		else if(c.equals("1")){
+	 			r_list =  reviewRatingDao.getRatings(1,"CategoryCode","","RatingCode","1");
+	 			model.addAttribute("list",r_list);
+	 			}
+	 		
+	 		}
 	      
-	      model.addAttribute("list", list);
-	      
-	      return "reviews/login-review_list";
+	      //return "reviews/login-review_list";
 	   }
+	
 }
