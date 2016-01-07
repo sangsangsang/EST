@@ -31,7 +31,7 @@
 	
 	<update	id="update" parameterType ="com.estreller.wbprj.vo.Review">
 		UPDATE REVIEW 
-		SET Title=#{title}, CategoryCode=#{categorycode}, Content=#{content},Keyword=#{keyword} 
+		SET Title=#{title},RatingCode=#{ratingcode}, CategoryCode=#{categorycode}, Content=#{content},Keyword=#{keyword} 
 		WHERE Num=#{num} and Writer=#{writer}
 	</update>
 	

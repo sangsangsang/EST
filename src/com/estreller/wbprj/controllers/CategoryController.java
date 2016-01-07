@@ -1,7 +1,10 @@
 package com.estreller.wbprj.controllers;
 
+import java.security.Principal;
 import java.sql.SQLException;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,10 +37,13 @@ public class CategoryController {
 	@Autowired
 	   private CommentDao commentDao;
 	
-	//-----------리뷰글 Detail--------------------------------------------
+	//-----------리뷰글 Detail 댓글포함--------------------------------------------
 	
 	@RequestMapping("reviewDetail")
-	public String ReviewDetail(String c,Model model) throws SQLException{
+	public String ReviewDetail(String c,Model model,Principal principal) throws SQLException{
+		String logID=principal.getName();
+		model.addAttribute("logID",logID);
+		
 		Review review = reviewDao.getReview(c);
 		List<Comment> list = commentDao.getComments(c);
 		model.addAttribute("list", list);
@@ -50,6 +56,28 @@ public class CategoryController {
 	
 	//-------------------------------------------------------------------
 	
+	//-------------------------댓글쓰기------------------------------------------
+	@RequestMapping(value="reviewDetail", method=RequestMethod.POST)
+	public String reviewDetail(String c, Comment comment, Model model, Principal principal) throws SQLException{
+				
+		//System.out.printf("%s",c);
+		comment.setReviewNum(c);
+		comment.setWriter(principal.getName());
+		//comment.setReviewNum(principal.toString());
+		commentDao.insert(comment);
+		
+		List<Comment> list = commentDao.getComments(c);
+		
+		//Comment com = commentDao.getComment(com);
+		model.addAttribute("list", list);
+		
+		
+		
+		return "redirect:reviewDetail?c="+c;
+	}
+	//-------------------------------------------------------------------
+	
+	//--------카테고리별점순리스트.-----------------------------------------
 	
 	@RequestMapping(value="book-list", method=RequestMethod.GET)
 	public void bookRating(Model model,String c) throws SQLException{
@@ -408,4 +436,47 @@ public class CategoryController {
 		
 		}
 	}
+	//-------------------------------------------------------------------
+	
+	//------------카테고리별 글수정---------------------------------------//
+	
+	
+	@RequestMapping(value ="reviewEdit", method=RequestMethod.GET)
+	public String reviewEdit(String c, Model model, Principal principal, HttpSession session) {
+		
+		Review review = reviewDao.getReview(c);
+		
+		model.addAttribute("review", review);
+		//System.out.printf("%s",review.getTitle());
+		/*
+		review.setWriter(principal.getName());
+		reviewDao.insert(review);
+		*/
+		return "reviews/reviewEdit";
+	}
+	
+	@RequestMapping(value="reviewEdit", method=RequestMethod.POST)
+	public String reviewEdit(String c,String content,String title, String categorycode, String keyword, String ratingcode, Review r,   Principal principal) throws SQLException {
+		r.setWriter(principal.getName());
+		r.setNum(c);
+		r.setContent(content);
+		r.setTitle(title);
+		r.setCategorycode(categorycode);
+		r.setKeyword(keyword);
+		r.setRatingcode(ratingcode);
+		System.out.println(r.getTitle());
+		reviewDao.update(r);
+	
+		
+		return "redirect:reviewDetail?c="+c;
+	}
+	
+	
+	
+	
+	
+	
+	/*-------------------------------------------------------------*/
+	
+	
 }

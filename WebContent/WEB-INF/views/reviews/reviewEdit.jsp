@@ -1,6 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-          <form action="reviewReg" method="post">
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+   
+<%
+
+   request.getContextPath();
+%>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
+          <form action="reviewEdit?c=${review.num}" , method="POST">
  			<h2 class="hidden">글쓰기</h1>
             <div id="content">
                <div id="notice-article-detail" class="article-detail margin-large" >
@@ -23,7 +32,7 @@
                      <h3 class="hidden">별</h3>
                        
                         <select name="ratingcode">
-                           <option><img src="${ctx}/content/images/g1.png" width="5" height="5"/></option>
+                           <option>1</option>
                            <option>2</option>
                            <option>3</option>
                            <option>4</option>
@@ -31,8 +40,10 @@
                         </select>
                      
                      <h3 class="hidden">제목</h3>
-                     
-                        &nbsp;<input type="text"name="title"/>
+                     	
+                        &nbsp;<input name="title" value="${review.title}"/>
+                        
+                        
                      </dd>
                   </dl>            
                                     
@@ -46,7 +57,7 @@
                   </dl> -->
                   <h3 class="hidden">본문</h3>
                   <div class="article-content" >
-                     <textarea id="txtContent" class="txtContent" name="content"></textarea>
+                     <textarea id="txtContent" class="txtContent" name="content" value="">${review.content}</textarea>
                   </div>
                      
                   <h3 class="hidden">사진</h3>
@@ -74,7 +85,8 @@
                         키워드
                      </dt>
                      <dd class="article-detail-data">
-                        &nbsp;<input type="text" name="keyword" />
+                        &nbsp;<input type="text" name="keyword" value="${review.keyword}" />
+                     
                      </dd>
                   </dl>
                </div>

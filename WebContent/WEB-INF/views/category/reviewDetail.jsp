@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 <%
 
 	request.getContextPath();
@@ -8,7 +9,7 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
    
    <main id="main">
-		  	<h1 class="hidden">글보기</h3>
+	<h1 class="hidden">글보기</h3>
 		<table id="review">
 	 		
 		 	<tbody>
@@ -70,15 +71,21 @@
 	    &nbsp; &nbsp;<a href=""><img src="${ctx}/content/images/comment.png" alt="댓글" /></a>
 	    &nbsp; &nbsp;<a href=""><img src="${ctx}/content/images/report.png" alt="리뷰신고" /></a>
 	    &nbsp; &nbsp;<a href=""><img src="${ctx}/content/images/r-scrap.png" width="30" height="20" alt="스크랩" /></a>
+	    <c:if test="${review.writer == logID}">
+	    &nbsp; &nbsp;<a href="reviewEdit?c=${review.num}">수정</a>
+		&nbsp; &nbsp;<a href="">삭제</a>
+		</c:if>	
 	   </nav>
+				
+	 	
+		<form action="reviewDetail?c=${review.num}" method="post">
 				
 	 	<nav>
 	 		  <h1 class="hidden">댓글쓰기</h1>
 	 		  <dl class="article-detail-row">
 	 		    <h2 class="hidden">별</h2>
                      <dd class="cmt">   
-                        <select>
-                           <option>0</option>
+                        <select name="ratingCode">
                            <option>1</option>
                            <option>2</option>
                            <option>3</option>
@@ -88,11 +95,13 @@
                      
                      <h2 class="hidden">내용</h2>
                     
-                        &nbsp;<input name="title"/> 
-                       <input type="submit" value="댓글완료" />
+                        &nbsp;<input type="text" name="content"/> 
+                       <input class = "btnSave" type="submit" value="댓글완료" />
+                       
                      </dd>
                   </dl>   
 	 	</nav>
+	 	</form>
 	 	<div>
 	 	<h1 class="hidden">댓글</h1>
 	 		<dl class="article-detail-row">
@@ -102,10 +111,14 @@
 		 		
 		 		<tr>
 			 		<td class="writer"><img src="${ctx}/content/images/faceimg.png"/><br/>${cmt.writerNickname}</td>
-			 		<td class="cmt-rating"><ins></ins><img src="${ctx}/content/images/5.png"/></td>
+			 		<td class="cmt-rating"><ins></ins><img src="${ctx}/content/images/g${cmt.ratingCode}.png"/></td>
 			 		<td class="content">${cmt.content}</td>				
 			 		<td class="regDate"><fmt:formatDate pattern="yyyy-MM-dd"
 						value='${cmt.regdate}'/></td>
+					<c:if test="${cmt.writer == logID}">
+					 <td class="cmt-edit"><a href="">수정</a></td>
+				     <td class="cmt-del"><a href="">삭제</a></td>	
+					</c:if>
 			 		<td class="cmt-cmt"><img src="${ctx}/content/images/cmt-cmt.png"/></td>
 			 		<td class="report"><a href=""><img src="${ctx}/content/images/report.png"/></a></td>	
 		 		</tr>

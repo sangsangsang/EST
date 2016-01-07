@@ -62,34 +62,44 @@ public class ReviewsController {
 		return "reviews/login-page";
 	}*/
 	
-	@RequestMapping("reviewDetail")
-	public String ReviewDetail(String c,Model model) throws SQLException{
+	@RequestMapping(value="reviewDetail", method=RequestMethod.GET)
+	public String ReviewDetail(String c,Model model,Principal principal) throws SQLException{
+		
+		String logID=principal.getName();
+		model.addAttribute("logID",logID);
+		
+		
 		Review review = reviewDao.getReview(c);
-		System.out.println(review.getWriterNickname()+review.getNum());
-		model.addAttribute("review", review);
-		
-		List<Comment> list = commentDao.getComments(c);
-		
+		model.addAttribute("review", review);		
+		List<Comment> list = commentDao.getComments(c);		
 		//Comment com = commentDao.getComment(com);
 		model.addAttribute("list", list);
 		
+		
+		
+				
 		
 		return "reviews/reviewDetail";
 	}
 	
 	
+	
 	@RequestMapping(value="reviewDetail", method=RequestMethod.POST)
-	public String reviewDetail(Comment c) throws SQLException{
-		//c.setWriter(principal.getName());
-		commentDao.insert(c);
+	public String reviewDetail(String c, Comment comment, Model model, Principal principal) throws SQLException{
+				
+		comment.setReviewNum(c);
+		comment.setWriter(principal.getName());
+		commentDao.insert(comment);
+		List<Comment> list = commentDao.getComments(c);
+		//Comment com = commentDao.getComment(com);
+		model.addAttribute("list", list);
 		
-		return "redirect:reviewDetail";
+		return "redirect:reviewDetail?c="+c;
 	}
 	
 	
 	@RequestMapping(value="reviewReg", method=RequestMethod.GET)
 	public String reviewReg(HttpSession session){
-		
 		
 		return "reviews/reviewReg";
 	}
@@ -100,6 +110,49 @@ public class ReviewsController {
 		
 		return "redirect:login-review_list";
 	}
+	
+	
+	/*----------------------글쓰기 수정--------------------------*/
+	
+	
+	
+	@RequestMapping(value ="reviewEdit", method=RequestMethod.GET)
+	public String reviewEdit(String c, Model model, Principal principal, HttpSession session) {
+		
+		Review review = reviewDao.getReview(c);
+		
+		model.addAttribute("review", review);
+		//System.out.printf("%s",review.getTitle());
+		/*
+		review.setWriter(principal.getName());
+		reviewDao.insert(review);
+		*/
+		return "reviews/reviewEdit";
+	}
+	
+	@RequestMapping(value="reviewEdit", method=RequestMethod.POST)
+	public String reviewEdit(String c,String content,String title, String categorycode, String keyword, String ratingcode, Review r,   Principal principal) throws SQLException {
+		r.setWriter(principal.getName());
+		r.setNum(c);
+		r.setContent(content);
+		r.setTitle(title);
+		r.setCategorycode(categorycode);
+		r.setKeyword(keyword);
+		r.setRatingcode(ratingcode);
+		System.out.println(r.getTitle());
+		reviewDao.update(r);
+	
+		
+		return "redirect:reviewDetail?c="+c;
+	}
+	
+	
+	
+	
+	
+	
+	/*-------------------------------------------------------------*/
+	
 	
 	
 	@RequestMapping("login-review_list")

@@ -140,6 +140,10 @@ section>p{
    
    
 }
+
+ 
+	
+	
 	#review {
 	width:900px;
 	
@@ -249,7 +253,7 @@ section>p{
 	 .r-report,r-scrap{
 	    
 		 padding-top:50px;
-		 padding-left:700px;
+		 padding-left:650px;
 		 border-bottom: 1px solid #ff8080;
 	 }
 	.article-detail-row
@@ -274,7 +278,7 @@ section>p{
 	  
 	 }
 	 
-	 .cmt input[name='title']{
+	 .cmt input[name='content']{
 	 
 	   width:600px;
 	   height:30px;
@@ -337,9 +341,11 @@ section>p{
 	 
 	 }
 	 #comments>tbody>tr>td:nth-child(5),
-	 #comments>tbody>tr>td:nth-child(6){
-	 
-	 	width: 50px;
+	 #comments>tbody>tr>td:nth-child(6),
+	 #comments>tbody>tr>td:nth-child(7),
+	 #comments>tbody>tr>td:nth-child(8){
+	 	font-size:13px;
+	 	width: 30px;
 	 	background: 0px;
 	 }
 	
