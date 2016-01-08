@@ -14,7 +14,7 @@
 	 		
 		 	<tbody>
 		 		<tr>
-			 		<td>${review.categorycode }<br/><a href=""></a><img src="${ctx}/content/images/${review.categorycode }.png"/></a></td>	
+			 		<td><img src="${ctx}/content/images/${review.categorycode }.png"/></td>	
 			 		<td>${review.title }</td>				
 			 		<td>${review.regdate }</td>	
 		 		</tr>

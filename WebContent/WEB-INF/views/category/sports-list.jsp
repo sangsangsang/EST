@@ -20,7 +20,8 @@
                      alt="음식사진" /></a>
             <a href=""><img src="${ctx}/content/images/foodLetter.png"
                      alt="food" /></a> --%>
-             Sports
+             <li><img src="${ctx}/content/images/sports.png"/></li>
+             <li>Sports</li>
             
             </ul>
             </nav>

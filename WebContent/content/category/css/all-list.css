@@ -177,6 +177,27 @@ section>p a{
 		}
 	
 	
+input[type="text"]
+{
+	border:solid #fff;
+	background:#fff;
+    /* border-bottom:1px solid black; */
+    color:#c0c0c0;
+}
+
+input[type="submit"]
+{
+	border:solid #fff;
+	text-indent:-999px;
+	background:url("../../images/search.png") no-repeat center;
+}
+input[type="button"]
+{
+	border:solid #fff;
+	text-indent:-999px;
+	background:url("../../images/search-cancel.png") no-repeat center;
+}
+	
 /* ---------------글 목록 보기----------------------- */
 
 #box1
@@ -191,7 +212,7 @@ section>p a{
 
 }   
 .hc { width:900px; left:0; right:0; margin-left:auto; margin-right:auto; } /* 가로 중앙 정렬 */
-.vc { height:120px; top: 30px; bottom:0; margin-top:auto; margin-bottom:auto; }     
+.vc { height:180px; top: 30px; bottom:0; margin-top:auto; margin-bottom:auto; }     
 
 #c-title{
 	font-weight:bolder;

@@ -136,6 +136,30 @@ section>p a{
 			   right:40px;
 			   top: 20px;
 			}
+input[type="text"]
+{
+	border:solid #fff;
+	background:#fff;
+    /* border-bottom:1px solid black; */
+    color:#c0c0c0;
+}
+
+input[type="submit"]
+{
+	border:solid #fff;
+	text-indent:-999px;
+	background:url("../../images/search.png") no-repeat center;
+}
+input[type="button"]
+{
+	border:solid #fff;
+	text-indent:-999px;
+	background:url("../../images/search-cancel.png") no-repeat center;
+}
+
+
+
+
 
 #visual
 {

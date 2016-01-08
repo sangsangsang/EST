@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
    
@@ -11,8 +11,7 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
    
    <main id="main">  
-   <h1 class="hidden">리뷰리스트</h1>
-   <form action="show&concert-list" method="GET"> 
+   <h1 class="hidden">리뷰리스트</h1> 
          <div id ="box1" class="hc vc">
            <nav id ="category-form">
             <ul>
@@ -20,24 +19,23 @@
                      alt="음식사진" /></a>
             <a href=""><img src="${ctx}/content/images/foodLetter.png"
                      alt="food" /></a> --%>
-             <li><img src="${ctx}/content/images/show&concert.png"/></li>
-             <li>show & Concert</li>
-            
+             ${param.q }
+ 
             </ul>
             </nav>
             
          <nav id = "rating-menu">
             <h1 class ="hidden">별점메뉴</h1>
             <ul>
-               <li><a href="show&concert-list?c=5"><img src="${ctx}/content/images/5.png"
+               <li><a href="login-review_list?c=5"><img src="${ctx}/content/images/5.png"
                      alt="별5개" /></a></li>
-               <li><a href="show&concert-list?c=4"><img src="${ctx}/content/images/4.png"
+               <li><a href="login-review_list?c=4"><img src="${ctx}/content/images/4.png"
                      alt="별4개" /></a></li>
-               <li><a href="show&concert-list?c=3"><img src="${ctx}/content/images/3.png"
+               <li><a href="login-review_list?c=3"><img src="${ctx}/content/images/3.png"
                      alt="별3개" /></a></li>
-               <li><a href="show&concert-list?c=2"><img src="${ctx}/content/images/2.png"
+               <li><a href="login-review_list?c=2"><img src="${ctx}/content/images/2.png"
                      alt="별2개" /></a></li>
-               <li><a href="show&concert-list?c=1"><img src="${ctx}/content/images/1.png"
+               <li><a href="login-review_list?c=1"><img src="${ctx}/content/images/1.png"
                      alt="별1개" /></a></li>
                
             </ul>
@@ -174,13 +172,7 @@
        </div>
     </div>
          
-          
-        
-          
-          
-          
-          
-          
+
           
           <div id ="box2-3">
           <div id="review-preview3">
@@ -238,6 +230,7 @@
    </div> 
        
        <c:forEach var="r" items = "${list}" >
+       
        <div id ="box3" class="hc3 vc3" me>
        
        <table id="review-preview-wide">
@@ -289,10 +282,9 @@
               </tbody>   
           
           </table>
-          
           </div>
-         </form> 
-
+          
        </div>
        </c:forEach>
+       
        </main>
