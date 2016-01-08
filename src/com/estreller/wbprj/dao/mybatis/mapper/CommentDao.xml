@@ -27,7 +27,7 @@
 	</update>
 	
 	<delete id="delete" parameterType ="com.estreller.wbprj.vo.Comment">
-		DELETE Comment WHERE Writer=#{writer} AND ReviewNum=#{reviewNum}
+		DELETE Comment FROM Comment WHERE Code=#{code}
 	</delete>
 	
 	<insert id="insert" parameterType="com.estreller.wbprj.vo.Comment">

@@ -113,7 +113,7 @@ public class ReviewsController {
 		r.setCategorycode(categorycode);
 		r.setKeyword(keyword);
 		r.setRatingcode(ratingcode);
-		System.out.println(r.getTitle());
+		//System.out.println(r.getTitle());
 		reviewDao.update(r);
 		
 		return "redirect:reviewDetail?c="+c;
@@ -121,13 +121,25 @@ public class ReviewsController {
 	//*---------------------글삭제-----------------------------*//
 	
 	@RequestMapping(value="delete", method=RequestMethod.POST)
-	public String reviewDelete(String c,Principal principal,Review r) throws SQLException {
-		System.out.println(c);
+	public String reviewDelete(String c,Review r) throws SQLException {
+		
 	    reviewDao.delete(c);
 		
 		return "redirect:login-review_list";
 	}
+	//*---------------------댓글삭제-----------------------------*//
 	
+	@RequestMapping(value="cmtdelete", method=RequestMethod.POST)
+	public String commentDelete(String c,String cmtcode) throws SQLException {
+		//System.out.println(c);
+		//List<Comment> list = commentDao.getComments(c);	
+		System.out.println("리뷰코드"+c);
+		System.out.println("댓글코드"+cmtcode);
+	    commentDao.delete(cmtcode);
+	  
+		
+	  return "redirect:reviewDetail?c="+c;
+	}		
 	
 	
 	/*-------------------------ALL 별점순 list------------------------------------*/

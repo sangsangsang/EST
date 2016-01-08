@@ -13,7 +13,7 @@ public interface CommentDao {
 	List<Comment> getComments(int page) throws SQLException;
 	*/
 	public int update(Comment comment) throws SQLException;
-	public int delete(Comment comment) throws SQLException;
+	public int delete(String c) throws SQLException;
 	public int insert(Comment comment) throws SQLException;
 	public List<Comment> getComments(String code) throws SQLException;
 

@@ -478,13 +478,23 @@ public class CategoryController {
 		@RequestMapping(value="delete", method=RequestMethod.POST)
 		public String reviewDelete(String c) throws SQLException {
 			//System.out.println(c);
-			
+			  Review r = reviewDao.getReview(c);
+			  String code= r.getCategorycode();
+			  System.out.println();
 		    reviewDao.delete(c);
-		    Review r = reviewDao.getReview(c);
-			System.out.println(r.getCategorycode());
+		  System.out.println(code);
 			
-			return "redirect:"+r.getCategorycode()+"-list";
+			return "redirect:"+code+"-list";
 		}
-
-
+		@RequestMapping(value="cmtdelete", method=RequestMethod.POST)
+		public String commentDelete(String c,String cmtcode) throws SQLException {
+			//System.out.println(c);
+			//List<Comment> list = commentDao.getComments(c);	
+			System.out.println("¸®ºäÄÚµå"+c);
+			System.out.println("´ñ±ÛÄÚµå"+cmtcode);
+		    commentDao.delete(cmtcode);
+		  
+			
+		  return "redirect:reviewDetail?c="+c;
+		}		
 }

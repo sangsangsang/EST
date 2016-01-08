@@ -1,14 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+   
 <%
-	request.getContextPath();
-%>
-<c:set var="ctx" value="${pageContext.request.contextPath}"/>  
 
- 
-   <main id="main">
+   request.getContextPath();
+%>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
+ <main id="main">
 	<h1 class="hidden">글보기</h3>
 	 <div id ="detail" class="hc vc">
 		<table id="review">
@@ -16,7 +17,7 @@
 		 	<tbody>
 		 		<tr>
 			 		<td>${review.categorycode}<br/><a href=""></a><img src="${ctx}/content/images/${review.categorycode }.png"/></a></td>	
-			 		<td>${review.title}</td>				
+			 		<a href=""><td>${review.title}</td></a>				
 			 		<td>${review.regdate}</td>	
 		 		</tr>
 		 		

@@ -16,7 +16,7 @@
          <div id ="box1" class="hc vc">
            <nav id ="category-form">
             <ul>
-            <a href="food-list" id="c-title">
+            <a href="" id="c-title">
              Food
             </a> 
             </ul>

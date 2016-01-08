@@ -118,12 +118,17 @@
 			 		<td class="content">${cmt.content}</td>				
 			 		<td class="regDate"><fmt:formatDate pattern="yyyy-MM-dd"
 						value='${cmt.regdate}'/></td>
+					<td class="cmt-cmt"><img src="${ctx}/content/images/cmt-cmt.png"/>
+			 		<a href="" name="report"><img src="${ctx}/content/images/report.png"/></a></td>
 					<c:if test="${cmt.writer == logID}">
-					 <td class="cmt-edit"><a href="">수정</a></td>
-				     <td class="cmt-del"><a href="">삭제</a></td>	
-					</c:if>
-			 		<td class="cmt-cmt"><img src="${ctx}/content/images/cmt-cmt.png"/></td>
-			 		<td class="report"><a href=""><img src="${ctx}/content/images/report.png"/></a></td>	
+					 <td class="cmt-edit"><a href="">Edit</a>
+					 <form class="cmt-del" action ="cmtdelete" method="post">
+				      <input type="hidden" value="${review.num}" name="c"/> 
+					  <input type="hidden" value="${cmt.cmtcode}" name="cmtcode"/>
+				      <input type="submit" value="Del"/></a>	
+				     </form>
+					 </td>
+					</c:if>	
 		 		</tr>
 		 		</c:forEach>		
 	 			</tbody>
