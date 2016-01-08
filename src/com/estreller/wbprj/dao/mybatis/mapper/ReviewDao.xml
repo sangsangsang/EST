@@ -35,8 +35,8 @@
 		WHERE Num=#{num} and Writer=#{writer}
 	</update>
 	
-	<delete id="delete" parameterType ="String">
-		DELETE REVIEW WHERE Num=#{num} and Writer=#{writer}
+	<delete id="delete" parameterType ="com.estreller.wbprj.vo.Review">
+		DELETE Review FROM Review WHERE Num=#{num}
 	</delete>
 	
 	

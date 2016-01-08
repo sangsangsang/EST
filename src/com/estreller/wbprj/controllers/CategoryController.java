@@ -83,7 +83,7 @@ public class CategoryController {
 	public void bookRating(Model model,String c) throws SQLException{
 		List<ReviewRating> r_list;
 		List<Category> list;
-		System.out.printf("%s\n",c);
+		
 		if(c == null){
 			list = categoryDao.getCategory(1,"CategoryCode","Book");
 			
@@ -121,7 +121,7 @@ public class CategoryController {
 	public void electronicsRating(Model model,String c) throws SQLException{
 		List<ReviewRating> r_list;
 		List<Category> list;
-		System.out.printf("%s\n",c);
+		
 		if(c == null){
 			list = categoryDao.getCategory(1,"CategoryCode","Electronics");
 			
@@ -159,7 +159,7 @@ public class CategoryController {
 	public void fashionBeautyRating(Model model,String c) throws SQLException{
 		List<ReviewRating> r_list;
 		List<Category> list;
-		System.out.printf("%s\n",c);
+		
 		if(c == null){
 			list = categoryDao.getCategory(1,"CategoryCode","Fashion&Beauty");
 			
@@ -196,7 +196,7 @@ public class CategoryController {
 	public void foodRating(Model model,String c) throws SQLException{
 		List<ReviewRating> r_list;
 		List<Category> list;
-		System.out.printf("%s\n",c);
+		
 		if(c == null){
 			list = categoryDao.getCategory(1,"CategoryCode","Food");
 			
@@ -232,7 +232,7 @@ public class CategoryController {
 	public void gameRating(Model model,String c) throws SQLException{
 		List<ReviewRating> r_list;
 		List<Category> list;
-		System.out.printf("%s\n",c);
+		
 		if(c == null){
 			list = categoryDao.getCategory(1,"CategoryCode","Game");
 			
@@ -267,7 +267,7 @@ public class CategoryController {
 	public void movieRating(Model model,String c) throws SQLException{
 		List<ReviewRating> r_list;
 		List<Category> list;
-		System.out.printf("%s\n",c);
+		
 		if(c == null){
 			list = categoryDao.getCategory(1,"CategoryCode","Movie");
 			
@@ -302,7 +302,7 @@ public class CategoryController {
 	public void musicRating(Model model,String c) throws SQLException{
 		List<ReviewRating> r_list;
 		List<Category> list;
-		System.out.printf("%s\n",c);
+		
 		if(c == null){
 			list = categoryDao.getCategory(1,"CategoryCode","Music");
 			
@@ -372,7 +372,7 @@ public class CategoryController {
 	public void sportsRating(Model model,String c) throws SQLException{
 		List<ReviewRating> r_list;
 		List<Category> list;
-		System.out.printf("%s\n",c);
+		
 		if(c == null){
 			list = categoryDao.getCategory(1,"CategoryCode","Sports");
 			
@@ -406,7 +406,7 @@ public class CategoryController {
 	public void travelRating(Model model,String c) throws SQLException{
 		List<ReviewRating> r_list;
 		List<Category> list;
-		System.out.printf("%s\n",c);
+		
 		if(c == null){
 			list = categoryDao.getCategory(1,"CategoryCode","Travel");
 			
@@ -473,10 +473,18 @@ public class CategoryController {
 	
 	
 	
+	//*---------------------±€ªË¡¶-----------------------------*//
 	
-	
-	
-	/*-------------------------------------------------------------*/
-	
-	
+		@RequestMapping(value="delete", method=RequestMethod.POST)
+		public String reviewDelete(String c) throws SQLException {
+			//System.out.println(c);
+			
+		    reviewDao.delete(c);
+		    Review r = reviewDao.getReview(c);
+			System.out.println(r.getCategorycode());
+			
+			return "redirect:"+r.getCategorycode()+"-list";
+		}
+
+
 }

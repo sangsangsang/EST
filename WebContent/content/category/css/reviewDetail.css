@@ -256,6 +256,12 @@ section>p{
 		 padding-left:650px;
 		 border-bottom: 1px solid #ff8080;
 	 }
+	  .del{
+	 	 position:relative;
+	 	 font-size:18px;
+		 padding-left:200px;
+		
+	 }
 	.article-detail-row
 		{
 		   height: 60px;

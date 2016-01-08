@@ -5,7 +5,9 @@
 <%
 	request.getContextPath();
 %>
-<c:set var="ctx" value="${pageContext.request.contextPath}"/>   
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>  
+
+ 
    <main id="main">
 	<h1 class="hidden">글보기</h3>
 	 <div id ="detail" class="hc vc">
@@ -65,14 +67,18 @@
 	      ${review.keyword }
 	   
 	   </div>
+	   
 	   <nav class="r-report r-scrap">
 	   <a href=""><img src="${ctx}/content/images/like.png" alt="좋아요" /></a>
 	    &nbsp; &nbsp;<a href=""><img src="${ctx}/content/images/comment.png" alt="댓글" /></a>
 	    &nbsp; &nbsp;<a href=""><img src="${ctx}/content/images/report.png" alt="리뷰신고" /></a>
 	    &nbsp; &nbsp;<a href=""><img src="${ctx}/content/images/r-scrap.png" width="30" height="20" alt="스크랩" /></a>
 		<c:if test="${review.writer == logID}">
-		&nbsp; &nbsp;<a href="reviewEdit?c=${review.num}">수정</a>
-		&nbsp; &nbsp;<a href="">삭제</a>	   
+		&nbsp; &nbsp;<a href="reviewEdit?c=${review.num}" style="font-size:20px;">Edit</a>
+	   <form class="del" action ="delete" method="post">
+	    <input type="hidden" value="${review.num}" name="c"/> <!-- 페이지 코드값을 넘겨준다 -->
+		<input type="submit" value="Delete"/>
+		</form>	   
 		</c:if>
 	   </nav>
 			
@@ -109,9 +115,7 @@
 		 		<tr>
 
 			 		<td class="writer"><img src="${ctx}/content/images/faceimg.png"/><br/>${cmt.writerNickname}</td>
-	
-			 		<td class="cmt-rating"><ins></ins><br/><img src="${ctx}/content/images/g${cmt.ratingCode}.png"/></td>
-
+			 		<td class="cmt-rating"><ins></ins><img src="${ctx}/content/images/g${cmt.ratingCode}.png"/></td>
 			 		<td class="content">${cmt.content}</td>				
 			 		<td class="regDate"><fmt:formatDate pattern="yyyy-MM-dd"
 						value='${cmt.regdate}'/></td>

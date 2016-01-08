@@ -46,39 +46,19 @@ public class ReviewsController {
 		model.addAttribute("member", member);*/
 		return "reviews/login-mainpage";
 	}
-	
-	/*@RequestMapping("login-page")//url 맵핑정보
-	public String Review(PrintWriter out,Model model){
-		
-		
-		//ReviewDao reviewDao = new MyBatisReviewDao();
-		//List<Review> list =reviewDao.getReviews(1,"title","");
-		
-		model.addAttribute("list",list);
-		//model.addAttribute("n",list.get(0));
-		for(Notice n:list)
-			out.println("title:"+n.getTitle()+"<br/>");
-		
-		return "reviews/login-page";
-	}*/
-	
+//-----------------------------글자세히보기----------------------	
 	@RequestMapping(value="reviewDetail", method=RequestMethod.GET)
 	public String ReviewDetail(String c,Model model,Principal principal) throws SQLException{
 		
-		String logID=principal.getName();
+		String logID=principal.getName();//로그인된 아이디 가져옴
 		model.addAttribute("logID",logID);
-		
 		
 		Review review = reviewDao.getReview(c);
 		model.addAttribute("review", review);		
 		List<Comment> list = commentDao.getComments(c);		
-		//Comment com = commentDao.getComment(com);
+
 		model.addAttribute("list", list);
-		
-		
-		
-				
-		
+					
 		return "reviews/reviewDetail";
 	}
 	
@@ -97,7 +77,7 @@ public class ReviewsController {
 		return "redirect:reviewDetail?c="+c;
 	}
 	
-	
+//=======================글쓰기 저장======================================	
 	@RequestMapping(value="reviewReg", method=RequestMethod.GET)
 	public String reviewReg(HttpSession session){
 		
@@ -114,19 +94,13 @@ public class ReviewsController {
 	
 	/*----------------------글쓰기 수정--------------------------*/
 	
-	
-	
 	@RequestMapping(value ="reviewEdit", method=RequestMethod.GET)
 	public String reviewEdit(String c, Model model, Principal principal, HttpSession session) {
 		
 		Review review = reviewDao.getReview(c);
 		
 		model.addAttribute("review", review);
-		//System.out.printf("%s",review.getTitle());
-		/*
-		review.setWriter(principal.getName());
-		reviewDao.insert(review);
-		*/
+	
 		return "reviews/reviewEdit";
 	}
 	
@@ -141,19 +115,22 @@ public class ReviewsController {
 		r.setRatingcode(ratingcode);
 		System.out.println(r.getTitle());
 		reviewDao.update(r);
-	
 		
 		return "redirect:reviewDetail?c="+c;
+	}
+	//*---------------------글삭제-----------------------------*//
+	
+	@RequestMapping(value="delete", method=RequestMethod.POST)
+	public String reviewDelete(String c,Principal principal,Review r) throws SQLException {
+		System.out.println(c);
+	    reviewDao.delete(c);
+		
+		return "redirect:login-review_list";
 	}
 	
 	
 	
-	
-	
-	
-	/*-------------------------------------------------------------*/
-	
-	
+	/*-------------------------ALL 별점순 list------------------------------------*/
 	
 	@RequestMapping("login-review_list")
 	   public void review_list(Model model,String c) throws SQLException{

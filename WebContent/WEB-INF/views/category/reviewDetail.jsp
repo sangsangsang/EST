@@ -71,10 +71,13 @@
 	    &nbsp; &nbsp;<a href=""><img src="${ctx}/content/images/comment.png" alt="댓글" /></a>
 	    &nbsp; &nbsp;<a href=""><img src="${ctx}/content/images/report.png" alt="리뷰신고" /></a>
 	    &nbsp; &nbsp;<a href=""><img src="${ctx}/content/images/r-scrap.png" width="30" height="20" alt="스크랩" /></a>
-	    <c:if test="${review.writer == logID}">
-	    &nbsp; &nbsp;<a href="reviewEdit?c=${review.num}">수정</a>
-		&nbsp; &nbsp;<a href="">삭제</a>
-		</c:if>	
+	   <c:if test="${review.writer == logID}">
+		&nbsp; &nbsp;<a href="reviewEdit?c=${review.num}" style="font-size:20px;">Edit</a>
+	   <form class="del" action ="delete" method="post">
+	    <input type="hidden" value="${review.num}" name="c"/> <!-- 페이지 코드값을 넘겨준다 -->
+		<input type="submit" value="Delete"/>
+		</form>	   
+		</c:if>
 	   </nav>
 				
 	 	

@@ -54,10 +54,10 @@ public class MyBatisReviewDao implements ReviewDao {
 	}
 
 	@Override
-	public int delete(Review review) throws SQLException {
+	public int delete(String c) throws SQLException {
 		//SqlSession session = ssf.openSession();
 		ReviewDao dao = sqlSession.getMapper(ReviewDao.class);
-		int count = dao.delete(review);
+		int count = dao.delete(c);
 		//session.commit();
 		//session.close();
 		return count;
