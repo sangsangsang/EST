@@ -31,36 +31,44 @@ body{
 #header
 {
    height:70px;
-   background:#c0c0c0;   
+   background:#e7e8eb;
+   
 }
-   #main-menu{
-      display:inline-block;
-      position:absolute;
-      left:10px;
-      top:20px;
-   }
 
-      #main-menu>ul>li{
-         float:left;
-         font-family:"맑은 고딕",Arial,sans-serif;
+ #main-menu
+{	
+	/* width:750px; */
+	height:inherit;
+	table-layout: fixed;
+ 
+	
+}
+
+#main-menu  tr th{
+		
+				
+		font-family:"맑은 고딕",Arial,sans-serif;
          font-size:15px;
-         /* font-weight:bold; */
-         padding-left:15px; /* 카테고리 간에 간격 */
-      
-      
-      }
-         #main-menu>ul>li:FIRST-CHILD{
-            padding-left:20px;
-            background:none;   
+         padding-left:9px; /* 카테고리 간에 간격 */
+         padding-right:9px;
+         position:relative;
+         font-color:pink;
+
+}
+
+#main-menu  tr th:HOVER{
+		
+         background:#4949e6;
+         position:relative;
+
+}
+
+ #main-menu tr th a{
+            color:#ffffff;
+            text-decoration:none;
+              
          }
-         
-         #main-menu>ul>li a{
-            color:#000000;
-            text-decoration:none;   
-         }
-         #main-menu>ul>li a:HOVER{
-               text-decoration:underline;
-         }
+
 
    #login-form{
       position:absolute;
@@ -139,15 +147,19 @@ body{
    top: 15px;
 }
 
-#visual
+/* #visual
 {
    height:70px;
    background:#808080;
-}
+} */
 #body
 {
-   min-height:700px;
-   background:url("../images/main-img.png") no-repeat center;
+	background:#ffffff;
+   height:570px;
+   
+  /*  height:100%;
+   width:100%; */
+    background:url("../images/purStar.png") no-repeat center;  
    
   
 }
@@ -155,18 +167,32 @@ body{
 #main p{
    
    display:block;
-   font-family:"맑은 고딕",Arial,sans-serif;
-   font-size:15px;
+   font-family:"맑은고딕",Arial,sans-serif;
+   color:#4949e6;
+   font-size:80px;
    text-align:center;
-   padding-top:500px; /* 메인로고 밑에 글  */
+   /* font-weight:bold; */
+   
+   padding-top:230px; /* 메인로고 밑에 글  */
   
 }
+
+#main p2{
+	display:block;
+	text-align:center;
+	color:#b5b5f4;
+	padding-top:10px; 
+	font-size:15px;
+		
+}
+
+/* 
 #footer
 {
    height:100px;
    background:black;
 }
 
-
+ */
 
 

@@ -7,6 +7,16 @@
    height:0px;
    visibility:hidden;
 }
+.content-container 
+{   
+   position:relative;
+   width:1250px; /* 헤더너비 */ 
+   margin-left:auto; 
+   margin-right:auto;
+   
+   /* opacity:0.5; */
+   height:inherit;
+}
 
 .hidden{
    display:none;
@@ -18,7 +28,7 @@ body{
    font-size:11px;
    color:#979797;
 }
-
+/* 
 #header
 {
    height:70px;
@@ -35,8 +45,8 @@ body{
          float:left;
          font-family:"맑은 고딕",Arial,sans-serif;
          font-size:15px;
-         /* font-weight:bold; */
-         padding-left:15px; /* 카테고리 간에 간격 */
+         font-weight:bold;
+         padding-left:15px; 카테고리 간에 간격
       
       
       }
@@ -51,28 +61,73 @@ body{
          }
          #main-menu>ul>li a:HOVER{
                text-decoration:underline;
-         }
-		#profile{
-		   position:absolute;
-		   margin-left:830px;
-		   top:10px;
-		}
+         } */
+         
+         
+#header
+{
+   height:70px;
+   background:#e7e8eb;
+   
+}
 
-section>p{
+ #main-menu
+{	
+	/* width:750px; */
+	height:inherit;
+	table-layout: fixed;
+ 
+	
+}
+
+#main-menu  tr th{
+		
+				
+		font-family:"맑은 고딕",Arial,sans-serif;
+         font-size:15px;
+         padding-left:9px; /* 카테고리 간에 간격 */
+         padding-right:9px;
+         position:relative;
+         font-color:pink;
+
+}
+
+#main-menu  tr th:HOVER{
+		
+         background:#4949e6;
+         position:relative;
+
+}
+
+ #main-menu tr th a{
+            color:#ffffff;
+            text-decoration:none;
+              
+         }
+         
+         
+      #profile{
+         position:absolute;
+         margin-left:830px;
+         top:10px;
+      }
+
+
+section>p a{
    display:inline-block;
+   position:absolute;
    font-family:"맑은 고딕",Arial,sans-serif;
    font-size:11px;
    margin-left:830px;
-   margin-top:50px;
+   margin-top:-20px;
 }
    section>p a{
-      color:yellow;
+      color:#000000;
       text-decoration:none;
    }
       section>p a:HOVER{
           text-decoration:underline;
       }
-   
 
 #write{
    position:absolute;
@@ -130,9 +185,10 @@ section>p{
    font-family:"맑은 고딕",Arial,sans-serif;
    font-size:30px;
    text-align:center;
-   color:yellow;
-   background:black;
+   color:#4949e6;
+   background:#eeeeee;
    height:200px;
+   width:1250px;
    padding-top:100px; 
 }
 
@@ -167,11 +223,4 @@ section>p{
 .info-change img{
    margin-top:50px;
 }
-
-#footer
-{
-   height:100px;
-   background:black;
-}
-
 

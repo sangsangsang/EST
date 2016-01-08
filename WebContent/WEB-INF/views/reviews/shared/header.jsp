@@ -10,22 +10,23 @@
 	request.getContextPath();
 %>	  
    <h1 class="hidden">메인</h1>
-   <nav id="main-menu">
+   
       <h1 class="hidden">카테고리</h1>
-      <ul>
-
-      <li><a href="${ctx}/category/sports-list">Sports</a></li>
-      <li><a href="${ctx}/category/movie-list">Movie</a></li>
-      <li><a href="${ctx}/category/game-list">Game</a></li>
-      <li><a href="${ctx}/category/book-list">Book</a></li>
-      <li><a href="${ctx}/category/music-list">Music</a></li>
-      <li><a href="${ctx}/category/fashion&beauty-list">Fashion&Beauty</a></li>
-      <li><a href="${ctx}/category/show&concert-list">Show&Concert</a></li>
-      <li><a href="${ctx}/category/food-list">Food</a></li>
-      <li><a href="${ctx}/category/travel-list">Travel</a></li>
-      <li><a href="${ctx}/category/electronics-list">Electronics</a></li>
-      </ul>
-   </nav>
+     <table id = "main-menu">
+    <tr>
+    <th><a href="${ctx}/reviews/login-review_list">All</a></th>
+    <th><a href="${ctx}/category/sports-list">Sports</a></th>
+    <th><a href="${ctx}/category/movie-list">Movie</a></th>
+    <th><a href="${ctx}/category/game-list">Book</a></th>
+    <th><a href="${ctx}/category/music-list">Music</a></th>
+    <th><a href="${ctx}/category/fashion&beauty-list">Fashion&Beauty</a></th>
+    <th><a href="${ctx}/category/show&concert-list">Show&Concert</a></th>
+    <th><a href="${ctx}/category/food-list">Food</a></th>
+    <th><a href="${ctx}/category/travel-list">Travel</a></th>
+    <th><a href="${ctx}/category/electronics-list">Electronics</a></th>
+    <tr>
+    
+    </table>
     <nav id="search">
             <a href=""><img src="${pageContext.request.contextPath}/content/images/search.png" alt="검색" /></a>
     </nav> 

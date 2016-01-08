@@ -33,56 +33,69 @@ body{
 #header
 {
    height:70px;
-   background:#c0c0c0;   
+   background:#e7e8eb;
+   
 }
-   #main-menu{
-      display:inline-block;
-      position:absolute;
-      left:10px;
-      top:20px;
-   }
 
-      #main-menu>ul>li{
-         float:left;
-         font-family:"맑은 고딕",Arial,sans-serif;
+ #main-menu
+{	
+	/* width:750px; */
+	height:inherit;
+	table-layout: fixed;
+ 
+	
+}
+
+#main-menu  tr th{
+		
+				
+		font-family:"맑은 고딕",Arial,sans-serif;
          font-size:15px;
-         /* font-weight:bold; */
-         padding-left:15px; /* 카테고리 간에 간격 */
-      
-      
+         padding-left:9px; /* 카테고리 간에 간격 */
+         padding-right:9px;
+         position:relative;
+         font-color:pink;
+
+}
+
+#main-menu  tr th:HOVER{
+		
+         background:#4949e6;
+         position:relative;
+
+}
+
+ #main-menu tr th a{
+            color:#ffffff;
+            text-decoration:none;
+              
+         }
+
+
+
+
+
+	#profile{
+	   position:absolute;
+	   margin-left:830px;
+	   top:10px;
+	}
+
+section>p a{
+   display:inline-block;
+   position:absolute;
+   font-family:"맑은 고딕",Arial,sans-serif;
+   font-size:11px;
+   margin-left:830px;
+   margin-top:-20px;
+}
+   section>p a{
+      color:#000000;
+      text-decoration:none;
+   }
+      section>p a:HOVER{
+          text-decoration:underline;
       }
-         #main-menu>ul>li:FIRST-CHILD{
-            padding-left:20px;
-            background:none;   
-         }
-         
-         #main-menu>ul>li a{
-            color:#000000;
-            text-decoration:none;   
-         }
-         #main-menu>ul>li a:HOVER{
-               text-decoration:underline;
-         }
-			#profile{
-			   position:absolute;
-			   margin-left:830px;
-			   top:10px;
-			}
-			
-			section>p{
-			   display:inline-block;
-			   font-family:"맑은 고딕",Arial,sans-serif;
-			   font-size:11px;
-			   margin-left:830px;
-			   margin-top:50px;
-			}
-			   section>p a{
-			      color:yellow;
-			      text-decoration:none;
-			   }
-			      section>p a:HOVER{
-			          text-decoration:underline;
-			      }
 			   
 			
 			#write{
