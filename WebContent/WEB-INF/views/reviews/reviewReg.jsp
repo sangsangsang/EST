@@ -8,26 +8,26 @@
                   <dl class="article-detail-row">
                      <dd class="article-detail-category">
                         <select name="categorycode">
-                           <option>Sports</option>
-                           <option>Movie</option>
-                           <option>Game</option>
-                           <option>Book</option>
-                           <option>Music</option>
-                           <option>Fashion&Beauty</option>
-                           <option>Show&Concert</option>
-                           <option>Food</option>
-                           <option>Travel</option>
-                           <option>Electronics</option>
+                           <option value="sports">Sports</option>
+                           <option value="movie">Movie</option>
+                           <option value="game">Game</option>
+                           <option value="book">Book</option>
+                           <option value="music">Music</option>
+                           <option value="fashion&beauty">Fashion&Beauty</option>
+                           <option value="show&concert">Show&Concert</option>
+                           <option value="food">Food</option>
+                           <option value="travel">Travel</option>
+                           <option value="electronics">Electronics</option>
                         </select>
                      
                      <h3 class="hidden">별</h3>
                        
                         <select name="ratingcode">
-                           <option><img src="${ctx}/content/images/g1.png" width="5" height="5"/></option>
-                           <option>2</option>
-                           <option>3</option>
-                           <option>4</option>
-                           <option>5</option>
+                           <option value="1">★☆☆☆☆</option>
+                           <option value="2">★★☆☆☆</option>
+                           <option value="3">★★★☆☆</option>
+                           <option value="4">★★★★☆</option>
+                           <option value="5">★★★★★</option>
                         </select>
                      
                      <h3 class="hidden">제목</h3>

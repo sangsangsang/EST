@@ -91,16 +91,17 @@
 
     <table id = "main-menu">
     <tr>
-    <th><a href="${ctx}/reviews/login-review_list">All</a></th>
-    <th><a href="${ctx}/category/sports-list">Sports</a></th>
-    <th><a href="${ctx}/category/movie-list">Movie</a></th>
-    <th><a href="${ctx}/category/game-list">Book</a></th>
-    <th><a href="${ctx}/category/music-list">Music</a></th>
-    <th><a href="${ctx}/category/fashion&beauty-list">Fashion&Beauty</a></th>
-    <th><a href="${ctx}/category/show&concert-list">Show&Concert</a></th>
-    <th><a href="${ctx}/category/food-list">Food</a></th>
-    <th><a href="${ctx}/category/travel-list">Travel</a></th>
-    <th><a href="${ctx}/category/electronics-list">Electronics</a></th>
+	    <th><a href="${ctx}/reviews/login-review_list">All</a></th>
+	    <th><a href="${ctx}/category/sports-list">Sports</a></th>
+	    <th><a href="${ctx}/category/movie-list">Movie</a></th>
+	    <th><a href="${ctx}/category/book-list">Book</a></th>
+	    <th><a href="${ctx}/category/game-list">Game</a>
+	    <th><a href="${ctx}/category/music-list">Music</a></th>
+	    <th><a href="${ctx}/category/fashion&beauty-list">Fashion&Beauty</a></th>
+	    <th><a href="${ctx}/category/show&concert-list">Show&Concert</a></th>
+	    <th><a href="${ctx}/category/food-list">Food</a></th>
+	    <th><a href="${ctx}/category/travel-list">Travel</a></th>
+	    <th><a href="${ctx}/category/electronics-list">Electronics</a></th>
     <tr>
     
     </table>
