@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>	
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>   
 <%
 
    request.getContextPath();
@@ -13,43 +13,43 @@
    </div> -->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
    <script >
-	$(document).ready(function(){
-	    $(".inputPassword").click(function(){
-	        $(".inputPassword").val("");
-	    });
-	    $(".inputPassword").focusout(function(){
-	        if($(".inputPassword").val() == "") {
-	            $(".inputPassword").val("비밀번호를 입력해주세요");
-	            alert("비밀번호를 입력하세요.");
-	        }
-	    });
-	});
+   $(document).ready(function(){
+       $(".inputPassword").click(function(){
+           $(".inputPassword").val("");
+       });
+       $(".inputPassword").focusout(function(){
+           if($(".inputPassword").val() == "") {
+               $(".inputPassword").val("비밀번호를 입력해주세요");
+               alert("비밀번호를 입력하세요.");
+           }
+       });
+   });
 
-	$(document).ready(function(){
-	    $(".inputRepassword").click(function(){
-	        $(".inputRepassword").val("");
-	    });
-	    $(".inputRepassword").focusout(function(){
-	        if($(".inputRepassword").val() == "") {
-	            $(".inputRepassword").val("비밀번호를 재입력해주세요");
-	            alert("비밀번호를 재입력하세요.");
-	        }
-	        else if($(".inputPassword").val()!=$(".inputRepassword").val())
-	           alert("비밀번호가 일치하지 않습니다.");
-	    });
-	});
+   $(document).ready(function(){
+       $(".inputRepassword").click(function(){
+           $(".inputRepassword").val("");
+       });
+       $(".inputRepassword").focusout(function(){
+           if($(".inputRepassword").val() == "") {
+               $(".inputRepassword").val("비밀번호를 재입력해주세요");
+               alert("비밀번호를 재입력하세요.");
+           }
+           else if($(".inputPassword").val()!=$(".inputRepassword").val())
+              alert("비밀번호가 일치하지 않습니다.");
+       });
+   });
 
-	$(document).ready(function(){
-	    $(".inputNickname").click(function(){
-	        $(".inputNickname").val("");
-	    });
-	    $(".inputNickname").focusout(function(){
-	        if($(".inputNickname").val() == "") {
-	            $(".inputNickname").val("닉네임을 입력해주세요");
-	            alert("닉네임을 입력하세요.");
-	        }
-	    });
-	});
+   $(document).ready(function(){
+       $(".inputNickname").click(function(){
+           $(".inputNickname").val("");
+       });
+       $(".inputNickname").focusout(function(){
+           if($(".inputNickname").val() == "") {
+               $(".inputNickname").val("닉네임을 입력해주세요");
+               alert("닉네임을 입력하세요.");
+           }
+       });
+   });
    </script>
   
          <main id="main">
@@ -75,7 +75,7 @@
                   <h3 class="hidden">버튼</h3>
             <p class="info-change">                  
                <input class="btn-save button" type="submit" value="저장" />
-               <a class="btn-cancel button" href="${ctx}/reviews/login-review_list"><img src="${ctx}/content/images/btn-cancel.png" alt="취소" /></a>                  
+               <a class="btn-cancel button" href="../Review/login-mainpage"><img src="${ctx}/content/images/btn-cancel.png" alt="취소" /></a>                  
             </p>   
 
          </form>

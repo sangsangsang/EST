@@ -31,14 +31,14 @@ body{
 }
 
 
-#header
+/* #header
 {	
 	
    height:70px;
    background:#c0c0c0; 
-   /* position: fixed;  */ 
-}
-   #main-menu{
+   position: fixed;  
+} */
+   /* #main-menu{
       display:inline-block;
       position:absolute;
       left:10px;
@@ -49,8 +49,8 @@ body{
          float:left;
          font-family:"맑은 고딕",Arial,sans-serif;
          font-size:15px;
-         /* font-weight:bold; */
-         padding-left:15px; /* 카테고리 간에 간격 */
+         font-weight:bold;
+         padding-left:15px; 카테고리 간에 간격
       
       
       }
@@ -65,22 +65,73 @@ body{
          }
          #main-menu>ul>li a:HOVER{
                text-decoration:underline;
+         } */
+         
+         
+/* ----------------- 바뀐header ---------------   */     
+         
+#header
+{
+   height:70px;
+   background:#e7e8eb;
+   
+}
+
+ #main-menu
+{	
+	/* width:750px; */
+	height:inherit;
+	table-layout: fixed;
+ 
+	
+}
+
+#main-menu  tr th{
+		
+				
+		font-family:"맑은 고딕",Arial,sans-serif;
+         font-size:15px;
+         padding-left:9px; /* 카테고리 간에 간격 */
+         padding-right:9px;
+         position:relative;
+         font-color:pink;
+
+}
+
+#main-menu  tr th:HOVER{
+		
+         background:#4949e6;
+         position:relative;
+
+}
+
+ #main-menu tr th a{
+            color:#ffffff;
+            text-decoration:none;
+              
          }
+         
+         
+         
+         
+         
+         
 	#profile{
 	   position:absolute;
 	   margin-left:830px;
 	   top:10px;
 	}
 
-section>p{
+section>p a{
    display:inline-block;
+   position:absolute;
    font-family:"맑은 고딕",Arial,sans-serif;
    font-size:11px;
    margin-left:830px;
-   margin-top:50px;
+   margin-top:-20px;
 }
    section>p a{
-      color:yellow;
+      color:#000000;
       text-decoration:none;
    }
       section>p a:HOVER{
@@ -126,6 +177,27 @@ section>p{
 		}
 	
 	
+input[type="text"]
+{
+	border:solid #fff;
+	background:#fff;
+    /* border-bottom:1px solid black; */
+    color:#c0c0c0;
+}
+
+input[type="submit"]
+{
+	border:solid #fff;
+	text-indent:-999px;
+	background:url("../../images/search.png") no-repeat center;
+}
+input[type="button"]
+{
+	border:solid #fff;
+	text-indent:-999px;
+	background:url("../../images/search-cancel.png") no-repeat center;
+}
+	
 /* ---------------글 목록 보기----------------------- */
 
 #box1
@@ -140,7 +212,7 @@ section>p{
 
 }   
 .hc { width:900px; left:0; right:0; margin-left:auto; margin-right:auto; } /* 가로 중앙 정렬 */
-.vc { height:120px; top: 30px; bottom:0; margin-top:auto; margin-bottom:auto; }     
+.vc { height:180px; top: 30px; bottom:0; margin-top:auto; margin-bottom:auto; }     
 
 #c-title{
 	font-weight:bolder;

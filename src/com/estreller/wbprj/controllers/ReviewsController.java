@@ -178,4 +178,15 @@ public class ReviewsController {
 	      //return "reviews/login-review_list";
 	   }
 	
+	@RequestMapping("search-review-list")
+	   public String search_review_list(String q, Model model) throws SQLException{
+	   	System.out.println(q);
+	   	List<Review> list = reviewDao.getReviews(1,"Keyword",q);
+	      
+	   	System.out.println(q);
+	      model.addAttribute("list", list);
+	      
+	      return "reviews/search-review-list";
+	   }
+	
 }
