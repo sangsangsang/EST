@@ -1,12 +1,14 @@
 package com.estreller.wbprj.controllers;
 
 
+import java.io.PrintWriter;
 import java.security.Principal;
 import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -139,7 +141,38 @@ public class ReviewsController {
 	  
 		
 	  return "redirect:reviewDetail?c="+c;
-	}		
+	}
+	
+	//------------------´ñ±Û¼öÁ¤
+	@RequestMapping(value="commentEdit", method=RequestMethod.POST)
+	public void commentEdit(String code,String content, Comment comment,PrintWriter out) throws SQLException {
+		comment.setCmtcode(code);
+		comment.setContent(content);
+		
+		/*List<Comment> list = commentDao.getComments(c);		
+
+		model.addAttribute("list", list);
+		System.out.println(c);
+		String cmtEditCode = c;
+		model.addAttribute("cmtEditCode", cmtEditCode);*/
+		commentDao.update(comment);
+		JSONObject obj = new JSONObject();
+		obj.put("content", content);
+		out.print(obj); 
+	  
+	}	
+	
+	/*@RequestMapping(value="cmtedit", method=RequestMethod.POST)
+	public String commentEdit(String c,String cmtcode) throws SQLException {
+		//System.out.println(c);
+		//List<Comment> list = commentDao.getComments(c);	
+		System.out.println("¸®ºäÄÚµå"+c);
+		System.out.println("´ñ±ÛÄÚµå"+cmtcode);
+	    commentDao.update(cmtcode);
+	  
+		
+	  return "redirect:reviewDetail?c="+c;
+	}	*/
 	
 	
 	/*-------------------------ALL º°Á¡¼ø list------------------------------------*/
@@ -181,7 +214,7 @@ public class ReviewsController {
 	@RequestMapping("search-review-list")
 	   public String search_review_list(String q, Model model) throws SQLException{
 	   	System.out.println(q);
-	   	List<Review> list = reviewDao.getReviews(1,"Keyword",q);
+	   	List<Review> list = reviewDao.getReviews(1,"",q);
 	      
 	   	System.out.println(q);
 	      model.addAttribute("list", list);

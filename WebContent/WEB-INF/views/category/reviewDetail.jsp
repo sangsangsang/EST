@@ -88,13 +88,14 @@
 	 		  <dl class="article-detail-row">
 	 		    <h2 class="hidden">별</h2>
                      <dd class="cmt">   
-                        <select name="ratingCode">
-                           <option>1</option>
-                           <option>2</option>
-                           <option>3</option>
-                           <option>4</option>
-                           <option>5</option>
+                         <select name="ratingCode">
+                           <option value="1">★☆☆☆☆</option>
+                           <option value="2">★★☆☆☆</option>
+                           <option value="3">★★★☆☆</option>
+                           <option value="4">★★★★☆</option>
+                           <option value="5">★★★★★</option>
                         </select>
+                     
                      
                      <h2 class="hidden">내용</h2>
                     

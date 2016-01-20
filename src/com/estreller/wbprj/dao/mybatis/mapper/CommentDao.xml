@@ -22,8 +22,8 @@
 	
 	<update	id="update" parameterType ="com.estreller.wbprj.vo.Comment">
 		UPDATE Comment 
-		SET Content =#{content}, RatingCode=#{ratingCode} 
-		WHERE Writer=#{writer} AND ReviewNum=#{reviewNum}
+		SET Content =#{content} 
+		WHERE Code=#{code}
 	</update>
 	
 	<delete id="delete" parameterType ="com.estreller.wbprj.vo.Comment">

@@ -6,6 +6,94 @@
 	request.getContextPath();
 %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>  
+<!-- <script src="../content/js/commentEdit.js"></script>  -->
+<script type="text/javascript">
+
+/* var trs = document.querySelectorAll("#cmt-tbody tr");
+for(var i = 0; i<trs.length; i++){
+	editBtn[i] = trs[i].qureySelector("#edit-btn");
+ */
+ 
+var isModifying=false;
+ 
+		function editBtn(th, code,content) {
+			
+		  if(isModifying)
+		{
+			return;	
+		} 
+		
+		
+		
+	 	var id="#cmt-list-"+code;//"'#"+code+"'";
+		var trTemp=document.querySelector(id);
+		var cmtContent = trTemp.querySelector(".content");
+		
+			
+		
+		 isModifying=true;
+		
+			
+			//아래 2번을 위한 사전 작업
+		var textBox=document.createElement("input");
+		textBox.type="text";
+		//editBtn 함수 안에 인자를 this 로 보내서 th 로받아서 textBox에 this innerText를 찾아서 꽂아준다. 
+		textBox.value=th.parentNode.parentNode.querySelector("td:nth-child(3)").innerText;//content; 
+		
+		var save = document.createElement("input");
+		save.type="submit";
+		
+		
+		save.value="save"; //save 클릭함수를 만들어서 post 방식으로 넘겨줘야함. 
+			
+			//1. 기존 내용 지우고
+		cmtContent.innerText=""; 
+			//2. 기존텍스트를 담은 인풋태그를 대신 집어넣음
+		cmtContent.appendChild(textBox); 
+		cmtContent.appendChild(save);
+			
+	 
+		save.onclick = function(){
+        
+        alert("제발");
+        var content = textBox.value;
+		 var data = "code=" + code + "&content=" + content;
+	     var request;
+         if (window.ActiveXObject)
+            request = new ActiveXObject("Microsoft.XMLHTTP");
+         else if (window.XMLHttpRequest)
+            request = new XMLHttpRequest();
+
+         request.onreadystatechange = function() {
+
+            if (request.readyState == 4 && request.status == 200) // operation is complete
+            {
+               //if (request.responseText == "ok")
+	            var test=JSON.parse(request.responseText);
+	            alert(test.content);  
+	             //cmtContent.remove(textBox);
+	            cmtContent.innerText = test.content;
+	            isModifying=false;
+             
+       
+              //document.write(request.responseText);
+            }
+            
+         }
+         request.open("POST", "commentEdit", true);
+         //open과 send 사이에 집어넣어야 함
+         request.setRequestHeader("Content-type",
+               "application/x-www-form-urlencoded");
+         request.setRequestHeader("Content-length", data.length);
+         request.setRequestHeader("Connection", "close");
+
+         request.send(data); 
+	  
+         return false;  
+		}
+		}
+		
+	</script>
 
  
    <main id="main">
@@ -73,7 +161,7 @@
 	    &nbsp; &nbsp;<a href=""><img src="${ctx}/content/images/comment.png" alt="댓글" /></a>
 	    &nbsp; &nbsp;<a href=""><img src="${ctx}/content/images/report.png" alt="리뷰신고" /></a>
 	    &nbsp; &nbsp;<a href=""><img src="${ctx}/content/images/r-scrap.png" width="30" height="20" alt="스크랩" /></a>
-		<c:if test="${review.writer == logID}">
+		  <c:if test="${review.writer == logID}">
 		&nbsp; &nbsp;<a href="reviewEdit?c=${review.num}" style="font-size:20px;">Edit</a>
 	   <form class="del" action ="delete" method="post">
 	    <input type="hidden" value="${review.num}" name="c"/> <!-- 페이지 코드값을 넘겨준다 -->
@@ -90,11 +178,11 @@
 	 		    <h2 class="hidden">별</h2>
                      <dd class="cmt">   
                         <select name="ratingCode">
-                           <option>1</option>
-                           <option>2</option>
-                           <option>3</option>
-                           <option>4</option>
-                           <option>5</option>
+                           <option value="1">★☆☆☆☆</option>
+                           <option value="2">★★☆☆☆</option>
+                           <option value="3">★★★☆☆</option>
+                           <option value="4">★★★★☆</option>
+                           <option value="5">★★★★★</option>
                         </select>
                      
                      <h2 class="hidden">내용</h2>
@@ -105,34 +193,44 @@
                   </dl>   
 	 	</nav>
 	 	</form>
-	 	<div>
+	 	<nav>
 	 	<h1 class="hidden">댓글</h1>
-	 		<dl class="article-detail-row">
-             <table id="comments">
-	 		<tbody>
-	 		<c:forEach var="cmt" items="${list}">
-		 		
-		 		<tr>
-					
+	 	 <dl class="article-detail-row">
+           <table id="comments" >
+	 		<tbody id="cmt-tbody">
+	 	
+	 	
+	 	 	<c:forEach var="cmt" items="${list}">
+				<tr id="cmt-list-${cmt.cmtcode}">	
 			 		<td class="writer"><img src="${ctx}/content/images/faceimg.png"/><br/>${cmt.writerNickname}</td>
 			 		<td class="cmt-rating"><ins></ins><img src="${ctx}/content/images/g${cmt.ratingCode}.png"/></td>
-			 		<td class="content">${cmt.content}</td>				
+			 		
+			 		<td id="reply-content" class="content">
+			 		${cmt.content}
+			 		</td>				
+			 		
 			 		<td class="regDate"><fmt:formatDate pattern="yyyy-MM-dd"
 						value='${cmt.regdate}'/></td>
 					<td class="cmt-cmt"><img src="${ctx}/content/images/cmt-cmt.png"/>
 			 		<a href="" name="report"><img src="${ctx}/content/images/report.png"/></a></td>
 					<c:if test="${cmt.writer == logID}">
-					 <td class="cmt-edit"><a href="">Edit</a>
-					 <form class="cmt-del" action ="cmtdelete" method="post">
-					  <input type="hidden" value="${review.num}" name="c"/> 
-					  <input type="hidden" value="${cmt.cmtcode}" name="cmtcode"/>
-				      <input type="submit" value="Del"/></a>	
-				     </form>
+					 <td class="cmt-edit">
+					 
+						 <%-- <a href="commentEdit?c=${cmt.cmtcode}" style="font-size:20px;">Edit</a> --%>
+						<input type="button" onclick="editBtn(this, '${cmt.cmtcode}','${cmt.content}');" id="edit-btn" value="Edit"/>
+					
+						 
+						 <form class="cmt-del" action ="cmtdelete" method="post">
+							  <input type="hidden" value="${review.num}" name="c"/> 
+							  <input type="hidden" value="${cmt.cmtcode}" name="cmtcode"/>
+						      <input type="submit" value="Del"/></a>	
+					     </form>
+					 
 					 </td>
 					</c:if>
 			 		
 		 		</tr>
-		 		</c:forEach>		
+		 		</c:forEach>		 
 	 			</tbody>
 	 		
 	 		
@@ -158,6 +256,6 @@
 	 	   </table>
 	 	         
           </dl>   
-	 	 </div>
+	 	 </nav>
 	 	</div>	
 	   </main>   

@@ -330,6 +330,7 @@
            <table id ="review-img-wide">
           <tbody>
                 <tr>
+                	<!-- <td id ="review-img"></td> -->
                    <td>
                       <a href=""><img src="${ctx}/content/images/faceimg.png" width ="45" height="45"
                         alt="닉네임" /></a>

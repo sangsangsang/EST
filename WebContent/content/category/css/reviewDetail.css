@@ -10,7 +10,7 @@
 .content-container 
 {   
    position:relative;
-   width:1300px; /* 헤더너비 */ 
+   width:1260px; /* 헤더너비 */ 
    margin-left:auto; 
    margin-right:auto;
    
@@ -144,21 +144,19 @@ section>p a{
    float:left;
    margin-left:175px;
    margin-top:100px;	
-   min-height:700px;
+   height:900px;
    width:900px;
    background:#f9f9f9; /* 리뷰 바탕색 */
    
    
 }
-
- 
 	
 	
 }
 	#review {
 	width:900px;
 	
-	table-layout:fixed; /* 테이블에서 제목이 길때 영역을 벗어나되,작성자 영역과 겹치도록 */
+	table-layout:fixed; /* 테이블에서 제목이 길때 영역을 벗어나되,작성자 영역과 겹치지않도록도록 */
 	
 	
 	/* width:100%; */
@@ -273,13 +271,15 @@ section>p a{
 		 padding-left:200px;
 		
 	 }
-	.article-detail-row
+	/*  .article-detail-row
 		{
+			display:inline-block;
+			background:red;	
 		   height: 60px;
 		   line-height: 50px;
 		 
 		   clear: both;
-		}
+		}  */
 	 .cmt{
 	   padding-top:20px;
 	   padding-left:20px;
@@ -290,7 +290,9 @@ section>p a{
 	 }			
 	  .cmt>select{
 	  
-	  width:50px;
+	  color:gold;
+	  font-weight:bold;
+	  width:100px;
 	  height:30px;
 	  
 	 }
@@ -313,7 +315,9 @@ section>p a{
          background:url("../../images/commentCheck.png") no-repeat center;
 		} 
 		#comments{
-			position: relative;
+		/* display:inline-block;
+			background:red; */
+			width:900px;
 			table-layout:fixed;
 		}
 	#comments>tbody>tr{
@@ -335,38 +339,42 @@ section>p a{
 	}
 	#comments>tbody>tr>td:nth-child(1) /* 제목과 칼럼 각각 자식들에게 너비지정 */
 	  {  
-		width:150px;	
+		width:100px;	
 		}
 	 #comments>tbody>tr>td:nth-child(2){
 	 
-	 	width: 100px;
+	 	width: 150px;
+	 	
 	 }
-	 #comments>tbody>tr>td>ins:nth-child(2){
+/* 	 #comments>tbody>tr>td>ins:nth-child(2){
 	 
 	 	float: left;
 	 }		
 	 #comments>tbody>tr>td:nth-child(3){
 	 
 	 	width: 400px;
-	 }
+	 } */
 	 	 #comments>tbody>tr>td:nth-child(3){
-	 	 
+	 	 	width: 370px;
 		  	text-align:left;  /* 왼쪽쩡렬 */
 		  	text-indent:10px; /* 들여쓰기 */
-		  	overflow: hidden; /* hidden을 써줌으로써 테이블 에서 지정해준 fixed 가 작성자영역에 겹친부분을 숨겨준다 */
 		  	
+		  	overflow:auto; /* hidden을 써줌으로써 테이블 에서 지정해준 fixed 가 작성자영역에 겹친부분을 숨겨준다 */
+		  	word-break:break-all;
 		  }
 	#comments>tbody>tr>td:nth-child(4){
 	 	text-align:center;
-	 	width: 150px;
+	 	width: 120px;
 	 
 	 }
 	  #comments>tbody>tr>td:nth-child(5){
+	  text-align:left;
 	 	font-size:13px;
-	 	width: 100px;
+	 	width: 80px;
 	 	background: 0px;
 	 }
 	 #comments>tbody>tr>td:nth-child(6){
+	 text-align:left;
 	 	font-size:20px;
 	 	width: 100px;
 	 	background: 0px;
