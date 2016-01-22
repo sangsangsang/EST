@@ -22,7 +22,7 @@
 	
 	<update	id="update" parameterType ="com.estreller.wbprj.vo.Comment">
 		UPDATE Comment 
-		SET Content =#{content} 
+		SET Content =#{content} ,RatingCode=#{ratingCode}
 		WHERE Code=#{code}
 	</update>
 	

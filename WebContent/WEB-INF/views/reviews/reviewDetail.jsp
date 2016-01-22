@@ -6,14 +6,9 @@
 	request.getContextPath();
 %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>  
-<!-- <script src="../content/js/commentEdit.js"></script>  -->
-<script type="text/javascript">
+<script src="../content/js/commentEdit.js"></script> 
+<!-- <script type="text/javascript">
 
-/* var trs = document.querySelectorAll("#cmt-tbody tr");
-for(var i = 0; i<trs.length; i++){
-	editBtn[i] = trs[i].qureySelector("#edit-btn");
- */
- 
 var isModifying=false;
  
 		function editBtn(th, code,content) {
@@ -71,7 +66,6 @@ var isModifying=false;
                //if (request.responseText == "ok")
 	            var test=JSON.parse(request.responseText);
 	            alert(test.content);  
-	             //cmtContent.remove(textBox);
 	            cmtContent.innerText = test.content;
 	            isModifying=false;
              
@@ -93,7 +87,7 @@ var isModifying=false;
 		}
 		}
 		
-	</script>
+	</script> -->
 
  
    <main id="main">
@@ -198,12 +192,13 @@ var isModifying=false;
 	 	 <dl class="article-detail-row">
            <table id="comments" >
 	 		<tbody id="cmt-tbody">
-	 	
-	 	
 	 	 	<c:forEach var="cmt" items="${list}">
 				<tr id="cmt-list-${cmt.cmtcode}">	
 			 		<td class="writer"><img src="${ctx}/content/images/faceimg.png"/><br/>${cmt.writerNickname}</td>
-			 		<td class="cmt-rating"><ins></ins><img src="${ctx}/content/images/g${cmt.ratingCode}.png"/></td>
+			 		<td class="cmt-rating">
+		
+			 		<span id="r"><ins></ins><img id="cmtRimg" src="${ctx}/content/images/g${cmt.ratingCode}.png"/></span>
+			 		</td>
 			 		
 			 		<td id="reply-content" class="content">
 			 		${cmt.content}

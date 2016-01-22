@@ -145,10 +145,10 @@ public class ReviewsController {
 	
 	//------------------´ñ±Û¼öÁ¤
 	@RequestMapping(value="commentEdit", method=RequestMethod.POST)
-	public void commentEdit(String code,String content, Comment comment,PrintWriter out) throws SQLException {
+	public void commentEdit(String code,String content,String ratingCode, Comment comment,PrintWriter out) throws SQLException {
 		comment.setCmtcode(code);
 		comment.setContent(content);
-		
+		comment.setRatingCode(ratingCode);
 		/*List<Comment> list = commentDao.getComments(c);		
 
 		model.addAttribute("list", list);
@@ -158,6 +158,7 @@ public class ReviewsController {
 		commentDao.update(comment);
 		JSONObject obj = new JSONObject();
 		obj.put("content", content);
+		obj.put("ratingCode", ratingCode);
 		out.print(obj); 
 	  
 	}	
