@@ -132,11 +132,55 @@ section>p a{
 		   top: 20px;
 		}
 
-input[type="text"]
+
+
+#close-btn{
+	border:solid #fff;
+	text-indent:-999px;
+	background:url("../../images/search-cancel.png") no-repeat center;
+	width:50px;
+	height:50px;
+	position:fixed;
+	right:20px;
+	top:70px;
+	z-index:1;
+}
+
+#search-btn{
+	border:solid #fff;
+	text-indent:-999px;
+	background:url("../../images/search.png") no-repeat center;
+	width:50px;
+	height:50px;
+	postion:fixed;
+	right:80px;
+	top:70px;
+	
+}
+
+#search-txt{
+	border:solid #fff;
+	background:#fff;
+	color:#c0c0c0;
+	width:1000px;
+	height:30px;
+	position:fixed;
+	right:140px;
+	top:80px;
+	
+}
+#select{
+	widht:100px;
+	left:5px;
+	top:80px;
+	
+}
+
+/* input[type="text"]
 {
 	border:solid #fff;
 	background:#fff;
-    /* border-bottom:1px solid black; */
+    border-bottom:1px solid black;
     color:#c0c0c0;
 }
 
@@ -145,13 +189,13 @@ input[type="submit"]
 	border:solid #fff;
 	text-indent:-999px;
 	background:url("../../images/search.png") no-repeat center;
-}
+}*/
 input[type="button"]
 {
 	border:solid #fff;
 	text-indent:-999px;
 	background:url("../../images/search-cancel.png") no-repeat center;
-}	
+}
 	
 /* ---------------글 목록 보기----------------------- */
 

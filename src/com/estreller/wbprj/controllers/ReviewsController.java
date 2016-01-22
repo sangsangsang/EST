@@ -58,7 +58,8 @@ public class ReviewsController {
 		List<Comment> list = commentDao.getComments(c);		
 
 		model.addAttribute("list", list);
-					
+
+		
 		return "reviews/reviewDetail";
 	}
 	
@@ -73,6 +74,8 @@ public class ReviewsController {
 		List<Comment> list = commentDao.getComments(c);
 		//Comment com = commentDao.getComment(com);
 		model.addAttribute("list", list);
+		String u=comment.getRatingCode();
+		System.out.println(u);
 		
 		return "redirect:reviewDetail?c="+c;
 	}
@@ -138,6 +141,7 @@ public class ReviewsController {
 	      List<ReviewRating> r_list;
 	     if(c == null){ 
 	      list = reviewDao.getReviews(1,"Title","");
+	      
 	      model.addAttribute("list", list);}
 	     if(c!=null){	
 	 		if(c.equals("5")){
@@ -169,12 +173,29 @@ public class ReviewsController {
 	@RequestMapping("search-review-list")
 	   public String search_review_list(String q, Model model) throws SQLException{
 	   	System.out.println(q);
-	   	List<Review> list = reviewDao.getReviews(1,"Keyword",q);
+	   	List<Review> list = reviewDao.getReviews(1,"",q);
 	      
 	   	System.out.println(q);
 	      model.addAttribute("list", list);
 	      
 	      return "reviews/search-review-list";
 	   }
+	
+	@RequestMapping("myReview-list")
+	   public String search_review_list(Principal principal, Model model) throws SQLException{
+		String name = principal.getName();
+	   	List<Review> list = reviewDao.getReviews(1,"Writer",name);
+	      
+	   	System.out.println(name);
+	      model.addAttribute("list", list);
+	      
+	      return "reviews/myReview-list";
+	   }
+	
+	@RequestMapping(value="reportPartial", method=RequestMethod.GET)
+	public String searchPartial(){
+		
+		return "reviews/reportPartial";
+	}
 	
 }

@@ -3,10 +3,77 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 <%
-
 	request.getContextPath();
 %>
+
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
+<script>
+function init(){  
+	var btnReport = document.querySelector(".report");
+	btnReport.onclick = function() {
+
+		var dlg=document.createElement("div");
+		dlg.style.width="100%";
+		dlg.style.height="100%";
+		dlg.style.position="fixed";
+		dlg.style.top="0px";
+	   
+	   	var screen=document.createElement("div");
+	   	screen.style.backgroundColor="black";
+	  	screen.style.opacity="0.3";
+	   	screen.style.width="inherit";
+	   	screen.style.height="inherit";
+	   
+	   	var container=document.createElement("div");
+	   	container.style.backgroundColor="#fff";
+	   	container.style.width="720px";
+	   	container.style.height="500px";
+	   	container.style.position="fixed";
+	   	container.style.top="100px";
+	   	container.style.left="300px";
+	   
+	   	var closeButton = document.createElement("input");
+        closeButton.type = "button";
+        closeButton.value = "X";
+        closeButton.style.width = "50px";
+        closeButton.style.height = "50px";
+        closeButton.style.position = "fixed";
+        closeButton.style.left = parseInt(container.style.left)+parseInt(container.style.width)+"px";
+        closeButton.style.top = parseInt(container.style.top) - 10 + "px";
+        closeButton.style.zIndex = 1;
+        
+        closeButton.onclick = function(){closeDialog(dlg);};
+        
+        //container.appendChild(closeButton);
+        
+        dlg.appendChild(closeButton);
+	   	
+	   	dlg.appendChild(screen);
+	   	dlg.appendChild(container);
+	   	document.body.appendChild(dlg);
+	   	
+	   	var request = new XMLHttpRequest();
+        //container.innerHTML=request.responseText;
+			request.onreadystatechange=function(){
+		        if(request.readyState==4){
+		        	container.innerHTML=request.responseText;
+	            }
+        };
+        
+        request.open("GET", "reportPartial", true);
+        request.send(null);
+	   	
+		return false;
+	};
+
+	var closeDialog = function(dlg){
+	    document.body.removeChild(dlg);
+	};
+};
+ window.onload=init;
+
+</script>
+
    
    <main id="main">
 	<h1 class="hidden">글보기</h3>
@@ -67,17 +134,17 @@
 	   
 	   </div>
 	   <nav class="r-report r-scrap">
-	   <a href=""><img src="${ctx}/content/images/like.png" alt="좋아요" /></a>
-	    &nbsp; &nbsp;<a href=""><img src="${ctx}/content/images/comment.png" alt="댓글" /></a>
-	    &nbsp; &nbsp;<a href=""><img src="${ctx}/content/images/report.png" alt="리뷰신고" /></a>
-	    &nbsp; &nbsp;<a href=""><img src="${ctx}/content/images/r-scrap.png" width="30" height="20" alt="스크랩" /></a>
-	   <c:if test="${review.writer == logID}">
-		&nbsp; &nbsp;<a href="reviewEdit?c=${review.num}" style="font-size:20px;">Edit</a>
-	   <form class="del" action ="delete" method="post">
-	    <input type="hidden" value="${review.num}" name="c"/> <!-- 페이지 코드값을 넘겨준다 -->
-		<input type="submit" value="Delete"/>
-		</form>	   
-		</c:if>
+		   <a href=""><img src="${ctx}/content/images/like.png" alt="좋아요" /></a>
+		    &nbsp; &nbsp;<a href=""><img src="${ctx}/content/images/comment.png" alt="댓글" /></a>
+		    &nbsp; &nbsp;<!-- <a href=""> --><img class="report" src="${ctx}/content/images/report.png" alt="리뷰신고" /><!-- </a> -->
+		    &nbsp; &nbsp;<a href=""><img src="${ctx}/content/images/r-scrap.png" width="30" height="20" alt="스크랩" /></a>
+		   <c:if test="${review.writer == logID}">
+				&nbsp; &nbsp;<a href="reviewEdit?c=${review.num}" style="font-size:20px;">Edit</a>
+			   <form class="del" action ="delete" method="post">
+				    <input type="hidden" value="${review.num}" name="c"/> <!-- 페이지 코드값을 넘겨준다 -->
+					<input type="submit" value="Delete"/>
+				</form>	   
+			</c:if>
 	   </nav>
 				
 	 	
@@ -123,7 +190,7 @@
 				     <td class="cmt-del"><a href="">삭제</a></td>	
 					</c:if>
 			 		<td class="cmt-cmt"><img src="${ctx}/content/images/cmt-cmt.png"/></td>
-			 		<td class="report"><a href=""><img src="${ctx}/content/images/report.png"/></a></td>	
+			 		<td class="report"><!-- <a href=""> --><img src="${ctx}/content/images/report.png"/><!-- </a> --></td>	
 		 		</tr>
 		 		</c:forEach>		
 	 			</tbody>

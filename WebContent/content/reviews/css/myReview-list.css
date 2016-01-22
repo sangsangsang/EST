@@ -31,45 +31,6 @@ body{
 }
 
 
-/* #header
-{	
-	
-   height:70px;
-   background:#c0c0c0; 
-   position: fixed;  
-} */
-   /* #main-menu{
-      display:inline-block;
-      position:absolute;
-      left:10px;
-      top:20px;
-   }
-
-      #main-menu>ul>li{
-         float:left;
-         font-family:"맑은 고딕",Arial,sans-serif;
-         font-size:15px;
-         font-weight:bold;
-         padding-left:15px; 카테고리 간에 간격
-      
-      
-      }
-         #main-menu>ul>li:FIRST-CHILD{
-            padding-left:20px;
-            background:none;   
-         }
-         
-         #main-menu>ul>li a{
-            color:#000000;
-            text-decoration:none;   
-         }
-         #main-menu>ul>li a:HOVER{
-               text-decoration:underline;
-         } */
-         
-         
-/* ----------------- 바뀐header ---------------   */     
-         
 #header
 {
    height:70px;
@@ -110,12 +71,7 @@ body{
             text-decoration:none;
               
          }
-         
-         
-         
-         
-         
-         
+
 	#profile{
 	   position:absolute;
 	   margin-left:830px;
@@ -175,8 +131,7 @@ section>p a{
 		   right:40px;
 		   top: 20px;
 		}
-	
-	
+
 input[type="text"]
 {
 	border:solid #fff;
@@ -196,13 +151,13 @@ input[type="button"]
 	border:solid #fff;
 	text-indent:-999px;
 	background:url("../../images/search-cancel.png") no-repeat center;
-}
+}	
 	
 /* ---------------글 목록 보기----------------------- */
 
 #box1
 {    
-	/* opacity:0.3; */
+	
 	position:relative;
 	text-align: center;
 	overflow: auto;
@@ -212,14 +167,8 @@ input[type="button"]
 
 }   
 .hc { width:900px; left:0; right:0; margin-left:auto; margin-right:auto; } /* 가로 중앙 정렬 */
-.vc { height:180px; top: 30px; bottom:0; margin-top:auto; margin-bottom:auto; }     
+.vc { height:120px; top: 30px; bottom:0; margin-top:auto; margin-bottom:auto; }     
 
-#c-title{
-	font-weight:bolder;
-    
-   
-   
-}
 #category-form>ul
 {
 	
@@ -302,15 +251,14 @@ overflow: auto;
    /* text-align:center; */ /* 가운데 정렬 */ 
    padding-top: 5px;
    padding-bottom: 5px;
-   
-
    }
    
    
    #review-img{
-   background: url("../../images/review_img.jpg")  no-repeat center;
+   background: url("../../images/review_img.jpg")  no-repeat center; 
    display:block;
    position:relative;
+   
    top:10px;
    left:10px;
 
@@ -319,11 +267,11 @@ overflow: auto;
  
    overflow: auto;
    
-
    }
    #review-img>tbody>tr>td{
       padding-top:100px;
    }
+  
    
    #user-star1{
    padding-right:15px;

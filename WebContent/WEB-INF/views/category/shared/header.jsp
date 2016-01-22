@@ -6,7 +6,6 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
 <%
-
 	request.getContextPath();
 %>
 <script>
@@ -103,12 +102,8 @@
 	    <th><a href="${ctx}/category/travel-list">Travel</a></th>
 	    <th><a href="${ctx}/category/electronics-list">Electronics</a></th>
     <tr>
-    
     </table>
-   
-   
-   
-   
+     
     <nav id="search">
             <a href=""><img src="${pageContext.request.contextPath}/content/images/search.png" alt="검색" /></a>
     </nav> 
@@ -130,7 +125,7 @@
             <a href="${pageContext.request.contextPath}/mypage/memberInfo"><img src="${pageContext.request.contextPath}/content/images/faceimg.png" alt="프로필수정" /></a>
 
        </nav>
-       <p><a href="" alt="마이페이지"><security:authentication property="name"/></a></p>
+       <p><a href="${pageContext.request.contextPath}/reviews/myReview-list" alt="마이페이지" name="name"><security:authentication property="name"/></a></p>
         <nav id="write">
            <a href=""><img src="${pageContext.request.contextPath}/content/images/scrap.png" alt="스크랩" /></a>
        </nav> 
