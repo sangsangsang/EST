@@ -16,11 +16,11 @@
          btnSearch.onclick = function(){
           
             
-          var dlg=document.createElement("form");
+          var dlg=document.createElement("div");
           dlg.style.position="fixed";
           dlg.style.top="0px";
-          dlg.action="search-review-list";
-		  dlg.method="get";
+          /* dlg.action="search-review-list";
+		  dlg.method="get"; */
           
           var container=document.createElement("div");
           container.style.background="#fff";
@@ -40,7 +40,7 @@
           closeButton.style.top=parseInt(container.style.top)+"px";
           closeButton.style.zIndex=1; //맨앞으로
           
-          var searchButton = document.createElement("input");
+         /*  var searchButton = document.createElement("input");
           searchButton.type = "submit";
           searchButton.value = "검색";
           searchButton.style.width="50px";
@@ -60,20 +60,39 @@
           searchText.style.position="fixed";
           searchText.style.right= parseInt(searchButton.style.right)+parseInt(searchButton.style.width)+20+"px";
           searchText.style.top=parseInt(container.style.top)+10+"px";
-          searchText.style.zIndex=1; //맨앞으로
+          searchText.style.zIndex=1; //맨앞으로 */
           
           
-          closeButton.onclick=function(){closeDialog(dlg);};
+         closeButton.onclick=function(){closeDialog(dlg);};
          
-         dlg.appendChild(searchText);
-         dlg.appendChild(searchButton);
+         /* dlg.appendChild(searchText);
+         dlg.appendChild(searchButton); */
          dlg.appendChild(closeButton);
          dlg.appendChild(container);
           
           document.body.appendChild(dlg);
-            return false;
+          
+          
+          //var page-event.target.innerText;
+          //var request;
+          
+          /* var request = new XMLHttpRequest();
+          container.innerHTML=request.responseText */
+          
+         var request = new XMLHttpRequest();
+          //container.innerHTML=request.responseText;
+			request.onreadystatechange=function(){
+		        if(request.readyState==4){
+		        	container.innerHTML=request.responseText;
+	
+	            }
+          };
+          
+          request.open("GET", "searchPartial", true);
+          request.send(null);       
+          return false;
+            
          };
-      
    };
    
    var closeDialog = function(dlg){
@@ -104,7 +123,7 @@
     
     </table>
     <nav id="search">
-            <a href=""><img src="${pageContext.request.contextPath}/content/images/search.png" alt="검색" /></a>
+            <img src="${pageContext.request.contextPath}/content/images/search.png" alt="검색" />
     </nav> 
     <nav id="new-write">
            <a href="reviewReg"><img src="${pageContext.request.contextPath}/content/images/new_write.png" alt="새글쓰기" /></a>
@@ -123,7 +142,7 @@
             <a href="${ctx}/mypage/memberInfo"><img src="${pageContext.request.contextPath}/content/images/faceimg.png" alt="프로필수정" /></a>
 
        </nav>
-       <p><a href="" alt="마이페이지"><security:authentication property="name"/></a></p>
+       <p><a href="${pageContext.request.contextPath}/reviews/myReview-list" alt="마이페이지" name="name"><security:authentication property="name"/></a></p>
         <nav id="write">
            <a href=""><img src="${pageContext.request.contextPath}/content/images/scrap.png" alt="스크랩" /></a>
        </nav> 

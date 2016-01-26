@@ -1,11 +1,13 @@
 package com.estreller.wbprj.controllers;
 
+import java.io.PrintWriter;
 import java.security.Principal;
 import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,11 +43,33 @@ public class CategoryController {
 	
 	@RequestMapping("reviewDetail")
 	public String ReviewDetail(String c,Model model,Principal principal) throws SQLException{
+		double sum=0;
+		double avg = 0;
+		int imageavg =0;
+		
 		String logID=principal.getName();
 		model.addAttribute("logID",logID);
 		
 		Review review = reviewDao.getReview(c);
 		List<Comment> list = commentDao.getComments(c);
+		
+		if(list.size()!=0){ //댓글이 달렸을경우.
+			for(Comment comment : list){
+				//System.out.printf("댓글에 대한 별점:%s\n",comment.getRatingCode());
+				sum +=  Double.parseDouble(comment.getRatingCode());
+				//System.out.printf("댓글별점합계:%d",sum);	
+			}
+			
+		avg = sum / list.size();
+		imageavg = (int)(avg+0.5);
+		//System.out.println("유저들 댓글 평점을 이미지화:  "+imageavg);
+		avg = (int)(avg*10+0.5)/10.0;
+		//System.out.println("유저들 댓글 보여주기위한평점:  "+avg);
+		}
+		
+		model.addAttribute("imageavg", imageavg);
+		model.addAttribute("avg", avg);
+		
 		model.addAttribute("list", list);
 		model.addAttribute("review", review);
 		
@@ -75,6 +99,25 @@ public class CategoryController {
 		
 		return "redirect:reviewDetail?c="+c;
 	}
+	//------------------댓글수정
+		@RequestMapping(value="commentEdit", method=RequestMethod.POST)
+		public void commentEdit(String code,String content,String ratingCode, Comment comment,PrintWriter out) throws SQLException {
+			comment.setCmtcode(code);
+			comment.setContent(content);
+			comment.setRatingCode(ratingCode);
+			/*List<Comment> list = commentDao.getComments(c);		
+
+			model.addAttribute("list", list);
+			System.out.println(c);
+			String cmtEditCode = c;
+			model.addAttribute("cmtEditCode", cmtEditCode);*/
+			commentDao.update(comment);
+			JSONObject obj = new JSONObject();
+			obj.put("content", content);
+			obj.put("ratingCode", ratingCode);
+			out.print(obj); 
+		  
+		}	
 	//-------------------------------------------------------------------
 	
 	//--------카테고리별점순리스트.-----------------------------------------

@@ -238,7 +238,7 @@
    </div> 
        
        <c:forEach var="r" items = "${list}" >
-       <div id ="box3" class="hc3 vc3" me>
+       <div id ="box3" class="hc3 vc3">
        
        <table id="review-preview-wide">
          <tbody>

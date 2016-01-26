@@ -202,7 +202,7 @@ input[type="button"]
 
 #box1
 {    
-	
+	/* opacity:0.3; */
 	position:relative;
 	text-align: center;
 	overflow: auto;
@@ -302,14 +302,15 @@ overflow: auto;
    /* text-align:center; */ /* 가운데 정렬 */ 
    padding-top: 5px;
    padding-bottom: 5px;
+   
+
    }
    
    
    #review-img{
-   background: url("../../images/review_img.jpg")  no-repeat center; 
+   background: url("../../images/review_img.jpg")  no-repeat center;
    display:block;
    position:relative;
-   
    top:10px;
    left:10px;
 
@@ -318,11 +319,11 @@ overflow: auto;
  
    overflow: auto;
    
+
    }
    #review-img>tbody>tr>td{
       padding-top:100px;
    }
-  
    
    #user-star1{
    padding-right:15px;

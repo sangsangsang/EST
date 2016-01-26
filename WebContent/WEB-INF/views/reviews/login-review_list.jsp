@@ -9,82 +9,6 @@
    request.getContextPath();
 %>
 
-<script>
-    function init(){  
-   
-      var btnSearch = document.querySelector("#search");
-         btnSearch.onclick = function(){
-          
-            
-          var dlg=document.createElement("form");
-          dlg.style.position="fixed";
-          dlg.style.top="0px";
-          dlg.action="search-review-list";
-		  dlg.method="get";
-          
-          var container=document.createElement("div");
-          container.style.background="#fff";
-          container.style.width="100%";
-          container.style.height="50px";
-          container.style.position="fixed";
-          container.style.top="70px";
-          container.style.left="0px";
-          
-          var closeButton = document.createElement("input");
-          closeButton.type = "button";
-          closeButton.value = "X";
-          closeButton.style.width="50px";
-          closeButton.style.height="50px";
-          closeButton.style.position="fixed";
-          closeButton.style.right= parseInt(container.style.left)+20+"px";
-          closeButton.style.top=parseInt(container.style.top)+"px";
-          closeButton.style.zIndex=1; //맨앞으로
-          
-          var searchButton = document.createElement("input");
-          searchButton.type = "submit";
-          searchButton.value = "검색";
-          searchButton.style.width="50px";
-          searchButton.style.height="50px";
-          searchButton.style.position="fixed";
-          searchButton.style.right= parseInt(closeButton.style.width)+parseInt(closeButton.style.right)+10+"px";
-          searchButton.style.top=parseInt(container.style.top)+"px";
-          searchButton.style.zIndex=1; //맨앞으로
-          
-          var searchText = document.createElement("input");
-          searchText.type = "text";
-          searchText.name = "q";
-          //searchText.class="inputText";
-          searchText.value = "검색";
-          searchText.style.width="1000px";
-          searchText.style.height="30px";
-          searchText.style.position="fixed";
-          searchText.style.right= parseInt(searchButton.style.right)+parseInt(searchButton.style.width)+20+"px";
-          searchText.style.top=parseInt(container.style.top)+10+"px";
-          searchText.style.zIndex=1; //맨앞으로
-          
-          
-          closeButton.onclick=function(){closeDialog(dlg);};
-         
-         dlg.appendChild(searchText);
-         dlg.appendChild(searchButton);
-         dlg.appendChild(closeButton);
-         dlg.appendChild(container);
-          
-          document.body.appendChild(dlg);
-            return false;
-         };
-      
-   };
-   
-   var closeDialog = function(dlg){
-      document.body.removeChild(dlg);
-   };
-   
-   window.onload=init;
-
-</script>
-
-
 
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
    
@@ -344,19 +268,19 @@
                         </td>
                         
                         <td>
-                        <a href=""><img src="${ctx}/content/images/g3.png" width ="80" height="15"/>
+                        <a href=""><img src="${ctx}/content/images/g${imageavg}.png" width ="80" height="15"/>
                         </a></td>
                         
                          <td id = "like-wide">
                          <a href=""><img src="${ctx}/content/images/like.png" width ="25" height="25"
-                        alt="좋아요갯수" />${r.rcmCount}</a>
-                        (3)
+                        alt="좋아요갯수" />(${r.rcmCount})</a>
+                        
                         </td>
                         
                         <td id = "comment-wide">
                          <a href=""><img src="${ctx}/content/images/comment.png" width ="25" height="25"
-                        alt="댓글갯수" />${r.comCount}</a>
-                        (1)
+                        alt="댓글갯수" />(${r.comCount})</a>
+                        
                         </td>
                         
                      </tr>

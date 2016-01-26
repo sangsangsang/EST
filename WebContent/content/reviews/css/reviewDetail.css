@@ -244,7 +244,10 @@ section>p a{
 	 	text-align:center;
 	 	padding-top:10px;
 	 	font-size: 20px;
-	 	padding-left:20px;
+	 	padding-left:30px;
+	 	padding-right:30px;
+	 	overflow:auto; /* hidden을 써줌으로써 테이블 에서 지정해준 fixed 가 작성자영역에 겹친부분을 숨겨준다 */
+		  	word-break:break-all;
 	 }
 	 #map {
 	 	padding-top:50px;

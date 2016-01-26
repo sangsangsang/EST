@@ -1,7 +1,25 @@
 
+
+
+
+var ratingSelect=document.createElement("select");
+var r1=document.createElement("option");
+var r2=document.createElement("option");
+var r3=document.createElement("option");
+var r4=document.createElement("option");
+var r5=document.createElement("option");
+ratingSelect.appendChild(r1);
+ratingSelect.appendChild(r2);
+ratingSelect.appendChild(r3);
+ratingSelect.appendChild(r4);
+ratingSelect.appendChild(r5);
+
+
 var isModifying=false;
- 
-		function editBtn(th, code,content) {
+		
+function editBtn(th, code,content) {
+			
+		
 			
 		  if(isModifying)
 		{
@@ -20,15 +38,11 @@ var isModifying=false;
 		isModifying=true;
 		 
 		
-		//selet 노드 생성하고 그안에 option 까지 생성.	 
-	    var ratingSelect=document.createElement("select");
-	    //ratingSelect.name ="ratingCode";
+		//select 노드 생성하고 그안에 option 까지 생성.	 
+	    
+	    
 	    ratingSelect.value= th.parentNode.parentNode.querySelector("td:nth-child(2)").innerText;
-		var r1=document.createElement("option");
-		var r2=document.createElement("option");
-		var r3=document.createElement("option");
-		var r4=document.createElement("option");
-		var r5=document.createElement("option");
+		
 	
 		r1.value="1";
 		r2.value="2";
@@ -46,11 +60,14 @@ var isModifying=false;
 		var textBox=document.createElement("input");//댓글수정버튼을 누르면 댓글 에 input 폼을 씌우기위해 노드를 생성.
 		textBox.type="text";
 		//editBtn 함수 안에 인자를 this 로 보내서 th 로받아서 textBox에 this innerText를 찾아서 꽂아준다. 
-		textBox.value=th.parentNode.parentNode.querySelector("td:nth-child(3)").innerText;//content; 
+		textBox.value= cmtContent.innerText;//th.parentNode.parentNode.querySelector("td:nth-child(3)").innerText;//content; 
+		
+		
 		
 		var save = document.createElement("input");
 		save.type="submit";
 		save.value="save"; //save 클릭함수를 만들어서 post 방식으로 넘겨줘야함. 
+		
 		
 		
 		/*	cmtRating.appendChild(ratingSelect);
@@ -59,23 +76,26 @@ var isModifying=false;
 			//1. 기존 내용 지우고
 		cmtContent.innerText=""; 
 			//2. 기존텍스트를 담은 인풋태그를 대신 집어넣음
-		cmtRating.removeChild(r);//기존 댓글별점 삭제하고.
-		cmtRating.appendChild(ratingSelect);//select 생성동시에 option생성.
-		ratingSelect.appendChild(r1);
-		ratingSelect.appendChild(r2);
-		ratingSelect.appendChild(r3);
-		ratingSelect.appendChild(r4);
-		ratingSelect.appendChild(r5);
-		
 		
 		cmtContent.appendChild(textBox); 
 		cmtContent.appendChild(save);
+		
+		cmtRating.removeChild(r);//기존 댓글별점 삭제하고.
+		
+		
+		cmtRating.appendChild(ratingSelect);//select 생성동시에 option생성.
+		
+		
+		
+		
+		
 			
 	 
 	save.onclick = function(){
-        alert(ratingSelect.value+"zzz");
+        //alert(ratingSelect.value+"zzz");
        // alert("제발");//저장버튼이 잘눌렷나 테스트
         var content = textBox.value;
+        //cmtContent.removeChild(textBox);
         var ratingCode = ratingSelect.value; 
 		 var data = "code=" + code + "&content=" + content + "&ratingCode="+ratingCode;
 	     var request;
@@ -90,17 +110,16 @@ var isModifying=false;
             {
                //if (request.responseText == "ok")
 	            var test=JSON.parse(request.responseText);//컨트롤 단에서 데이터를 parse한다.
-	            alert(test.ratingCode);
+	           // alert(test.ratingCode);
 	            //alert(test.content); // ajax 로 데이터를 컨트롤단에서 요청이 잘왔나 확인. 
 	           
-	            cmtContent.innerText = test.content;
-	            //${ctx}/content/images/g${cmt.ratingCode}.png
-	            //cmtRating.innerText=test.ratingCode;
+	            
 	            img.src="../content/images/g"+test.ratingCode+".png";
-				alert(img.src);
-	            cmtRating.removeChild(ratingSelect);
-	            cmtRating.appendChild(img);
-				
+				//alert(img.src);
+	            cmtRating.removeChild(ratingSelect);//동적 select 옵션을 삭제하고
+	            cmtRating.appendChild(r);// 동적으로 span id="r" 을 삭제했는데 다시 추가.
+	            r.appendChild(img);
+	            cmtContent.innerText = test.content;
 	            isModifying=false;
              
        
@@ -120,3 +139,4 @@ var isModifying=false;
          return false;  
 		}
 		}
+		
