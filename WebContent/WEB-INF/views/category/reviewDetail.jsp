@@ -55,8 +55,10 @@ function init(){
 	   	var request = new XMLHttpRequest();
         //container.innerHTML=request.responseText;
 			request.onreadystatechange=function(){
+				
 		        if(request.readyState==4){
-		        	container.innerHTML=request.responseText;
+		        	
+		        	//container.innerHTML=request.responseText;
 	            }
         };
         

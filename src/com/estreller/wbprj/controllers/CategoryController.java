@@ -486,5 +486,11 @@ public class CategoryController {
 			return "redirect:"+r.getCategorycode()+"-list";
 		}
 
+		//--------------------------------------------------
+		@RequestMapping("searchPartial")
+		public String searchPartial(){
+			
+			return "/category/searchPartial";
+		}
 
 }

@@ -171,9 +171,9 @@ public class ReviewsController {
 	   }
 	
 	@RequestMapping("search-review-list")
-	   public String search_review_list(String q, Model model) throws SQLException{
-	   	System.out.println(q);
-	   	List<Review> list = reviewDao.getReviews(1,"",q);
+	   public String search_review_list(String q, String f, Model model) throws SQLException{
+	   	System.out.println(f+q);
+	   	List<Review> list = reviewDao.getReviews(1,f,q);
 	      
 	   	System.out.println(q);
 	      model.addAttribute("list", list);
@@ -192,10 +192,18 @@ public class ReviewsController {
 	      return "reviews/myReview-list";
 	   }
 	
-	@RequestMapping(value="reportPartial", method=RequestMethod.GET)
+
+	@RequestMapping("reportPartial")
+	public String reportPartial(){
+		
+		System.out.println("dfdfdf");
+		return "/reviews/reportPartial";
+	}
+	
+	@RequestMapping("searchPartial")
 	public String searchPartial(){
 		
-		return "reviews/reportPartial";
+		return "/reviews/searchPartial";
 	}
 	
 }

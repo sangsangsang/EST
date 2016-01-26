@@ -50,9 +50,8 @@ function init(){
 	   	dlg.appendChild(container);
 	   	document.body.appendChild(dlg);
 	   	
-	   	
-	    //var dlg = showDialog("noticeRegPartial", ".btn-save", function() {
-		   	/* var request;
+	    
+		    var request;
 		   	if(window.ActiveXObject)
 	            request = new ActiveXObject("Microsoft.XMLHTTP"); 
 	         else if(window.XMLHttpRequest)
@@ -60,16 +59,14 @@ function init(){
 		    	//container.innerHTML=request.responseText;
 		   	
 			request.onreadystatechange=function(){
-			        if(request.readyState==4){
-			        	container.innerHTML=request.responseText;
-		            }
-		    };
-		    
+				if(request.readyState==4){
+				   container.innerHTML=request.responseText;
+			    }
+	   		};
+
 		    request.open("GET", "reportPartial", true);
-		    request.send(null); */
-	
-			return false;
-	    //});
+		    request.send(null);
+	   		return false;
 	};
 	
 	var closeDialog = function(dlg){

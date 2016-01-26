@@ -133,16 +133,13 @@ section>p a{
 		}
 
 
-
-#close-btn{
-	border:solid #fff;
-	text-indent:-999px;
-	background:url("../../images/search-cancel.png") no-repeat center;
-	width:50px;
-	height:50px;
+#select{
+	border:solid #4949e6;
+	height:35px;
+	widht:100px;
 	position:fixed;
-	right:20px;
-	top:70px;
+	right:1140px;
+	top:80px;
 	z-index:1;
 }
 
@@ -152,14 +149,14 @@ section>p a{
 	background:url("../../images/search.png") no-repeat center;
 	width:50px;
 	height:50px;
-	postion:fixed;
+	position:fixed;
 	right:80px;
 	top:70px;
-	
+	z-index:1;
 }
 
 #search-txt{
-	border:solid #fff;
+	border:solid #4949e6;
 	background:#fff;
 	color:#c0c0c0;
 	width:1000px;
@@ -167,14 +164,9 @@ section>p a{
 	position:fixed;
 	right:140px;
 	top:80px;
-	
+	z-index:1;
 }
-#select{
-	widht:100px;
-	left:5px;
-	top:80px;
-	
-}
+
 
 /* input[type="text"]
 {

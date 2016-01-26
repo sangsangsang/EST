@@ -79,18 +79,21 @@
           /* var request = new XMLHttpRequest();
           container.innerHTML=request.responseText */
           
-         var request = new XMLHttpRequest();
-          //container.innerHTML=request.responseText;
+          var request;
+		   	if(window.ActiveXObject)
+	            request = new ActiveXObject("Microsoft.XMLHTTP"); 
+	         else if(window.XMLHttpRequest)
+	            request = new XMLHttpRequest();
+		    	//container.innerHTML=request.responseText;
+		   	
 			request.onreadystatechange=function(){
-		        if(request.readyState==4){
-		        	container.innerHTML=request.responseText;
-	
-	            }
-          };
-          
-          request.open("GET", "searchPartial", true);
-          request.send(null);       
-          return false;
+				if(request.readyState==4){
+				   container.innerHTML=request.responseText;
+			    }
+	   		};
+
+		    request.open("GET", "searchPartial", true);
+		    request.send(null);
             
          };
    };

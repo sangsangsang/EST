@@ -46,5 +46,10 @@ public class MypageController {
       return "mypage/memberInfo";
    }
    
+   @RequestMapping("searchPartial")
+	public String searchPartial(){
+		
+		return "/mypage/searchPartial";
+	}
    
 }
