@@ -7,6 +7,9 @@
 %>
 
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
+
+<script src="../content/js/commentEdit.js"></script>    
+
 <script>
 function init(){  
 	var btnReport = document.querySelector(".report");
@@ -77,6 +80,7 @@ function init(){
 </script>
 
    
+
    <main id="main">
 	<h1 class="hidden">글보기</h3>
 		<table id="review">
@@ -98,7 +102,8 @@ function init(){
 	     <nav id="user">
 	            <img src="${ctx}/content/images/user.png" alt="별점준사람들" />
 	     </nav>
-	     <div id="u_raiting"><img src="${ctx}/content/images/g3.png" alt="유저들별점" /></div>			
+	     <div id="u_raiting"><img src="${ctx}/content/images/g${imageavg}.png" alt="유저들별점" /> 
+	     <span style="font-weight: bold;">(${avg })</span></div></div>			
 	  
 	   <div id="content">
 		   ${review.content }
@@ -157,13 +162,14 @@ function init(){
 	 		  <dl class="article-detail-row">
 	 		    <h2 class="hidden">별</h2>
                      <dd class="cmt">   
-                        <select name="ratingCode">
-                           <option>1</option>
-                           <option>2</option>
-                           <option>3</option>
-                           <option>4</option>
-                           <option>5</option>
+                         <select name="ratingCode">
+                           <option value="1">★☆☆☆☆</option>
+                           <option value="2">★★☆☆☆</option>
+                           <option value="3">★★★☆☆</option>
+                           <option value="4">★★★★☆</option>
+                           <option value="5">★★★★★</option>
                         </select>
+                     
                      
                      <h2 class="hidden">내용</h2>
                     
@@ -179,20 +185,38 @@ function init(){
 	 		<dl class="article-detail-row">
              <table id="comments">
 	 		<tbody>
-	 		<c:forEach var="cmt" items="${list}">
-		 		
-		 		<tr>
+	 			<c:forEach var="cmt" items="${list}">
+				<tr id="cmt-list-${cmt.cmtcode}">	
 			 		<td class="writer"><img src="${ctx}/content/images/faceimg.png"/><br/>${cmt.writerNickname}</td>
-			 		<td class="cmt-rating"><ins></ins><img src="${ctx}/content/images/g${cmt.ratingCode}.png"/></td>
-			 		<td class="content">${cmt.content}</td>				
+			 		<td class="cmt-rating">
+		
+			 		<span id="r"><ins></ins><img id="cmtRimg" src="${ctx}/content/images/g${cmt.ratingCode}.png"/></span>
+			 		</td>
+			 		
+			 		<td id="reply-content" class="content">
+			 		${cmt.content}
+			 		</td>			
+			 		
 			 		<td class="regDate"><fmt:formatDate pattern="yyyy-MM-dd"
 						value='${cmt.regdate}'/></td>
+					<td class="cmt-cmt"><img src="${ctx}/content/images/cmt-cmt.png"/>
+			 		<a href="" name="report"><img src="${ctx}/content/images/report.png"/></a></td>
 					<c:if test="${cmt.writer == logID}">
-					 <td class="cmt-edit"><a href="">수정</a></td>
-				     <td class="cmt-del"><a href="">삭제</a></td>	
+					 <td class="cmt-edit">
+					 
+						 <%-- <a href="commentEdit?c=${cmt.cmtcode}" style="font-size:20px;">Edit</a> --%>
+						<input type="button" onclick="editBtn(this, '${cmt.cmtcode}','${cmt.content}');" id="edit-btn" value="Edit"/>
+					
+						 
+						 <form class="cmt-del" action ="cmtdelete" method="post">
+							  <input type="hidden" value="${review.num}" name="c"/> 
+							  <input type="hidden" value="${cmt.cmtcode}" name="cmtcode"/>
+						      <input type="submit" value="Del"/></a>	
+					     </form>
+					 
+					 </td>
 					</c:if>
-			 		<td class="cmt-cmt"><img src="${ctx}/content/images/cmt-cmt.png"/></td>
-			 		<td class="report"><!-- <a href=""> --><img src="${ctx}/content/images/report.png"/><!-- </a> --></td>	
+	
 		 		</tr>
 		 		</c:forEach>		
 	 			</tbody>

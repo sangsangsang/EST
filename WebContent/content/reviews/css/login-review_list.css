@@ -504,6 +504,7 @@ margin-bottom:40px;
    
    
    #review-img-wide{
+   /* opacity:0.5; */
     background: url("../../images/imgwide.jpg") no-repeat center; 
     display:block;
     width:660px;
@@ -517,13 +518,15 @@ margin-bottom:40px;
     top:10px;
     left:10px;
    
-   
+ 
     text-align: center;
     overflow: auto;
+    
    
    }
    
    #review-img-wide>tbody>tr>td{
+   
    padding-top:130px;
    
    }

@@ -254,6 +254,7 @@
            <table id ="review-img-wide">
           <tbody>
                 <tr>
+                	<!-- <td id ="review-img"></td> -->
                    <td>
                       <a href=""><img src="${ctx}/content/images/faceimg.png" width ="45" height="45"
                         alt="닉네임" /></a>
@@ -267,7 +268,7 @@
                         </td>
                         
                         <td>
-                        <a href=""><img src="${ctx}/content/images/g3.png" width ="80" height="15"/>
+                        <a href=""><img src="${ctx}/content/images/g${imageavg}.png" width ="80" height="15"/>
                         </a></td>
                         
                          <td id = "like-wide">
