@@ -17,6 +17,7 @@
                   <dl class="article-detail-row">
                      <dd class="article-detail-category">
                         <select name="categorycode">
+<<<<<<< HEAD
 	                           <option value="sports">Sports</option>
 	                           <option value="movie">Movie</option>
 	                           <option value="game">Game</option>
@@ -27,6 +28,20 @@
 	                           <option value="food">Food</option>
 	                           <option value="travel">Travel</option>
 	                           <option value="electronics">Electronics</option>
+=======
+
+	                           <option value="sports">Sports</option>
+	                           <option value="movie">Movie</option>
+	                           <option value="game">Game</option>
+	                           <option value="book">Book</option>
+	                           <option value="music">Music</option>
+	                           <option value="fashion&beauty">Fashion&Beauty</option>
+	                           <option value="show&concert">Show&Concert</option>
+	                           <option value="food">Food</option>
+	                           <option value="travel">Travel</option>
+	                           <option value="electronics">Electronics</option>
+
+>>>>>>> refs/remotes/origin/master
                         </select>
                      
                      <h3 class="hidden">별</h3>

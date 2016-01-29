@@ -16,8 +16,10 @@
          <div id ="box1" class="hc vc">
            <nav id ="category-form">
             <ul>
+
             <li><img src="${ctx}/content/images/food.png"/></li>
              <li>Food</li>
+
             </ul>
             </nav>
             

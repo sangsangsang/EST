@@ -1,12 +1,14 @@
 package com.estreller.wbprj.controllers;
 
 
+import java.io.PrintWriter;
 import java.security.Principal;
 import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,16 +51,39 @@ public class ReviewsController {
 //-----------------------------글자세히보기----------------------	
 	@RequestMapping(value="reviewDetail", method=RequestMethod.GET)
 	public String ReviewDetail(String c,Model model,Principal principal) throws SQLException{
+		double sum=0;//댓글 list 별점 합계
+		double avg = 0;//유저댓글별점 평균.
+		int imageavg =0;//유저댓글 별점 평균 이미지.
 		
 		String logID=principal.getName();//로그인된 아이디 가져옴
 		model.addAttribute("logID",logID);
 		
 		Review review = reviewDao.getReview(c);
-		model.addAttribute("review", review);		
+		model.addAttribute("review", review);	
+		
 		List<Comment> list = commentDao.getComments(c);		
-
+		//System.out.println("댓글달린수:"+list.size());
+		
+		if(list.size()!=0){ //댓글이 달렸을경우.
+			for(Comment comment : list){
+				//System.out.printf("댓글에 대한 별점:%s\n",comment.getRatingCode());
+				sum +=  Double.parseDouble(comment.getRatingCode());
+				//System.out.printf("댓글별점합계:%d",sum);	
+			}
+			
+		avg = sum / list.size();
+		imageavg = (int)(avg+0.5);
+		//System.out.println("유저들 댓글 평점을 이미지화:  "+imageavg);
+		avg = (int)(avg*10+0.5)/10.0;
+		//System.out.println("유저들 댓글 보여주기위한평점:  "+avg);
+		}
+		
+		model.addAttribute("imageavg", imageavg);
+		model.addAttribute("avg", avg);
+		
 		model.addAttribute("list", list);
-					
+
+		
 		return "reviews/reviewDetail";
 	}
 	
@@ -73,6 +98,8 @@ public class ReviewsController {
 		List<Comment> list = commentDao.getComments(c);
 		//Comment com = commentDao.getComment(com);
 		model.addAttribute("list", list);
+		String u=comment.getRatingCode();
+		System.out.println(u);
 		
 		return "redirect:reviewDetail?c="+c;
 	}
@@ -113,7 +140,7 @@ public class ReviewsController {
 		r.setCategorycode(categorycode);
 		r.setKeyword(keyword);
 		r.setRatingcode(ratingcode);
-		System.out.println(r.getTitle());
+		//System.out.println(r.getTitle());
 		reviewDao.update(r);
 		
 		return "redirect:reviewDetail?c="+c;
@@ -121,14 +148,42 @@ public class ReviewsController {
 	//*---------------------글삭제-----------------------------*//
 	
 	@RequestMapping(value="delete", method=RequestMethod.POST)
-	public String reviewDelete(String c,Principal principal,Review r) throws SQLException {
-		System.out.println(c);
+	public String reviewDelete(String c,Review r) throws SQLException {
+		
 	    reviewDao.delete(c);
 		
 		return "redirect:login-review_list";
 	}
+	//*---------------------댓글삭제-----------------------------*//
 	
+	@RequestMapping(value="cmtdelete", method=RequestMethod.POST)
+	public String commentDelete(String c,String cmtcode) throws SQLException {
+		//System.out.println(c);
+		//List<Comment> list = commentDao.getComments(c);	
+		System.out.println("리뷰코드"+c);
+		System.out.println("댓글코드"+cmtcode);
+	    commentDao.delete(cmtcode);
+	  
+		
+	  return "redirect:reviewDetail?c="+c;
+	}
 	
+	//------------------댓글수정
+	@RequestMapping(value="commentEdit", method=RequestMethod.POST)
+	public void commentEdit(String code,String content,String ratingCode, Comment comment,PrintWriter out) throws SQLException {
+		comment.setCmtcode(code);
+		comment.setContent(content);
+		comment.setRatingCode(ratingCode);
+	
+		commentDao.update(comment);
+		JSONObject obj = new JSONObject();
+		obj.put("content", content);
+		obj.put("ratingCode", ratingCode);
+		out.print(obj); 
+	  
+	}	
+	
+
 	
 	/*-------------------------ALL 별점순 list------------------------------------*/
 	
@@ -138,6 +193,7 @@ public class ReviewsController {
 	      List<ReviewRating> r_list;
 	     if(c == null){ 
 	      list = reviewDao.getReviews(1,"Title","");
+	      
 	      model.addAttribute("list", list);}
 	     if(c!=null){	
 	 		if(c.equals("5")){
@@ -166,15 +222,47 @@ public class ReviewsController {
 	      //return "reviews/login-review_list";
 	   }
 	
+<<<<<<< HEAD
 	@RequestMapping("myReview-list")
 	   public String search_review_list(Principal principal, Model model) throws SQLException{
 		String name = principal.getName();
 	   	List<Review> list = reviewDao.getReviews(1,"Email",name);
+=======
+	@RequestMapping("search-review-list")
+	   public String search_review_list(String q, String f, Model model) throws SQLException{
+	   	System.out.println(f+q);
+	   	List<Review> list = reviewDao.getReviews(1,f,q);
+>>>>>>> refs/remotes/origin/master
 	      
 	   	System.out.println(name);
 	      model.addAttribute("list", list);
 	      
 	      return "reviews/myReview-list";
 	   }
+	
+	@RequestMapping("myReview-list")
+	   public String search_review_list(Principal principal, Model model) throws SQLException{
+		String name = principal.getName();
+	   	List<Review> list = reviewDao.getReviews(1,"Writer",name);
+	      
+	   	System.out.println(name);
+	      model.addAttribute("list", list);
+	      
+	      return "reviews/myReview-list";
+	   }
+	
+
+	@RequestMapping("reportPartial")
+	public String reportPartial(){
+		
+		System.out.println("dfdfdf");
+		return "/reviews/reportPartial";
+	}
+	
+	@RequestMapping("searchPartial")
+	public String searchPartial(){
+		
+		return "/reviews/searchPartial";
+	}
 	
 }

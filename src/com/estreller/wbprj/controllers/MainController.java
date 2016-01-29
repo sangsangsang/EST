@@ -12,6 +12,10 @@ public class MainController {
 	public String mainPage(){
 		return "home/mainPage";
 	}
-	
+	@RequestMapping("searchPartial")
+	public String searchPartial(){
+		
+		return "/home/searchPartial";
+	}
 
 }

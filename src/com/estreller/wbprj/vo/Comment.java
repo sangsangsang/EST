@@ -3,6 +3,7 @@ package com.estreller.wbprj.vo;
 import java.util.Date;
 
 public class Comment {
+	private String cmtcode;
 	private String code;
 	private String writer;
 	private String reviewNum;
@@ -56,7 +57,13 @@ public class Comment {
 	public void setCode(String code) {
 		this.code = code;
 	}
-
+	public String getCmtcode() {
+		return cmtcode;
+	}
+	public void setCmtcode(String cmtcode) {
+		this.cmtcode = cmtcode;
+	}
+	
 	
 	
 }

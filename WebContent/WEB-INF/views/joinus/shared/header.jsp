@@ -11,7 +11,7 @@
 <div class="logo-center">
 			<span>
 				<a href="${ctx}/home/mainPage">
-				<img src="${ctx}/content/images/smallLogo.png" alt="estrellerLogo">
+				<img src="${ctx}/content/images/purStar.png" alt="estrellerLogo">
 				</a>
 			</span>
 		</div>

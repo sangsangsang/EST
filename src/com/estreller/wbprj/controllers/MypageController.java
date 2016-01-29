@@ -43,8 +43,13 @@ public class MypageController {
 	   memberDao.update(m);
 	   
 	   
-      return "mypage/memberInfo";
+      return "redirect:../reviews/login-review_list";
    }
    
+   @RequestMapping("searchPartial")
+	public String searchPartial(){
+		
+		return "/mypage/searchPartial";
+	}
    
 }

@@ -177,11 +177,46 @@ section>p a{
 		}
 	
 	
-input[type="text"]
+#select{
+	border:solid #4949e6;
+	height:35px;
+	widht:100px;
+	position:fixed;
+	right:1140px;
+	top:80px;
+	z-index:1;
+}
+
+#search-btn{
+	border:solid #fff;
+	text-indent:-999px;
+	background:url("../../images/search.png") no-repeat center;
+	width:50px;
+	height:50px;
+	position:fixed;
+	right:80px;
+	top:70px;
+	z-index:1;
+}
+
+#search-txt{
+	border:solid #4949e6;
+	background:#fff;
+	color:#c0c0c0;
+	width:1000px;
+	height:30px;
+	position:fixed;
+	right:140px;
+	top:80px;
+	z-index:1;
+}
+
+
+/* input[type="text"]
 {
 	border:solid #fff;
 	background:#fff;
-    /* border-bottom:1px solid black; */
+    border-bottom:1px solid black;
     color:#c0c0c0;
 }
 
@@ -190,7 +225,7 @@ input[type="submit"]
 	border:solid #fff;
 	text-indent:-999px;
 	background:url("../../images/search.png") no-repeat center;
-}
+}*/
 input[type="button"]
 {
 	border:solid #fff;
@@ -202,7 +237,7 @@ input[type="button"]
 
 #box1
 {    
-	
+	/* opacity:0.3; */
 	position:relative;
 	text-align: center;
 	overflow: auto;
@@ -302,14 +337,15 @@ overflow: auto;
    /* text-align:center; */ /* 가운데 정렬 */ 
    padding-top: 5px;
    padding-bottom: 5px;
+   
+
    }
    
    
    #review-img{
-   background: url("../../images/review_img.jpg")  no-repeat center; 
+   background: url("../../images/review_img.jpg")  no-repeat center;
    display:block;
    position:relative;
-   
    top:10px;
    left:10px;
 
@@ -318,11 +354,11 @@ overflow: auto;
  
    overflow: auto;
    
+
    }
    #review-img>tbody>tr>td{
       padding-top:100px;
    }
-  
    
    #user-star1{
    padding-right:15px;

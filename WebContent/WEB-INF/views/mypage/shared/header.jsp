@@ -1,15 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>	
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
 <%
 
-   request.getContextPath();
-%> 
+	request.getContextPath();
+%>
 <script>
     function init(){  
    
@@ -17,11 +16,11 @@
          btnSearch.onclick = function(){
           
             
-          var dlg=document.createElement("form");
+          var dlg=document.createElement("div");
           dlg.style.position="fixed";
           dlg.style.top="0px";
-          dlg.action="search-review-list";
-		  dlg.method="get";
+          /* dlg.action="search-review-list";
+		  dlg.method="get"; */
           
           var container=document.createElement("div");
           container.style.background="#fff";
@@ -41,7 +40,7 @@
           closeButton.style.top=parseInt(container.style.top)+"px";
           closeButton.style.zIndex=1; //맨앞으로
           
-          var searchButton = document.createElement("input");
+         /*  var searchButton = document.createElement("input");
           searchButton.type = "submit";
           searchButton.value = "검색";
           searchButton.style.width="50px";
@@ -61,20 +60,42 @@
           searchText.style.position="fixed";
           searchText.style.right= parseInt(searchButton.style.right)+parseInt(searchButton.style.width)+20+"px";
           searchText.style.top=parseInt(container.style.top)+10+"px";
-          searchText.style.zIndex=1; //맨앞으로
+          searchText.style.zIndex=1; //맨앞으로 */
           
           
-          closeButton.onclick=function(){closeDialog(dlg);};
+         closeButton.onclick=function(){closeDialog(dlg);};
          
-         dlg.appendChild(searchText);
-         dlg.appendChild(searchButton);
+         /* dlg.appendChild(searchText);
+         dlg.appendChild(searchButton); */
          dlg.appendChild(closeButton);
          dlg.appendChild(container);
           
           document.body.appendChild(dlg);
-            return false;
+          
+          
+          //var page-event.target.innerText;
+          //var request;
+          
+          /* var request = new XMLHttpRequest();
+          container.innerHTML=request.responseText */
+          
+          var request;
+		   	if(window.ActiveXObject)
+	            request = new ActiveXObject("Microsoft.XMLHTTP"); 
+	         else if(window.XMLHttpRequest)
+	            request = new XMLHttpRequest();
+		    	//container.innerHTML=request.responseText;
+		   	
+			request.onreadystatechange=function(){
+				if(request.readyState==4){
+				   container.innerHTML=request.responseText;
+			    }
+	   		};
+
+		    request.open("GET", "searchPartial", true);
+		    request.send(null);
+            
          };
-      
    };
    
    var closeDialog = function(dlg){
@@ -84,24 +105,11 @@
    window.onload=init;
 
 </script>
+
    <h1 class="hidden">메인</h1>
-  <!--  <nav id="main-menu">
-      <h1 class="hidden">카테고리</h1>
-      <ul>
-      <li><a href="Category/Sports.html">Sports</a></li>
-      <li><a href="Category/Movie.html">Movie</a></li>
-      <li><a href="Category/Game.html">Game</a></li>
-      <li><a href="Category/Book.html">Book</a></li>
-      <li><a href="Category/Music.html">Music</a></li>
-      <li><a href="Category/Fashion&Beauty.html">Fashion&Beauty</a></li>
-      <li><a href="Category/Show&Concert.html">Show&Concert</a></li>
-      <li><a href="Category/Food.html">Food</a></li>
-      <li><a href="Category/Travel.html">Travel</a></li>
-      <li><a href="Category/Electronics.html">Electronics</a></li>
-      </ul>
-   </nav> -->
    
-   <table id = "main-menu">
+      <h1 class="hidden">카테고리</h1>
+     <table id = "main-menu">
     <tr>
 	    <th><a href="${ctx}/reviews/login-review_list">All</a></th>
 	    <th><a href="${ctx}/category/sports-list">Sports</a></th>
@@ -117,28 +125,27 @@
     <tr>
     
     </table>
-   
-   
     <nav id="search">
-            <a href=""><img src="${pageContext.request.contextPath}/content/images/search.png" alt="검색" /></a>
+            <img src="${pageContext.request.contextPath}/content/images/search.png" alt="검색" />
     </nav> 
     <nav id="new-write">
            <a href="reviewReg"><img src="${pageContext.request.contextPath}/content/images/new_write.png" alt="새글쓰기" /></a>
     </nav> 
     <nav id="logout">
-         <c:if test="${pageContext.request.userPrincipal !=null }">   
-      <c:url var="logout" value="/j_spring_security_logout"/>
+    	<c:if test="${pageContext.request.userPrincipal !=null }">	
+		<c:url var="logout" value="/j_spring_security_logout"/>
            <a href="${logout}"><img src="${pageContext.request.contextPath}/content/images/logout.png" alt="로그아웃" /></a>
-       </c:if>   
+    	</c:if>	
     </nav> 
    <section>
       <h1 class="hidden">회원</h1>
          
          
          <nav id="profile">
-            <a href=""><img src="${pageContext.request.contextPath}/content/images/faceimg.png" alt="프로필수정" /></a>
+            <a href="${ctx}/mypage/memberInfo"><img src="${pageContext.request.contextPath}/content/images/faceimg.png" alt="프로필수정" /></a>
+
        </nav>
-       <p><a href="" alt="마이페이지"><security:authentication property="name"/></a></p>
+       <p><a href="${pageContext.request.contextPath}/reviews/myReview-list" alt="마이페이지" name="name"><security:authentication property="name"/></a></p>
         <nav id="write">
            <a href=""><img src="${pageContext.request.contextPath}/content/images/scrap.png" alt="스크랩" /></a>
        </nav> 
