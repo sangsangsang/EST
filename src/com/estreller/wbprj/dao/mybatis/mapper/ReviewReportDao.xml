@@ -6,7 +6,7 @@
 	<select id="getReviewReports" resultType="com.estreller.wbprj.vo.ReviewReport">
 		SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY REGDATE DESC) number,
 		REVIEWREPORT.* FROM REVIEWREPORT)A 
-		WHERE ReviewNum BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
+		WHERE ReportNum BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
 			
 	</select>
 	
@@ -18,7 +18,7 @@
 	
 	
 	<delete id="delete" parameterType ="String">
-		DELETE REVIEWREPORT WHERE ReviewNum=#{reviewnum} and Writer=#{writer}
+		DELETE REVIEWREPORT WHERE ReportNum=#{ReportNum}
 	</delete>
 	
 	

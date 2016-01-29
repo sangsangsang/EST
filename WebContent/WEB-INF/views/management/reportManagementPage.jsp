@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>   
 <%
 
    request.getContextPath();
@@ -52,40 +53,28 @@
             <thead>
                <tr>
                   <th>번호</th>
-                  <th>신고내용</th>
-                  <th>카테고리</th>
-                  <th>제목</th>
-                  <th>작성자</th>
-                  <th>작성일자</th>
+                  <th>리뷰번호</th>
                   <th>신고자</th>
+                  <th>신고내용</th>
+                  <th>작성일자</th>
                   <th>삭제</th>
+                  <!-- <th>카테고리</th>
+                  <th>제목</th>
+                  <th>작성자</th> -->
                </tr>
             </thead>
             <tbody>
-               <form id="member-list" action="">
-                  <tr>
-                     <td>1</td>
-                     <td>음란스</td>
-                     <td>Food</td>
-                     <td><a href ="">우왕맛있어용</a></td>
-                     <td>나는나</td>
-                     <td>2011-09-11</td>
-                     <td>울라라</td>
-                     <td><input type="submit" value="삭제" /></td>
-                  </tr>
-               </form>
-               <form id="member-list" action="">
-                  <tr>
-                     <td>2</td>
-                     <td>욕설스</td>
-                     <td>Game</td>
-                     <td>우왕재밌어용</td>
-                     <td>나에요</td>
-                     <td>2011-10-05</td>
-                     <td>울라라</td>
-                     <td><input type="submit" value="삭제" /></td>
-                  </tr>
-               </form>
+               <c:forEach var="n" items="${list}">
+						<tr>
+				         <%-- <td class="reportnum">${n.reportnum}</td> --%>
+				         <td class="reviewnum">0</td>
+				         <td class="reviewnum">${n.reviewnum}</td>
+				         <td class="writer">${n.writer}</td>
+				         <td class="content">${n.content}</td>
+				         <td class="regdate"><fmt:formatDate pattern="yyyy-MM-dd" value="${n.regdate}"/> </td>
+				      	 <td><a href="deleteReviewReportManagementPage?c=${n.reviewnum}"><input type="submit" value="삭제" /></a></td>
+				      	</tr>
+			 </c:forEach>
             </tbody>
          </table>
          

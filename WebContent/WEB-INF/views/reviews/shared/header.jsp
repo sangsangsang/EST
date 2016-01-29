@@ -113,6 +113,9 @@
     	<c:if test="${pageContext.request.userPrincipal !=null }">	
 		<c:url var="logout" value="/j_spring_security_logout"/>
            <a href="${logout}"><img src="${pageContext.request.contextPath}/content/images/logout.png" alt="로그아웃" /></a>
+       <p><security:authorize ifAnyGranted="ROLE_USER">
+   			<a href="../management/memberManagementPage">관리자페이지</a>
+	   </security:authorize></p>  
     	</c:if>	
     </nav> 
    <section>
@@ -136,6 +139,5 @@
        <nav id="report">
             <a href=""><img src="${pageContext.request.contextPath}/content/images/report.png" alt="신고하기" /></a>
        </nav> 
-         
        
    </section>

@@ -1,12 +1,9 @@
 package com.estreller.wbprj.spring.board.email;
 
-import javax.mail.MessagingException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
- 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.messaging.MessagingException;
    
     public class EmailSender  {
          
@@ -14,7 +11,7 @@ import org.springframework.mail.javamail.JavaMailSender;
         protected JavaMailSender  mailSender;
         public void SendEmail(Email email) throws Exception {
              
-            MimeMessage msg = mailSender.createMimeMessage();
+           /* MimeMessage msg = mailSender.createMimeMessage();
             try {
                 msg.setSubject(email.getSubject());
                 msg.setText(email.getContent());
@@ -29,6 +26,6 @@ import org.springframework.mail.javamail.JavaMailSender;
             }catch(MailException e) {
                 System.out.println("MailException¹ß»ý");
                 e.printStackTrace();
-            }
+            }*/
         }
 }

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%
 
    request.getContextPath();
@@ -48,7 +49,7 @@
 
             <thead>
                <tr>
-                  <th>번호</th>
+                  <!-- <th>번호</th> -->
                   <th>이메일</th>
                   <th>닉네임</th>
                   <th>가입일자</th>
@@ -56,24 +57,16 @@
                </tr>
             </thead>
             <tbody>
-               <form id="member-list" action="">
-                  <tr>
-                     <td>1</td>
-                     <td>kimbhj1144@nate.com</td>
-                     <td>나는나</td>
-                     <td>2011-09-11</td>
-                     <td><input type="submit" value="삭제" /></td>
-                  </tr>
-               </form>
-               <form id="member-list" action="">
-                  <tr>
-                     <td>2</td>
-                     <td>kimbhj1144@never.com</td>
-                     <td>나나</td>
-                     <td>2011-12-01</td>
-                     <td><input type="submit" value="삭제" /></td>
-                  </tr>
-               </form>
+              <c:forEach var="n" items="${list}">
+						<tr>
+						 			     
+				         <td class="writer">${n.email}</td>
+				         <td class="nickname">${n.nickname}</td>
+				         <td class="regdate"><fmt:formatDate pattern="yyyy-MM-dd" value="${n.joinDate}"/> </td>
+				      	 <td><a href="deleteMemberManagementPage?c=${n.email}"><input type="submit" value="삭제" /></a></td>
+				      	</tr>
+			 </c:forEach>
+              
             </tbody>
          </table>
          
