@@ -279,15 +279,22 @@ public class ReviewsController {
 	      //return "reviews/login-review_list";
 	   }
 	
+<<<<<<< HEAD
+	@RequestMapping("myReview-list")
+	   public String search_review_list(Principal principal, Model model) throws SQLException{
+		String name = principal.getName();
+	   	List<Review> list = reviewDao.getReviews(1,"Email",name);
+=======
 	@RequestMapping("search-review-list")
 	   public String search_review_list(String q, String f, Model model) throws SQLException{
 	   	System.out.println(f+q);
 	   	List<Review> list = reviewDao.getReviews(1,f,q);
+>>>>>>> refs/remotes/origin/master
 	      
-	   	System.out.println(q);
+	   	System.out.println(name);
 	      model.addAttribute("list", list);
 	      
-	      return "reviews/search-review-list";
+	      return "reviews/myReview-list";
 	   }
 	
 	@RequestMapping("myReview-list")

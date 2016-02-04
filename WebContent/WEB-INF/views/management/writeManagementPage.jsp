@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
 <%
 
    request.getContextPath();
@@ -49,7 +50,7 @@
 
             <thead>
                <tr>
-                  <th>번호</th>
+                  <!-- <th>번호</th> -->
                   <th>카테고리</th>
                   <th>제목</th>
                   <th>작성자</th>
@@ -58,83 +59,17 @@
                </tr>
             </thead>
             <tbody>
-               <form id="member-list" action="">
-                  <tr>
-                     <td>1</td>
-                     <td>Food</td>
-                     <td><a href ="">우왕맛있어용</td>
-                     <td>나는나</td>
-                     <td>2011-09-11</td>
-                     <td><input type="submit" value="삭제" /></td>
-                  </tr>
-               </form>
-               <form id="member-list" action="">
-                  <tr>
-                     <td>2</td>
-                     <td>Game</td>
-                     <td>우왕재밌어용</td>
-                     <td>나에요</td>
-                     <td>2011-10-05</td>
-                     <td><input type="submit" value="삭제" /></td>
-                  </tr>
-                  <tr>
-                     <td>2</td>
-                     <td>Game</td>
-                     <td>우왕재밌어용</td>
-                     <td>나에요</td>
-                     <td>2011-10-05</td>
-                     <td><input type="submit" value="삭제" /></td>
-                  </tr>
-                  <tr>
-                     <td>2</td>
-                     <td>Game</td>
-                     <td>우왕재밌어용</td>
-                     <td>나에요</td>
-                     <td>2011-10-05</td>
-                     <td><input type="submit" value="삭제" /></td>
-                  </tr>
-                  <tr>
-                     <td>2</td>
-                     <td>Game</td>
-                     <td>우왕재밌어용</td>
-                     <td>나에요</td>
-                     <td>2011-10-05</td>
-                     <td><input type="submit" value="삭제" /></td>
-                  </tr>
-                  <tr>
-                     <td>2</td>
-                     <td>Game</td>
-                     <td>우왕재밌어용</td>
-                     <td>나에요</td>
-                     <td>2011-10-05</td>
-                     <td><input type="submit" value="삭제" /></td>
-                  </tr>
-                  <tr>
-                     <td>2</td>
-                     <td>Game</td>
-                     <td>우왕재밌어용</td>
-                     <td>나에요</td>
-                     <td>2011-10-05</td>
-                     <td><input type="submit" value="삭제" /></td>
-                  </tr>
-                  <tr>
-                     <td>2</td>
-                     <td>Game</td>
-                     <td>우왕재밌어용</td>
-                     <td>나에요</td>
-                     <td>2011-10-05</td>
-                     <td><input type="submit" value="삭제" /></td>
-                  </tr>
-                  <tr>
-                     <td>2</td>
-                     <td>Game</td>
-                     <td>우왕재밌어용</td>
-                     <td>나에요</td>
-                     <td>2011-10-05</td>
-                     <td><input type="submit" value="삭제" /></td>
-                  </tr>
-                  
-               </form>
+              <c:forEach var="n" items="${list}">
+						<tr>
+						 <%-- <td>${n.num}</td>	 --%>		     
+				         <td>${n.categorycode}</td>
+				         <td>${n.title}</td>
+				         <td>${n.writer}</td>
+				         <td><fmt:formatDate pattern="yyyy-MM-dd" value="${n.regdate}"/> </td>
+				      	 <td><a href="deleteWriteManagementPage?c=${n.num}"><input type="submit" value="삭제" /></a></td>
+				      	</tr>
+			 </c:forEach>
+              
             </tbody>
          </table>
          

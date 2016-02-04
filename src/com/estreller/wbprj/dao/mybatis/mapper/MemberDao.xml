@@ -10,7 +10,7 @@
 				MEMBERS.* FROM MEMBERS 
 				WHERE ${param2} LIKE '%${param3}%'
 				)A 
-				WHERE NUM BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
+				WHERE NUM BETWEEN 1+(#{param1}-1)*20 AND #{param1}*20
 	</select>
     <select id="getAllEmail" resultType="com.estreller.wbprj.vo.Member" >
     	SELECT * FROM MEMBERS;
@@ -23,7 +23,7 @@
 		WHERE Email=#{email}
 	</update>
 	
-	<delete id="delete" parameterType ="String">
+	<delete id="delete" parameterType ="com.estreller.wbprj.vo.Member">
 		DELETE Members WHERE Email=#{email}	
 	</delete>
 	
