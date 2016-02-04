@@ -21,6 +21,13 @@ public class MyBatisRecommendDao implements RecommendDao{
 		session.close();
 		return list;
 	}
+	public List<Recommend> getReviewRecommend(String code) throws SQLException {
+		SqlSession session = ssf.openSession();
+		RecommendDao dao = session.getMapper(RecommendDao.class);
+		List<Recommend> list = dao.getReviewRecommend(code);
+		session.close();
+		return list;
+	}
 
 	@Override
 	public int insert(Recommend recommend) throws SQLException {
@@ -34,10 +41,10 @@ public class MyBatisRecommendDao implements RecommendDao{
 	}
 
 	@Override
-	public int delete(String code) throws SQLException {
+	public int delete(Recommend recommend) throws SQLException {
 		SqlSession session = ssf.openSession();
 		RecommendDao dao = session.getMapper(RecommendDao.class);
-		int count = dao.delete(code);
+		int count = dao.delete(recommend);
 		session.commit();
 		session.close();
 		return count;

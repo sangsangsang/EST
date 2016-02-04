@@ -16,10 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.estreller.wbprj.dao.CommentDao;
+import com.estreller.wbprj.dao.RecommendDao;
 import com.estreller.wbprj.dao.ReviewDao;
 import com.estreller.wbprj.dao.ReviewRatingDao;
 import com.estreller.wbprj.vo.Category;
 import com.estreller.wbprj.vo.Comment;
+import com.estreller.wbprj.vo.Member;
+import com.estreller.wbprj.vo.Recommend;
 import com.estreller.wbprj.vo.Review;
 import com.estreller.wbprj.vo.ReviewRating;
 
@@ -39,8 +42,12 @@ public class ReviewsController {
 	   
 	   @Autowired
 	   private CommentDao commentDao;
+	   @Autowired
+	   private RecommendDao recommendDao;
 	   
-	
+	   boolean likeState;
+	   
+	   
 	@RequestMapping("login-mainpage")
 	public String loginMainPage(String w, Model model){
 		
@@ -51,11 +58,13 @@ public class ReviewsController {
 //-----------------------------글자세히보기----------------------	
 	@RequestMapping(value="reviewDetail", method=RequestMethod.GET)
 	public String ReviewDetail(String c,Model model,Principal principal) throws SQLException{
+		
 		double sum=0;//댓글 list 별점 합계
 		double avg = 0;//유저댓글별점 평균.
 		int imageavg =0;//유저댓글 별점 평균 이미지.
 		
 		String logID=principal.getName();//로그인된 아이디 가져옴
+		//System.out.println(logID);
 		model.addAttribute("logID",logID);
 		
 		Review review = reviewDao.getReview(c);
@@ -83,10 +92,23 @@ public class ReviewsController {
 		
 		model.addAttribute("list", list);
 
+		//좋아요 하트이미지 상태값.
+		List<Recommend> r_list = recommendDao.getReviewRecommend(c);
+		
+		for(Recommend recommend : r_list){
+			if(recommend.getWriter().equals(logID)){
+				likeState = true;
+				break;
+			}
+			
+			
+		}
+		model.addAttribute("likeState", likeState);
+			
+		
 		
 		return "reviews/reviewDetail";
 	}
-	
 	
 	
 	@RequestMapping(value="reviewDetail", method=RequestMethod.POST)
@@ -102,6 +124,41 @@ public class ReviewsController {
 		System.out.println(u);
 		
 		return "redirect:reviewDetail?c="+c;
+	}
+	
+//-------------------------------좋아요 +1
+	@RequestMapping(value="recommend", method=RequestMethod.POST)
+	public String recommend(String num, Recommend recommend,Model model, Principal principal) throws SQLException{
+		
+		
+		System.out.println(num);
+		recommend.setReviewNum(num);	
+		recommend.setWriter(principal.getName());
+		recommendDao.insert(recommend);
+	
+		/*commentDao.update(comment);
+		JSONObject obj = new JSONObject();
+		obj.put("content", content);
+		obj.put("ratingCode", ratingCode);
+		out.print(obj); */
+		return "redirect:reviewDetail?c="+num;
+	}
+//----------------------------좋아요 취소 ----------------------
+	@RequestMapping(value="recommendDel", method=RequestMethod.POST)
+	public String recommendDel(String num, Recommend recommend,Model model, Principal principal) throws SQLException{
+		
+		
+		System.out.println(num);
+		recommend.setReviewNum(num);	
+		recommend.setWriter(principal.getName());
+		recommendDao.delete(recommend);
+	
+		/*commentDao.update(comment);
+		JSONObject obj = new JSONObject();
+		obj.put("content", content);
+		obj.put("ratingCode", ratingCode);
+		out.print(obj); */
+		return "redirect:reviewDetail?c="+num;
 	}
 	
 //=======================글쓰기 저장======================================	

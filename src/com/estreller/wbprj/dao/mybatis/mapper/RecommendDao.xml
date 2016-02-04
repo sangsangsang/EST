@@ -8,18 +8,24 @@
 			SELECT 
 				ROW_NUMBER() OVER(ORDER BY REGDATE DESC) NUM1,
 				ReviewView.* FROM ReviewView 
-				WHERE ${param2} LIKE '%${param3}%'
+				WHERE ReviewNum = #{reviewNum}
+				WHERE ${param2} LIKE '%${param3}%' 
 				)A 
 				WHERE NUM1 BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
 	</select>
-	
+	<select id="getReviewRecommend" resultType="String">
+		SELECT * FROM Recommend WHERE ReviewNum=#{reviewNum}
+	</select>
 	
 	<insert id="insert" parameterType="com.estreller.wbprj.vo.Recommend">
-		INSERT INTO Recommend(Code,ReviewNum,Writer) VALUES(#{code},#{reviewNum},#{writer})
+		<selectKey keyProperty="code" order="BEFORE" resultType="String">
+	    	SELECT ISNULL(MAX(CAST(CODE AS INT)),0) CODE FROM Comment
+	    </selectKey>
+		INSERT INTO Recommend(Code,ReviewNum,Writer) VALUES(#{code}+1,#{reviewNum},#{writer})
 	</insert>	
 	
-	<delete id="delete" parameterType ="String">
-		DELETE Recommend WHERE Code=#{code}	
+	<delete id="delete" parameterType ="com.estreller.wbprj.vo.Recommend">
+		DELETE Recommend WHERE ReviewNum=#{reviewNum} AND Writer=#{writer}	
 	</delete>
 			
 	

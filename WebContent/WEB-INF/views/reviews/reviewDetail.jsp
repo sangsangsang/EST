@@ -5,80 +5,59 @@
 <%
 	request.getContextPath();
 %>
-<script>
-function init(){  
-	var btnReport = document.querySelector("#rep");
-	btnReport.onclick = function() {
 
-		var dlg=document.createElement("div");
-		dlg.style.width="100%";
-		dlg.style.height="100%";
-		dlg.style.position="fixed";
-		dlg.style.top="0px";
-	   
-	   	var screen=document.createElement("div");
-	   	screen.style.backgroundColor="black";
-	  	screen.style.opacity="0.3";
-	   	screen.style.width="inherit";
-	   	screen.style.height="inherit";
-	   
-	   	var container=document.createElement("div");
-	   	container.style.backgroundColor="#fff";
-	   	container.style.width="720px";
-	   	container.style.height="500px";
-	   	container.style.position="fixed";
-	   	container.style.top="100px";
-	   	container.style.left="300px";
-	   
-	   	var closeButton = document.createElement("input");
-        closeButton.type = "button";
-        closeButton.value = "X";
-        closeButton.style.width = "50px";
-        closeButton.style.height = "50px";
-        closeButton.style.position = "fixed";
-        closeButton.style.left = parseInt(container.style.left)+parseInt(container.style.width)+"px";
-        closeButton.style.top = parseInt(container.style.top) - 10 + "px";
-        closeButton.style.zIndex = 1;
-        
-        closeButton.onclick = function(){closeDialog(dlg);};
-        
-        //container.appendChild(closeButton);
-        
-        dlg.appendChild(closeButton);
-	   	
-	   	dlg.appendChild(screen);
-	   	dlg.appendChild(container);
-	   	document.body.appendChild(dlg);
-	   	
-	    
-		    var request;
-		   	if(window.ActiveXObject)
-	            request = new ActiveXObject("Microsoft.XMLHTTP"); 
-	         else if(window.XMLHttpRequest)
-	            request = new XMLHttpRequest();
-		    	//container.innerHTML=request.responseText;
-		   	
-			request.onreadystatechange=function(){
-				if(request.readyState==4){
-				   container.innerHTML=request.responseText;
-			    }
-	   		};
+<c:set var="ctx" value="${pageContext.request.contextPath}"/> 
 
-		    request.open("GET", "reportPartial", true);
-		    request.send(null);
-	   		return false;
-	};
-	
-	var closeDialog = function(dlg){
-	    document.body.removeChild(dlg);
-	};
-};
- window.onload=init;
-
-</script>
-
-<c:set var="ctx" value="${pageContext.request.contextPath}"/>  
+<script type="text/javascript" src="//code.jquery.com/jquery-2.2.0.min.js"></script> 
 <script src="../content/js/commentEdit.js"></script> 
+<script src="../content/js/like.js"></script> 
+
+<script>
+
+function likeBtn(reviewNum){
+	   		 alert(reviewNum);
+	   		/*  $("#like-btn").css("background-image","url(../content/images/like2.png)"); */
+	     
+	     var num = reviewNum;
+		 var data = "num=" + num;
+	     var request;
+         if (window.ActiveXObject)
+            request = new ActiveXObject("Microsoft.XMLHTTP");
+         else if (window.XMLHttpRequest)
+            request = new XMLHttpRequest();
+
+         request.onreadystatechange = function() {
+
+            if (request.readyState == 4 && request.status == 200) // operation is complete
+            {
+            	
+               //if (request.responseText == "ok")
+	            //var test=JSON.parse(request.responseText);//컨트롤 단에서 데이터를 parse한다.
+	            // alert(test.ratingCode);
+	            //alert(test.content); // ajax 로 데이터를 컨트롤단에서 요청이 잘왔나 확인. 
+	           
+	           // $("#like-btn").css("background-image","url(../content/images/like2.png)");
+	          
+	            //isModifying=false;
+             
+       
+              //document.write(request.responseText);
+            }
+            
+         }
+         request.open("POST", "recommend", true);
+         //open과 send 사이에 집어넣어야 함
+         request.setRequestHeader("Content-type",
+               "application/x-www-form-urlencoded");
+         request.setRequestHeader("Content-length", data.length);
+         request.setRequestHeader("Connection", "close");
+
+         request.send(data); 
+	  
+         return false;  
+
+}
+</script>
 <!-- <script type="text/javascript">
 
 var isModifying=false;
@@ -224,8 +203,16 @@ var isModifying=false;
 	   
 	   </div>
 	   
-	   <nav  class="r-report r-scrap">
-	   <a href="login-review_list"><img src="${ctx}/content/images/like.png" alt="좋아요" /></a>
+	   <nav  class="r-menu">
+	   <c:if test="${likeState==true}">
+	   <input type="submit" id="like-btn" onclick="likeBtn('${review.num}')"  style="background-image:url('${ctx}/content/images/like2.png')"/>
+	   </c:if>
+	    <c:if test="${likeState==false}">
+	   <input type="submit" id="like-btn" onclick="likeBtn('${review.num}')" style="background-image:url('${ctx}/content/images/like.png')"/>
+	   </c:if>
+	   <%-- <img src="${ctx}/content/images/like2.png" alt="좋아요" /> --%>
+	   <%-- <a href="#" onclick="like-btn"><img style="background: red"src="${ctx}/content/images/like2.png" alt="좋아요" /></a> --%>
+	    
 	    &nbsp; &nbsp;<a href=""><img src="${ctx}/content/images/comment.png" alt="댓글" /></a>
 	    &nbsp; &nbsp;<img id="rep" class="report" src="${ctx}/content/images/report.png" alt="리뷰신고" />
 	    &nbsp; &nbsp;<a href=""><img src="${ctx}/content/images/r-scrap.png" width="30" height="20" alt="스크랩" /></a>
@@ -261,7 +248,7 @@ var isModifying=false;
                   </dl>   
 	 	</nav>
 	 	</form>
-	 	<nav>
+	 	
 	 	<h1 class="hidden">댓글</h1>
 	 	 <dl class="article-detail-row">
            <table id="comments" >
@@ -286,7 +273,7 @@ var isModifying=false;
 					 <td class="cmt-edit">
 					 
 						 <%-- <a href="commentEdit?c=${cmt.cmtcode}" style="font-size:20px;">Edit</a> --%>
-						<input type="button" onclick="editBtn(this, '${cmt.cmtcode}','${cmt.content}');" id="edit-btn" value="Edit"/>
+						<input type="submit" onclick="editBtn(this, '${cmt.cmtcode}','${cmt.content}');" id="edit-btn" value="Edit"/>
 					
 						 
 						 <form class="cmt-del" action ="cmtdelete" method="post">
@@ -325,6 +312,6 @@ var isModifying=false;
 	 	   </table>
 	 	         
           </dl>   
-	 	 </nav>
+	 	
 	 	</div>	
 	   </main>   

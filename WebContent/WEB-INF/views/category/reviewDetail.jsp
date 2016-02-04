@@ -10,7 +10,7 @@
 
 <script src="../content/js/commentEdit.js"></script>    
 
-<script>
+<!-- <script>
 function init(){  
 	var btnReport = document.querySelector(".report");
 	btnReport.onclick = function() {
@@ -77,12 +77,13 @@ function init(){
 };
  window.onload=init;
 
-</script>
+</script> -->
 
    
 
    <main id="main">
 	<h1 class="hidden">글보기</h3>
+	<div id ="detail" class="hc vc">
 		<table id="review">
 	 		
 		 	<tbody>
@@ -103,7 +104,7 @@ function init(){
 	            <img src="${ctx}/content/images/user.png" alt="별점준사람들" />
 	     </nav>
 	     <div id="u_raiting"><img src="${ctx}/content/images/g${imageavg}.png" alt="유저들별점" /> 
-	     <span style="font-weight: bold;">(${avg })</span></div></div>			
+	     <span style="font-weight: bold;">(${avg })</span></div>		
 	  
 	   <div id="content">
 		   ${review.content }
@@ -205,7 +206,7 @@ function init(){
 					 <td class="cmt-edit">
 					 
 						 <%-- <a href="commentEdit?c=${cmt.cmtcode}" style="font-size:20px;">Edit</a> --%>
-						<input type="button" onclick="editBtn(this, '${cmt.cmtcode}','${cmt.content}');" id="edit-btn" value="Edit"/>
+						<input type="submit" onclick="editBtn(this, '${cmt.cmtcode}','${cmt.content}');" id="edit-btn" value="Edit"/>
 					
 						 
 						 <form class="cmt-del" action ="cmtdelete" method="post">
@@ -222,7 +223,8 @@ function init(){
 	 			</tbody>
 	 	   </table>
 	 	         
-                  </dl>   
+          </dl>
+        
 	 	</div>
 	 	
 	   </main>   

@@ -130,6 +130,7 @@ section>p a{
 		}
 		
 		 #search{
+		 cursor: pointer;
 		   position:absolute;
 		   right:40px;
 		   top: 20px;
@@ -146,6 +147,7 @@ section>p a{
 }
 
 #search-btn{
+	cursor: pointer;
 	border:solid #fff;
 	text-indent:-999px;
 	background:url("../../images/search.png") no-repeat center;
@@ -186,6 +188,7 @@ input[type="submit"]
 }*/
 input[type="button"]
 {
+	cursor: pointer;
 	border:solid #fff;
 	text-indent:-999px;
 	background:url("../../images/search-cancel.png") no-repeat center;
@@ -316,8 +319,22 @@ input[type="button"]
 	 	font-weight: bold;
 	 	padding-left:20px;
 	 }
+	 
+#like-btn{
+	cursor: pointer;
+	border:solid #fff;
+	text-indent:-999px;
+	/* background:url("../../images/like.png") no-repeat center; */
+	width:30px;
+	height:30px;
+	right:80px;
+	top:50px;
+	padding-top:20px;
 
-	 .r-report,r-scrap{
+	 
+	 }
+ 
+	 .r-menu{
 	     font-family:"맑은고딕";
 		 padding-top:50px;
 		 padding-left:650px;
@@ -432,9 +449,9 @@ input[type="button"]
 	 	background: 0px;
 	 }
 	 #comments>tbody>tr>td:nth-child(6){
-	 text-align:left;
+	 	text-align:left;
 	 	font-size:20px;
-	 	width: 100px;
+	 	width: 50px;
 	 	background: 0px;
 	 }
 	

@@ -9,7 +9,8 @@ import com.estreller.wbprj.vo.Recommend;
 public interface RecommendDao {
 	
 	public  List<Recommend> getRecommend(int page,String field, String query) throws SQLException;
+	public  List<Recommend> getReviewRecommend(String code) throws SQLException;
 	public int insert(Recommend recommend) throws SQLException;
-	public int delete(String code) throws SQLException;
+	public int delete(Recommend recommend) throws SQLException;
 
 }

@@ -242,7 +242,7 @@
              <tr>
                 <td class="writer"><img src="${ctx}/content/images/faceimg.png"
                      alt="닉네임" />${r.writerNickname}</td>   
-                <td class="title"><a href="reviewDetail?c=${r.num }">${r.title}</a></td>            
+                <td class="title"><a href="reviewDetail?c=${r.num}">${r.title}</a></td>            
                 <td class="regdate"><fmt:formatDate pattern="yyyy-MM-dd" value="${r.regdate}"/></td>   
              </tr>
              
@@ -268,7 +268,7 @@
                         </td>
                         
                         <td>
-                        <a href=""><img src="${ctx}/content/images/g${imageavg}.png" width ="80" height="15"/>
+                        <a href=""><img src="${ctx}/content/images/g3.png" width ="80" height="15"/>
                         </a></td>
                         
                          <td id = "like-wide">
