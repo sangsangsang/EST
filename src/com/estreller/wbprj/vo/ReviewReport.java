@@ -7,6 +7,7 @@ public class ReviewReport {
 	private String writer;
 	private String content;
 	private Date regdate;
+	private String option;
 	
 	public String getReviewnum() {
 		return reviewnum;
@@ -31,6 +32,12 @@ public class ReviewReport {
 	}
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
+	}
+	public String getOption() {
+		return option;
+	}
+	public void setOption(String option) {
+		this.option = option;
 	}
 
 }

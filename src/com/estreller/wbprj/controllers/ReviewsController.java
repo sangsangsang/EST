@@ -19,12 +19,13 @@ import com.estreller.wbprj.dao.CommentDao;
 import com.estreller.wbprj.dao.RecommendDao;
 import com.estreller.wbprj.dao.ReviewDao;
 import com.estreller.wbprj.dao.ReviewRatingDao;
-import com.estreller.wbprj.vo.Category;
+import com.estreller.wbprj.dao.ReviewReportDao;
 import com.estreller.wbprj.vo.Comment;
 import com.estreller.wbprj.vo.Member;
 import com.estreller.wbprj.vo.Recommend;
 import com.estreller.wbprj.vo.Review;
 import com.estreller.wbprj.vo.ReviewRating;
+import com.estreller.wbprj.vo.ReviewReport;
 
 
 
@@ -42,8 +43,14 @@ public class ReviewsController {
 	   
 	   @Autowired
 	   private CommentDao commentDao;
+
 	   @Autowired
 	   private RecommendDao recommendDao;
+
+	   
+	   @Autowired
+	   private ReviewReportDao reviewReportDao;
+
 	   
 	   boolean likeState;
 	   
@@ -288,7 +295,7 @@ public class ReviewsController {
 	 
 	      model.addAttribute("list", list);
 	      
-	      return "reviews/myReview-list";
+	      return "reviews/search-review-list";
 	   }
 	
 	@RequestMapping("myReview-list")
@@ -302,11 +309,18 @@ public class ReviewsController {
 	      return "reviews/myReview-list";
 	   }
 	
-
-	@RequestMapping("reportPartial")
+	
+	@RequestMapping(value="reportPartial", method=RequestMethod.GET)
 	public String reportPartial(){
 		
-		System.out.println("dfdfdf");
+		//System.out.println("dfdfdf");
+		return "/reviews/reportPartial";
+	}
+	@RequestMapping(value="reportPartial", method=RequestMethod.POST)
+	public String reportPartial(String c, ReviewReport rr, Principal principal) throws SQLException{
+		rr.setWriter(principal.getName());
+		reviewReportDao.insert(rr);
+		//System.out.println("dfdfdf");
 		return "/reviews/reportPartial";
 	}
 	
@@ -315,5 +329,18 @@ public class ReviewsController {
 		
 		return "/reviews/searchPartial";
 	}
+	
+	/*@RequestMapping(value="reportReg", method=RequestMethod.GET)
+	public String reportReg(HttpSession session){
+		
+		return "reviews/reviewReg";
+	}
+	@RequestMapping(value="reportReg", method=RequestMethod.POST)
+	public String reportReg(Review r, Principal principal) {
+		r.setWriter(principal.getName());
+		reviewDao.insert(r);
+		
+		return "redirect:login-review_list";
+	}*/
 	
 }

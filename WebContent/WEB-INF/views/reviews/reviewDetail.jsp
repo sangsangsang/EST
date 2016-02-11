@@ -6,6 +6,22 @@
 	request.getContextPath();
 %>
 
+
+<!-- <script src="../content/js/reportPartial.js">
+
+</script> -->
+<!-- <script src="../content/js/commentEdit.js"></script>      -->  
+<!-- <script src="../content/js/reportPartial.js"></script> -->
+
+
+
+<!-- <script>
+function init(){  
+	var btnReport = document.querySelector("#rep");
+	btnReport.onclick = function() {
+>>>>>>> refs/remotes/choose_remote_name/master
+</script> -->
+
 <c:set var="ctx" value="${pageContext.request.contextPath}"/> 
 
 <script type="text/javascript" src="//code.jquery.com/jquery-2.2.0.min.js"></script> 
@@ -58,6 +74,145 @@ function likeBtn(reviewNum){
 
 }
 </script>
+<script>
+		var dlg=document.createElement("div");
+		dlg.style.width="100%";
+		dlg.style.height="100%";
+		dlg.style.position="fixed";
+		dlg.style.top="0px";
+	   
+	   	var screen=document.createElement("div");
+	   	screen.style.backgroundColor="black";
+	  	screen.style.opacity="0.3";
+	   	screen.style.width="inherit";
+	   	screen.style.height="inherit";
+	   
+	   	var container=document.createElement("div");
+	   	container.style.backgroundColor="#fff";
+	   	container.style.width="500px";
+	   	container.style.height="300px";
+	   	container.style.position="fixed";
+	   	container.style.top="200px";
+	   	container.style.left="400px";
+	   
+	   	var closeButton = document.createElement("input");
+        closeButton.type = "button";
+        closeButton.value = "X";
+        closeButton.style.width = "50px";
+        closeButton.style.height = "50px";
+        closeButton.style.position = "fixed";
+        closeButton.style.left = parseInt(container.style.left)+parseInt(container.style.width)+"px";
+        closeButton.style.top = parseInt(container.style.top) - 10 + "px";
+        closeButton.style.zIndex = 1;
+        
+        closeButton.onclick = function(){closeDialog(dlg);};
+        
+        //container.appendChild(closeButton);
+        
+        dlg.appendChild(closeButton);
+	   	
+	   	dlg.appendChild(screen);
+	   	dlg.appendChild(container);
+	   	document.body.appendChild(dlg);
+	   	
+	   	var dlg2 = showDialog("reportPartial", ".save-button", function() {
+	   		
+	   		var content=dlg2.querySelector("#text-area").value;
+	   		var option=dlg2.querySelector("#rep-select").value;
+	   		
+	   		var data= "option=" + option + "&content=" + content;
+	   		
+		   	var request;
+		   	if(window.ActiveXObject)
+	            request = new ActiveXObject("Microsoft.XMLHTTP"); 
+	         else if(window.XMLHttpRequest)
+	            request = new XMLHttpRequest();
+		    	//container.innerHTML=request.responseText;
+		   	
+			request.onreadystatechange=function(){
+				if(request.readyState==4){
+				   container.innerHTML=request.responseText;
+			    }
+	   		};
+	
+		    request.open("POST", "reportPartial", true);
+		    request.setRequestHeader("Content-type",
+	        "application/x-www-form-urlencoded");
+		  request.setRequestHeader("Content-length", data.length);
+		  request.setRequestHeader("Connection", "close");
+		
+		  request.send(data);
+        
+		  closeDialog(dlg2);
+		  
+		  return false;
+    });
+	
+	 var btnSearch = document.getElementId("search");
+     btnSearch.onclick = function(){
+      
+        
+      var dlg=document.createElement("div");
+      dlg.style.position="fixed";
+      dlg.style.top="0px";
+      /* dlg.action="search-review-list";
+	  dlg.method="get"; */
+      
+      var container=document.createElement("div");
+      container.style.background="#fff";
+      container.style.width="100%";
+      container.style.height="50px";
+      container.style.position="fixed";
+      container.style.top="70px";
+      container.style.left="0px";
+      
+      var closeButton = document.createElement("input");
+      closeButton.type = "button";
+      closeButton.value = "X";
+      closeButton.style.width="50px";
+      closeButton.style.height="50px";
+      closeButton.style.position="fixed";
+      closeButton.style.right= parseInt(container.style.left)+20+"px";
+      closeButton.style.top=parseInt(container.style.top)+"px";
+      closeButton.style.zIndex=1; //맨앞으로
+      
+ 
+      
+     closeButton.onclick=function(){closeDialog(dlg);};
+     
+
+     dlg.appendChild(closeButton);
+     dlg.appendChild(container);
+      
+      document.body.appendChild(dlg);
+        
+      var request;
+	   	if(window.ActiveXObject)
+            request = new ActiveXObject("Microsoft.XMLHTTP"); 
+         else if(window.XMLHttpRequest)
+            request = new XMLHttpRequest();
+	    	//container.innerHTML=request.responseText;
+	   	
+		request.onreadystatechange=function(){
+			if(request.readyState==4){
+			   container.innerHTML=request.responseText;
+		    }
+   		};
+
+	    request.open("GET", "searchPartial", true);
+	    request.send(null);
+        
+    };
+
+	var closeDialog = function(dlg){
+	    document.body.removeChild(dlg);
+	};
+};
+ window.onload=init;
+
+</script>
+ 
+
 <!-- <script type="text/javascript">
 
 var isModifying=false;
@@ -207,7 +362,7 @@ var isModifying=false;
 	   <%-- <a href="#" onclick="like-btn"><img style="background: red"src="${ctx}/content/images/like2.png" alt="좋아요" /></a> --%>
 	    
 	    &nbsp; &nbsp;<a href=""><img src="${ctx}/content/images/comment.png" alt="댓글" /></a>
-	    &nbsp; &nbsp;<img id="rep" class="report" src="${ctx}/content/images/report.png" alt="리뷰신고" />
+	    &nbsp; &nbsp;<img id="rep" src="${ctx}/content/images/report.png" alt="리뷰신고" />
 	    &nbsp; &nbsp;<a href=""><img src="${ctx}/content/images/r-scrap.png" width="30" height="20" alt="스크랩" /></a>
 		  <c:if test="${review.writer == logID}">
 		&nbsp; &nbsp;<a href="reviewEdit?c=${review.num}" style="font-size:20px;">Edit</a>

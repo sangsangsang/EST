@@ -92,7 +92,7 @@ public class TextProgram {
 		System.out.println("========별점순 눌렀을때 보여지는 SELECT===========");
 		for(ReviewRating r:R_R_list){
 			System.out.printf("게시물코드:%S 카테고리:%s 작성자:%s 제목:%s 날짜:%s 별점:%s,좋아요:%d,댓글수:%d\n",
-					r.getNum(),r.getCategoryCode(),r.getWriterNickName(),r.getTitle(),r.getRegdate(),
+					r.getNum(),r.getCategoryCode(),r.getWriterNickname(),r.getTitle(),r.getRegdate(),
 					r.getRatingcode(),r.getRcmCount(),r.getComCount());
 
 		}
@@ -105,7 +105,7 @@ public class TextProgram {
 		System.out.println("========카테고리 눌렀을때 보여지는 SELECT===========");
 		for(Category c:c_list){
 			System.out.printf("게시물코드:%S 카테고리:%s 작성자:%s 제목:%s 날짜:%s 별점:%s,좋아요:%d,댓글수:%d\n",
-					c.getNum(),c.getCategoryCode(),c.getWriterNickName(),c.getTitle(),c.getRegdate(),
+					c.getNum(),c.getCategoryCode(),c.getWriterNickname(),c.getTitle(),c.getRegdate(),
 					c.getRatingcode(),c.getRcmCount(),c.getComCount());
 		}
 
