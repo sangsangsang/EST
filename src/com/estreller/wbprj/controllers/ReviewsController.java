@@ -126,7 +126,7 @@ public class ReviewsController {
 		return "redirect:reviewDetail?c="+c;
 	}
 	
-//-------------------------------좋아요 +1
+/*//-------------------------------좋아요 +1
 	@RequestMapping(value="recommend", method=RequestMethod.POST)
 	public String recommend(String num, Recommend recommend,Model model, Principal principal) throws SQLException{
 		
@@ -136,11 +136,11 @@ public class ReviewsController {
 		recommend.setWriter(principal.getName());
 		recommendDao.insert(recommend);
 	
-		/*commentDao.update(comment);
+		commentDao.update(comment);
 		JSONObject obj = new JSONObject();
 		obj.put("content", content);
 		obj.put("ratingCode", ratingCode);
-		out.print(obj); */
+		out.print(obj); 
 		return "redirect:reviewDetail?c="+num;
 	}
 //----------------------------좋아요 취소 ----------------------
@@ -153,14 +153,14 @@ public class ReviewsController {
 		recommend.setWriter(principal.getName());
 		recommendDao.delete(recommend);
 	
-		/*commentDao.update(comment);
+		commentDao.update(comment);
 		JSONObject obj = new JSONObject();
 		obj.put("content", content);
 		obj.put("ratingCode", ratingCode);
-		out.print(obj); */
+		out.print(obj); 
 		return "redirect:reviewDetail?c="+num;
 	}
-	
+	*/
 //=======================글쓰기 저장======================================	
 	@RequestMapping(value="reviewReg", method=RequestMethod.GET)
 	public String reviewReg(HttpSession session){
@@ -279,19 +279,13 @@ public class ReviewsController {
 	      //return "reviews/login-review_list";
 	   }
 	
-<<<<<<< HEAD
-	@RequestMapping("myReview-list")
-	   public String search_review_list(Principal principal, Model model) throws SQLException{
-		String name = principal.getName();
-	   	List<Review> list = reviewDao.getReviews(1,"Email",name);
-=======
+
 	@RequestMapping("search-review-list")
 	   public String search_review_list(String q, String f, Model model) throws SQLException{
 	   	System.out.println(f+q);
 	   	List<Review> list = reviewDao.getReviews(1,f,q);
->>>>>>> refs/remotes/origin/master
-	      
-	   	System.out.println(name);
+ 
+	 
 	      model.addAttribute("list", list);
 	      
 	      return "reviews/myReview-list";

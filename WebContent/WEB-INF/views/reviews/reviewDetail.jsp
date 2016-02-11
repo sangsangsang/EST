@@ -173,27 +173,20 @@ var isModifying=false;
 	   </div>
 	   <div>
 	    
-								이미지공간
-								   <p>d</p>
-								   <p>d</p><p>d</p><p>d</p>
-								   <p>d</p>
-								   <p>d</p>
-								   <p>d</p>
-								   <p>d</p>
-								   <p>d</p>
-								   <p>d</p>
-								   <p>d</p><p>d</p>
+							<br>
+							<br>
+	 	<img src="${ctx}/content/images/review_img.jpg" alt="이미지" />
 								
 							
 		</div>
 	   <div id="map">
 	   <img src="${ctx}/content/images/map.png" alt="맵" /><laber>MAP</laber>
 	 
-	   <p>d</p>
-	   <p>d</p><p>d</p>
-	   <p>d</p>
-	   <p>d</p>
-	   <p>d</p>
+	   <p></p>
+	   <p></p>
+	   <p></p>
+	   <p></p>
+	   <p></p>
 	   
 	   </div>
 	   
@@ -204,12 +197,12 @@ var isModifying=false;
 	   </div>
 	   
 	   <nav  class="r-menu">
-	   <c:if test="${likeState==true}">
+	   <%-- <c:if test="${likeState==true}"> --%>
 	   <input type="submit" id="like-btn" onclick="likeBtn('${review.num}')"  style="background-image:url('${ctx}/content/images/like2.png')"/>
-	   </c:if>
-	    <c:if test="${likeState==false}">
+	   <%-- </c:if> --%>
+	    <%-- <c:if test="${likeState==false}">
 	   <input type="submit" id="like-btn" onclick="likeBtn('${review.num}')" style="background-image:url('${ctx}/content/images/like.png')"/>
-	   </c:if>
+	   </c:if> --%>
 	   <%-- <img src="${ctx}/content/images/like2.png" alt="좋아요" /> --%>
 	   <%-- <a href="#" onclick="like-btn"><img style="background: red"src="${ctx}/content/images/like2.png" alt="좋아요" /></a> --%>
 	    
