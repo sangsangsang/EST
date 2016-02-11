@@ -10,7 +10,7 @@
 
 <script src="../content/js/commentEdit.js"></script>    
 
-<script>
+<!-- <script>
 function init(){  
 	var btnReport = document.querySelector(".report");
 	btnReport.onclick = function() {
@@ -78,13 +78,14 @@ function init(){
  window.onload=init;
 
 </script>
-
+ -->
    
 
    <main id="main">
 	<h1 class="hidden">글보기</h3>
+	<div id ="detail" class="hc vc">
 		<table id="review">
-	 		
+	 	
 		 	<tbody>
 		 		<tr>
 			 		<td><img src="${ctx}/content/images/${review.categorycode }.png"/></td>	
@@ -185,41 +186,41 @@ function init(){
 	 		<dl class="article-detail-row">
              <table id="comments">
 	 		<tbody>
-	 			<c:forEach var="cmt" items="${list}">
-				<tr id="cmt-list-${cmt.cmtcode}">	
-			 		<td class="writer"><img src="${ctx}/content/images/faceimg.png"/><br/>${cmt.writerNickname}</td>
-			 		<td class="cmt-rating">
-		
-			 		<span id="r"><ins></ins><img id="cmtRimg" src="${ctx}/content/images/g${cmt.ratingCode}.png"/></span>
-			 		</td>
-			 		
-			 		<td id="reply-content" class="content">
-			 		${cmt.content}
-			 		</td>			
-			 		
-			 		<td class="regDate"><fmt:formatDate pattern="yyyy-MM-dd"
-						value='${cmt.regdate}'/></td>
-					<td class="cmt-cmt"><img src="${ctx}/content/images/cmt-cmt.png"/>
-			 		<a href="" name="report"><img src="${ctx}/content/images/report.png"/></a></td>
-					<c:if test="${cmt.writer == logID}">
-					 <td class="cmt-edit">
-					 
-						 <%-- <a href="commentEdit?c=${cmt.cmtcode}" style="font-size:20px;">Edit</a> --%>
-						<input type="button" onclick="editBtn(this, '${cmt.cmtcode}','${cmt.content}');" id="edit-btn" value="Edit"/>
-					
-						 
-						 <form class="cmt-del" action ="cmtdelete" method="post">
-							  <input type="hidden" value="${review.num}" name="c"/> 
-							  <input type="hidden" value="${cmt.cmtcode}" name="cmtcode"/>
-						      <input type="submit" value="Del"/></a>	
-					     </form>
-					 
-					 </td>
-					</c:if>
-	
-		 		</tr>
-		 		</c:forEach>		
-	 			</tbody>
+             <c:forEach var="cmt" items="${list}">
+            <tr id="cmt-list-${cmt.cmtcode}">   
+                <td class="writer"><img src="${ctx}/content/images/faceimg.png"/><br/>${cmt.writerNickname}</td>
+                <td class="cmt-rating">
+      
+                <span id="r"><ins></ins><img id="cmtRimg" src="${ctx}/content/images/g${cmt.ratingCode}.png"/></span>
+                </td>
+                
+                <td id="reply-content" class="content">
+                ${cmt.content}
+                </td>         
+                
+                <td class="regDate"><fmt:formatDate pattern="yyyy-MM-dd"
+                  value='${cmt.regdate}'/></td>
+               <td class="cmt-cmt"><img src="${ctx}/content/images/cmt-cmt.png"/>
+                <a href="" name="report"><img src="${ctx}/content/images/report.png"/></a></td>
+               <c:if test="${cmt.writer == logID}">
+                <td class="cmt-edit">
+                
+                   <%-- <a href="commentEdit?c=${cmt.cmtcode}" style="font-size:20px;">Edit</a> --%>
+                  <input type="submit" onclick="editBtn(this, '${cmt.cmtcode}','${cmt.content}');" id="edit-btn" value="Edit"/>
+               
+                   
+                   <form class="cmt-del" action ="cmtdelete" method="post">
+                       <input type="hidden" value="${review.num}" name="c"/> 
+                       <input type="hidden" value="${cmt.cmtcode}" name="cmtcode"/>
+                        <input type="submit" value="Del"/></a>   
+                    </form>
+                
+                </td>
+               </c:if>
+   
+             </tr>
+             </c:forEach>      
+             </tbody>
 	 	   </table>
 	 	         
                   </dl>   

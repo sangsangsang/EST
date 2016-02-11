@@ -1,7 +1,3 @@
-
-
-
-
 var ratingSelect=document.createElement("select");
 var r1=document.createElement("option");
 var r2=document.createElement("option");

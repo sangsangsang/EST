@@ -34,5 +34,6 @@
     <bean name="CategoryDao" class="com.estreller.wbprj.dao.mybatis.MyBatisCategoryDao"/>
     <bean name="MemberDao" class="com.estreller.wbprj.dao.mybatis.MyBatisMemberDao"/>
     <bean name="ReviewRatingDao" class="com.estreller.wbprj.dao.mybatis.MyBatisReviewRatingDao"/>
+     <bean name="ReviewReportDao" class="com.estreller.wbprj.dao.mybatis.MyBatisReviewReportDao"/>
     
 </beans>    

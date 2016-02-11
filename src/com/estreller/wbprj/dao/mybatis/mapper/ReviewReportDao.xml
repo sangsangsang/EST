@@ -12,7 +12,7 @@
 	
 	<insert id="insert" parameterType="com.estreller.wbprj.vo.ReviewReport">
 		INSERT INTO REVIEWREPORT(ReviewNum,Writer,Content) 
-		VALUES(#{reviewnum},#{writer},#{content})
+		VALUES(#{reviewnum},#{writer},#{content},#{option})
 	
 	</insert>			
 	

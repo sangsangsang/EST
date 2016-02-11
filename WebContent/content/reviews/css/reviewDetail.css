@@ -135,6 +135,7 @@ section>p a{
 		   top: 20px;
 		}
 
+/****검색*****/
 #select{
 	border:solid #4949e6;
 	height:35px;
@@ -191,8 +192,27 @@ input[type="button"]
 	background:url("../../images/search-cancel.png") no-repeat center;
 }
 	
-	/* ------------------reviewDetail------------------------------------ */
 
+
+
+
+	/* ------------------reviewDetail------------------------------------ */
+/*-------------------report----------------*/
+#rep-select{
+	position:relative;	
+	left:25px;
+	width:450px;
+	
+}
+
+#text-area{
+	position:relative;
+	left:25px;
+	width:450px;
+	height:200px;
+}
+
+/******************************/
 #body .content-container
 {	
    display:table-header-group;

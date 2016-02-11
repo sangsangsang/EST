@@ -5,6 +5,14 @@
 <%
 	request.getContextPath();
 %>
+<!-- <script src="../content/js/reportPartial.js">
+
+</script> -->
+<!-- <script src="../content/js/commentEdit.js"></script>      -->  
+<!-- <script src="../content/js/reportPartial.js"></script> -->
+
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>  
+<script src="../content/js/commentEdit.js"></script>
 <script>
 function init(){  
 	var btnReport = document.querySelector("#rep");
@@ -24,11 +32,11 @@ function init(){
 	   
 	   	var container=document.createElement("div");
 	   	container.style.backgroundColor="#fff";
-	   	container.style.width="720px";
-	   	container.style.height="500px";
+	   	container.style.width="500px";
+	   	container.style.height="300px";
 	   	container.style.position="fixed";
-	   	container.style.top="100px";
-	   	container.style.left="300px";
+	   	container.style.top="200px";
+	   	container.style.left="400px";
 	   
 	   	var closeButton = document.createElement("input");
         closeButton.type = "button";
@@ -50,8 +58,14 @@ function init(){
 	   	dlg.appendChild(container);
 	   	document.body.appendChild(dlg);
 	   	
-	    
-		    var request;
+	   	var dlg2 = showDialog("reportPartial", ".save-button", function() {
+	   		
+	   		var content=dlg2.querySelector("#text-area").value;
+	   		var option=dlg2.querySelector("#rep-select").value;
+	   		
+	   		var data= "option=" + option + "&content=" + content;
+	   		
+		   	var request;
 		   	if(window.ActiveXObject)
 	            request = new ActiveXObject("Microsoft.XMLHTTP"); 
 	         else if(window.XMLHttpRequest)
@@ -63,12 +77,76 @@ function init(){
 				   container.innerHTML=request.responseText;
 			    }
 	   		};
-
-		    request.open("GET", "reportPartial", true);
-		    request.send(null);
-	   		return false;
-	};
 	
+		    request.open("POST", "reportPartial", true);
+		    request.setRequestHeader("Content-type",
+	        "application/x-www-form-urlencoded");
+		  request.setRequestHeader("Content-length", data.length);
+		  request.setRequestHeader("Connection", "close");
+		
+		  request.send(data);
+        
+		  closeDialog(dlg2);
+		  
+		  return false;
+    });
+	
+	 var btnSearch = document.getElementId("search");
+     btnSearch.onclick = function(){
+      
+        
+      var dlg=document.createElement("div");
+      dlg.style.position="fixed";
+      dlg.style.top="0px";
+      /* dlg.action="search-review-list";
+	  dlg.method="get"; */
+      
+      var container=document.createElement("div");
+      container.style.background="#fff";
+      container.style.width="100%";
+      container.style.height="50px";
+      container.style.position="fixed";
+      container.style.top="70px";
+      container.style.left="0px";
+      
+      var closeButton = document.createElement("input");
+      closeButton.type = "button";
+      closeButton.value = "X";
+      closeButton.style.width="50px";
+      closeButton.style.height="50px";
+      closeButton.style.position="fixed";
+      closeButton.style.right= parseInt(container.style.left)+20+"px";
+      closeButton.style.top=parseInt(container.style.top)+"px";
+      closeButton.style.zIndex=1; //맨앞으로
+      
+ 
+      
+     closeButton.onclick=function(){closeDialog(dlg);};
+     
+
+     dlg.appendChild(closeButton);
+     dlg.appendChild(container);
+      
+      document.body.appendChild(dlg);
+        
+      var request;
+	   	if(window.ActiveXObject)
+            request = new ActiveXObject("Microsoft.XMLHTTP"); 
+         else if(window.XMLHttpRequest)
+            request = new XMLHttpRequest();
+	    	//container.innerHTML=request.responseText;
+	   	
+		request.onreadystatechange=function(){
+			if(request.readyState==4){
+			   container.innerHTML=request.responseText;
+		    }
+   		};
+
+	    request.open("GET", "searchPartial", true);
+	    request.send(null);
+        
+    };
+
 	var closeDialog = function(dlg){
 	    document.body.removeChild(dlg);
 	};
@@ -76,9 +154,7 @@ function init(){
  window.onload=init;
 
 </script>
-
-<c:set var="ctx" value="${pageContext.request.contextPath}"/>  
-<script src="../content/js/commentEdit.js"></script> 
+ 
 <!-- <script type="text/javascript">
 
 var isModifying=false;
@@ -227,7 +303,7 @@ var isModifying=false;
 	   <nav  class="r-report r-scrap">
 	   <a href="login-review_list"><img src="${ctx}/content/images/like.png" alt="좋아요" /></a>
 	    &nbsp; &nbsp;<a href=""><img src="${ctx}/content/images/comment.png" alt="댓글" /></a>
-	    &nbsp; &nbsp;<img id="rep" class="report" src="${ctx}/content/images/report.png" alt="리뷰신고" />
+	    &nbsp; &nbsp;<img id="rep" src="${ctx}/content/images/report.png" alt="리뷰신고" />
 	    &nbsp; &nbsp;<a href=""><img src="${ctx}/content/images/r-scrap.png" width="30" height="20" alt="스크랩" /></a>
 		  <c:if test="${review.writer == logID}">
 		&nbsp; &nbsp;<a href="reviewEdit?c=${review.num}" style="font-size:20px;">Edit</a>
@@ -286,7 +362,7 @@ var isModifying=false;
 					 <td class="cmt-edit">
 					 
 						 <%-- <a href="commentEdit?c=${cmt.cmtcode}" style="font-size:20px;">Edit</a> --%>
-						<input type="button" onclick="editBtn(this, '${cmt.cmtcode}','${cmt.content}');" id="edit-btn" value="Edit"/>
+						<input type="submit" onclick="editBtn(this, '${cmt.cmtcode}','${cmt.content}');" id="edit-btn" value="Edit"/>
 					
 						 
 						 <form class="cmt-del" action ="cmtdelete" method="post">
